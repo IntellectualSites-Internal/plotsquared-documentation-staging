@@ -31,6 +31,22 @@ a {
 }
 
 #toc a {
+    color: #555;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #424242;
+}
+
+/* dark-mode for sidebar*/
+
+/*
+#toc.toc2 {
+    background: #131313;
+}
+
+#toc a {
     color: #a8a8a8;
 }
 
@@ -38,10 +54,7 @@ a {
     font-weight: 600;
     color: #fff;
 }
-
-#toc.toc2 {
-    background: #131313;
-}
+*/
 
 .sect1 + .sect1 {
     border-top: 1px dotted #999;
