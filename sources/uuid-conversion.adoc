@@ -4,7 +4,7 @@ include::./_header/main-header.txt[]
 :toclevels: 2
 
 [discrete]
-===== xref:README.adoc[🡄 Return to the index]
+===== xref:README.adoc[« Return to the index]
 
 == Introduction
 This was added in version 2.10. UUID conversion allows you to switch between different methods of UUID storage on your server.
