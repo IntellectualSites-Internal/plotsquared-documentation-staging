@@ -1,8 +1,6 @@
 = PlotSquared Documentation
 include::./_header/main-header.txt[]
 
-:docinfo: shared,shared-footer
-
 == Get PlotSquared
 * Download https://www.spigotmc.org/resources/77506/[PlotSquared]
 * Our support discord is available at https://discord.gg/intellectualsites
@@ -65,3 +63,7 @@ include::./_header/main-header.txt[]
 == Changelog archive
 === xref:spigot-changelog-v4----v5.adoc[Spigot changelog v4 to v5]
 === xref:changelog-old.adoc[Changelog (old, on the "Release" tab)]
+
+image:https://img.shields.io/badge/dynamic/json.svg?url=https://api.spiget.org/v2/resources/77506&label=Spigot-Downloads&query=$.downloads&colorB=ee8a18&style=flat-square&maxAge=3600[Spigot Downloads,link=https://www.spigotmc.org/resources/77506/]
+image:https://img.shields.io/badge/dynamic/json.svg?url=https://api.spiget.org/v2/resources/77506&label=Rating&query=$.rating.average&colorB=00AB66&style=flat-square&maxAge=3600[Spigot Rating,link=https://www.spigotmc.org/resources/77506/]
+image:https://img.shields.io/discord/268444645527126017.svg?style=flat-square&maxAge=3600&colorB=7289DA[Discord,link=https://discord.gg/intellectualsites]
