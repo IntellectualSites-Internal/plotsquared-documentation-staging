@@ -30,6 +30,11 @@ a {
     color: #717171;
 }
 
+code {
+    color: #002340;
+    font-size: 0.8em !important;
+}
+
 #toc a {
     color: #555;
 }
@@ -73,4 +78,10 @@ a {
     font-style: inherit;
     font-family: inherit;
     font-weight: 800;
+}
+
+/* Icons: */
+.admonitionblock td.icon [class*=' icon-']::before {
+    text-shadow: 0 0 0;
+    color: #b0b0b0;
 }
