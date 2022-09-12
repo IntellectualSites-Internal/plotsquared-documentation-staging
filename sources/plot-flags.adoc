@@ -118,7 +118,7 @@ To give a player access to a flag, you need to assign the following permissions,
 * `plots.flag.remove`
 
 [TIP]
-Also, you can assign xref:permission/permission-packs.adoc#_plots_permpack_basicflags[`plots.permpack.basicflags`] to cover the following permissions and lots of the basic flags.
+Also, you can assign xref:/permission-packs.adoc#_plots_permpack_basicflags[`plots.permpack.basicflags`] to cover the following permissions and lots of the basic flags.
 
 === Flag specific permission
 

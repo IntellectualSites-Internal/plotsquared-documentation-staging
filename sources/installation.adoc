@@ -2,7 +2,7 @@
 include::./_header/main-header.txt[]
 
 [discrete]
-===== xref:../README.adoc[« Return to the index]
+===== xref:README.adoc[« Return to the index]
 
 == Initial Setup
 
@@ -40,7 +40,7 @@ If you don't have a MySQL database, storage will be automatically set to "SQLite
 
 == Plot Setup
 
-You can now create the plotworld or setup single plots in an existing world. To do the latter, head over xref:../customization/single-plot-area.adoc[here].
+You can now create the plotworld or setup single plots in an existing world. To do the latter, head over xref:./customization/single-plot-area.adoc[here].
 
 === Setup for a default world
 
@@ -152,10 +152,10 @@ If all is well, you can begin regenerating the roads in the entire map. Open up 
 
 Allow to generate a plotworld with a custom schematic in all plots.
 
-*Instruction:* xref:../schematics/schematic-generation.adoc[here]
+*Instruction:* xref:./schematics/schematic-generation.adoc[here]
 
 === Plot Schematic on Claim
 
 The player get a custom plot schematic with a claim. If you wish, the player can define a plot-schematic with the claim-command.
 
-*Instruction:* xref:../schematics/schematic-on-claim.adoc[here]
+*Instruction:* xref:./schematics/schematic-on-claim.adoc[here]

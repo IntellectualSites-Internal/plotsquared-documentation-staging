@@ -3,7 +3,7 @@ include::./_header/main-header.txt[]
 :toclevels: 1
 
 [discrete]
-===== xref:../README.adoc[« Return to the index]
+===== xref:README.adoc[« Return to the index]
 
 == Introduction
 

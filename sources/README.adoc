@@ -3,15 +3,6 @@ include::./_header/main-header.txt[]
 
 :docinfo: shared,shared-footer
 
-:apidir: api
-:customizationdir: customization
-:permissiondir: permission
-:configurationdir: configuration
-:installationdir: installation
-:schematicsdir: schematics
-:olddir: old
-:optimizationdir: optimization
-
 == Get PlotSquared
 * Download https://www.spigotmc.org/resources/77506/[PlotSquared]
 * Our support discord is available at https://discord.gg/intellectualsites
@@ -20,9 +11,9 @@ include::./_header/main-header.txt[]
 === xref:why-plotsquared.adoc[Why should you switch to PlotSquared?]
 
 == API
-=== xref:{apidir}/api-documentation.adoc[API Documentation]
-=== xref:{apidir}/flag-api.adoc[API Flag Documentation]
-=== xref:{apidir}/event-api.adoc[Event API]
+=== xref:api-documentation.adoc[API Documentation]
+=== xref:flag-api.adoc[API Flag Documentation]
+=== xref:event-api.adoc[Event API]
 
 == Basic Functionality
 === xref:plot-backups.adoc[Plot Backups]
@@ -31,37 +22,37 @@ include::./_header/main-header.txt[]
 === xref:commands.adoc[Commands]
 
 == Configuration files
-=== xref:{configurationdir}/settings.yml.adoc[Settings.yml]
-=== xref:{configurationdir}/storage.yml.adoc[Storage.yml]
-=== xref:{configurationdir}/worlds.yml.adoc[Worlds.yml]
+=== xref:settings.yml.adoc[Settings.yml]
+=== xref:storage.yml.adoc[Storage.yml]
+=== xref:worlds.yml.adoc[Worlds.yml]
 
 == Customization
-=== xref:{customizationdir}/placeholders.adoc[Placeholders]
-=== xref:{customizationdir}/plot-components.adoc[Plot components]
-=== xref:{customizationdir}/plot-component-presets.adoc[Plot component presets]
-=== xref:{customizationdir}/single-plot-area.adoc[Single plot area]
+=== xref:placeholders.adoc[Placeholders]
+=== xref:plot-components.adoc[Plot components]
+=== xref:plot-component-presets.adoc[Plot component presets]
+=== xref:single-plot-area.adoc[Single plot area]
 
 == Flags
 === xref:plot-flags.adoc[Plot Flags]
 
 == Installation
-=== xref:{installationdir}/installation.adoc[Installation]
-=== xref:{installationdir}/migrating-from-an-older-major-release.adoc[Migrating from an older major release]
-=== xref:{installationdir}/updating-from-1.12-to-1.13.adoc[Updating from 1.12 to 1.13]
+=== xref:installation.adoc[Installation]
+=== xref:migrating-from-an-older-major-release.adoc[Migrating from an older major release]
+=== xref:updating-from-1.12-to-1.13.adoc[Updating from 1.12 to 1.13]
 
 == Permissions
-=== xref:{permissiondir}/bypass-permissions.adoc[Bypass Permissions]
-=== xref:{permissiondir}/permission-packs.adoc[Permission Packs]
+=== xref:bypass-permissions.adoc[Bypass Permissions]
+=== xref:permission-packs.adoc[Permission Packs]
 
 == Schematic
-=== xref:{schematicsdir}/schematic-generation.adoc[Schematic Generation]
-=== xref:{schematicsdir}/schematic-on-claim.adoc[Schematic on claim]
-=== xref:{schematicsdir}/schematic-export.adoc[Schematic export]
+=== xref:schematic-generation.adoc[Schematic Generation]
+=== xref:schematic-on-claim.adoc[Schematic on claim]
+=== xref:schematic-export.adoc[Schematic export]
 
 == World optimization
-=== xref:{optimizationdir}/chunk-processor.adoc[Chunk Processor]
-=== xref:{optimizationdir}/plot-analysis.adoc[Plot analysis]
-=== xref:{optimizationdir}/world-reduction.adoc[World reduction]
+=== xref:chunk-processor.adoc[Chunk Processor]
+=== xref:plot-analysis.adoc[Plot analysis]
+=== xref:world-reduction.adoc[World reduction]
 
 == Other documentation
 === xref:block-bucket.adoc[Block Buckets]
@@ -72,5 +63,5 @@ include::./_header/main-header.txt[]
 === xref:worldedit-features.adoc[WorldEdit/FAWE Features]
 
 == Changelog archive
-=== xref:{olddir}/spigot-changelog-v4----v5.adoc[Spigot changelog v4 to v5]
-=== xref:{olddir}/changelog-old.adoc[Changelog (old, on the "Release" tab)]
+=== xref:spigot-changelog-v4----v5.adoc[Spigot changelog v4 to v5]
+=== xref:changelog-old.adoc[Changelog (old, on the "Release" tab)]
