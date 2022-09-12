@@ -1,7 +1,5 @@
 = PlotSquared Documentation
 include::./_header/main-header.txt[]
-:stylesdir: ./_stylesheet
-:toclevels: 3
 
 :docinfo: shared,shared-footer
 

@@ -1,7 +1,5 @@
 = Updating from 1.12 to 1.13
-include::../_header/main-header.txt[]
-:stylesdir: ../_stylesheet
-:toclevels: 2
+include::./_header/main-header.txt[]
 
 [discrete]
 ===== xref:../README.adoc[« Return to the index]

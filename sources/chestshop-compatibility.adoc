@@ -1,7 +1,5 @@
 = ChestShop Compatibility
 include::./_header/main-header.txt[]
-:stylesdir: ./_stylesheet
-:toclevels: 2
 
 [discrete]
 ===== xref:README.adoc[« Return to the index]

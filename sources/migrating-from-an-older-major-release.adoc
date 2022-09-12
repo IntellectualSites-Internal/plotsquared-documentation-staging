@@ -1,7 +1,5 @@
 = Migrating from an older major release
-include::../_header/main-header.txt[]
-:stylesdir: ../_stylesheet
-:toclevels: 2
+include::./_header/main-header.txt[]
 
 :materialEnum: https://papermc.io/javadocs/paper/1.18/org/bukkit/Material.html
 

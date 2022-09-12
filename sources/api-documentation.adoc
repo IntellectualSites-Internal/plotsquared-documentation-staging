@@ -1,7 +1,5 @@
 = API Documentation
-include::../_header/main-header.txt[]
-:stylesdir: ../_stylesheet
-:toclevels: 3
+include::./_header/main-header.txt[]
 
 :bomVersion: 1.11
 

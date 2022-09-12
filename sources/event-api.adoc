@@ -1,7 +1,5 @@
 = Event API
-include::../_header/main-header.txt[]
-:stylesdir: ../_stylesheet
-:toclevels: 2
+include::./_header/main-header.txt[]
 
 :source-language: Java
 
