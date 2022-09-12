@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>WorldEdit &amp; FastAsyncWorldEdit features</title>
+<style>
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";
+@import "https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@2.0/data/stylesheets/asciidoctor-default.css";
+
+body {
+    font-family: inherit;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+h2, h3, #toctitle, a:hover, a:focus {
+    color: #2397f7;
+}
+
+h2 {
+    font-size: 2.1em;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+p {
+    line-height: 1.2;
+}
+
+a {
+    color: #717171;
+}
+
+code {
+    color: #002340;
+    font-size: 0.8em !important;
+}
+
+#toc a {
+    color: #555;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #424242;
+}
+
+/* dark-mode for sidebar*/
+
+/*
+#toc.toc2 {
+    background: #131313;
+}
+
+#toc a {
+    color: #a8a8a8;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #fff;
+}
+*/
+
+.sect1 + .sect1 {
+    border-top: 1px dotted #999;
+}
+
+#_return_to_the_index a {
+    text-decoration: unset;
+}
+
+.literalblock pre, .listingblock > .content > pre {
+  font-size: 0.9em;
+}
+
+.ulist > .title {
+    color: #000;
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: 800;
+}
+
+/* Icons: */
+.admonitionblock td.icon [class*=' icon-']::before {
+    text-shadow: 0 0 0;
+    color: #b0b0b0;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>WorldEdit &amp; FastAsyncWorldEdit features</h1>
+</div>
+<div id="content">
+<h5 id="_return_to_the_index" class="discrete"><a href="README.html">« Return to the index</a></h5>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you want to make other aspects of WorldEdit async as well, you could consider installing <a href="https://www.spigotmc.org/resources/fast-async-worldedit.13932">FasAsyncWorldEdit</a>. All permissions to allow FAWE in plots, you can find <a href="https://intellectualsites.github.io/fastasyncworldedit-documentation/basic-commands/main-commands-and-permissions.html">here</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>PlotSquared offers several options related to WorldEdit. By default it will do the following if you don&#8217;t have the bypass permission:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Restrict WorldEdit to plots</p>
+</li>
+<li>
+<p>Block access to potentially harmful WorldEdit commands</p>
+</li>
+<li>
+<p>Limits the max iterations with several brushes so people can&#8217;t crash the server</p>
+</li>
+<li>
+<p>Limits the max volume to 50 million</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The bypass permission is <code>plots.worldedit.bypass</code>, the use <code>/plot toggle worldedit</code>.</p>
+</div>
+<div class="paragraph">
+<p>To further extend this, PlotSquared comes with a WE processor you can enable:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Limits max blockstates and entities with editing (enable chunk-processor)</p>
+</li>
+<li>
+<p>Faster and async WorldEdit changes (enable experimental-fast-async-worldedit) (bypass this with <code>/plot toggle worldedit</code>)</p>
+</li>
+</ul>
+</div>
+</div>
+</body>
+</html>

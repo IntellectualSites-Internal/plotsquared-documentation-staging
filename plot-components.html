@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Plot components</title>
+<style>
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";
+@import "https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@2.0/data/stylesheets/asciidoctor-default.css";
+
+body {
+    font-family: inherit;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+h2, h3, #toctitle, a:hover, a:focus {
+    color: #2397f7;
+}
+
+h2 {
+    font-size: 2.1em;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+p {
+    line-height: 1.2;
+}
+
+a {
+    color: #717171;
+}
+
+code {
+    color: #002340;
+    font-size: 0.8em !important;
+}
+
+#toc a {
+    color: #555;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #424242;
+}
+
+/* dark-mode for sidebar*/
+
+/*
+#toc.toc2 {
+    background: #131313;
+}
+
+#toc a {
+    color: #a8a8a8;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #fff;
+}
+*/
+
+.sect1 + .sect1 {
+    border-top: 1px dotted #999;
+}
+
+#_return_to_the_index a {
+    text-decoration: unset;
+}
+
+.literalblock pre, .listingblock > .content > pre {
+  font-size: 0.9em;
+}
+
+.ulist > .title {
+    color: #000;
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: 800;
+}
+
+/* Icons: */
+.admonitionblock td.icon [class*=' icon-']::before {
+    text-shadow: 0 0 0;
+    color: #b0b0b0;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Plot components</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_component_commands">2. Component commands</a>
+<ul class="sectlevel2">
+<li><a href="#_plot_set_biome">2.1. /plot set biome</a></li>
+<li><a href="#_plot_set_alias">2.2. /plot set alias</a></li>
+<li><a href="#_plot_set_home">2.3. /plot set home</a></li>
+<li><a href="#_plot_set_component">2.4. /plot set &lt;component&gt;</a></li>
+</ul>
+</li>
+<li><a href="#_disallowed_blocks">3. Disallowed blocks</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<h5 id="_return_to_the_index" class="discrete"><a href="README.html">« Return to the index</a></h5>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>/plot set</code> command allows you to configure various components of your plot. These include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The plot biome</p>
+</li>
+<li>
+<p>The plot alias</p>
+</li>
+<li>
+<p>The plot home location</p>
+</li>
+<li>
+<p>(Component) Blocks in the area under the plot floor</p>
+</li>
+<li>
+<p>(Component) Blocks in the plot floor</p>
+</li>
+<li>
+<p>(Component) Blocks in the area above the plot floor</p>
+</li>
+<li>
+<p>(Component) All blocks in a plot</p>
+</li>
+<li>
+<p>(Component) Blocks inside the plot wall</p>
+</li>
+<li>
+<p>(Component) Blocks in the plot border</p>
+</li>
+<li>
+<p>(Component) Blocks in the area surrounding the plot</p>
+</li>
+<li>
+<p>(Component) The block(s) in the middle of the plot</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_component_commands">2. Component commands</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_plot_set_biome">2.1. /plot set biome</h3>
+<div class="paragraph">
+<p>This is an alias for <code>/plot setbiome</code> and has the permission node <code>plots.set.biome</code>. From v5.11.0 this has full command completion.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_plot_set_alias">2.2. /plot set alias</h3>
+<div class="paragraph">
+<p>This is an alias for <code>/plot setalias</code> and has the permission node <code>plots.alias</code>. This changes the name of the plot as displayed in lists, and allows you to do <code>/plot visit &lt;alias&gt;</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_plot_set_home">2.3. /plot set home</h3>
+<div class="paragraph">
+<p>This is an alias for <code>/plot sethome</code> and has the permission node <code>plots.set.home</code>.</p>
+</div>
+<div class="paragraph">
+<p>If no argument is given, the plot home location will be set to your current location. To remove the custom home location use <code>/plot sethome unset/reset/remove/none</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_plot_set_component">2.4. /plot set &lt;component&gt;</h3>
+<div class="paragraph">
+<p>This allows you to update various parts of the plot. The components that exist are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>main</code>: Blocks in the area under the plot floor</p>
+</li>
+<li>
+<p><code>floor</code>: Blocks in the plot floor</p>
+</li>
+<li>
+<p><code>air</code>: Blocks in the area above the plot floor</p>
+</li>
+<li>
+<p><code>all</code>: All blocks in a plot</p>
+</li>
+<li>
+<p><code>wall</code>: Blocks inside of plot wall</p>
+</li>
+<li>
+<p><code>border</code>: Blocks in the plot border</p>
+</li>
+<li>
+<p><code>outline</code>: Blocks in the area surrounding the plot</p>
+</li>
+<li>
+<p><code>middle</code>: The block(s) in the middle of the plot</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each component has a separate permission node, namely <code>plots.set.&lt;component&gt;</code>, and they share the syntax <code>/plot set &lt;component&gt; &lt;pattern&gt;</code>.</p>
+</div>
+<div class="paragraph">
+<p>This is a powerful system as it allows you to use the power of <a href="./block-bucket.html">BlockBuckets</a> to define block-patterns.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_disallowed_blocks">3. Disallowed blocks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Version v5.11.0 introduced a new safety measure to prevent unsafe blocks from being used in plot components. This was a feature in early version 4 releases, but was removed in favour of the WorldEdit block blacklist. The settings file (settings.yml) now contains a list of blacklisted blocks (<a href="./configuration/settings.yml.html">these</a> by default). To override the
+blacklist, give yourself the permission node <code>plots.admin.unsafe</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

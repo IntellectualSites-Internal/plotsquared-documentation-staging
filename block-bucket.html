@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Bock Buckets</title>
+<style>
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";
+@import "https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@2.0/data/stylesheets/asciidoctor-default.css";
+
+body {
+    font-family: inherit;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+h2, h3, #toctitle, a:hover, a:focus {
+    color: #2397f7;
+}
+
+h2 {
+    font-size: 2.1em;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+p {
+    line-height: 1.2;
+}
+
+a {
+    color: #717171;
+}
+
+code {
+    color: #002340;
+    font-size: 0.8em !important;
+}
+
+#toc a {
+    color: #555;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #424242;
+}
+
+/* dark-mode for sidebar*/
+
+/*
+#toc.toc2 {
+    background: #131313;
+}
+
+#toc a {
+    color: #a8a8a8;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #fff;
+}
+*/
+
+.sect1 + .sect1 {
+    border-top: 1px dotted #999;
+}
+
+#_return_to_the_index a {
+    text-decoration: unset;
+}
+
+.literalblock pre, .listingblock > .content > pre {
+  font-size: 0.9em;
+}
+
+.ulist > .title {
+    color: #000;
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: 800;
+}
+
+/* Icons: */
+.admonitionblock td.icon [class*=' icon-']::before {
+    text-shadow: 0 0 0;
+    color: #b0b0b0;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Bock Buckets</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_formatting">2. Formatting</a></li>
+<li><a href="#_disallowed_blocks">3. Disallowed Blocks</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<h5 id="_return_to_the_index" class="discrete"><a href="README.html">« Return to the index</a></h5>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Block buckets allow you to specify however many blocks you want, for every component of a plot. You can specify the block weight, which will determine how likely the block is to be picked from the bucket.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>stone,grass_block,cobblestone,sandstone</code> will automatically infer that there should be 25% of each of the four blocks</p>
+</li>
+<li>
+<p><code>stone:50,grass_block:30,sandstone:20</code> will use 50% of stone, 30% of grass_block and 20% of sandstone.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_formatting">2. Formatting</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Blocks can be in the format <code>namespace:block[property1=value1,property2=value2]</code> (The properties and namespace are optional, and <code>grass_block</code> will resolve to <code>minecraft:grass_block[snowy=false]</code>. <a href="https://minecraft.gamepedia.com/Block_states">More info</a>)</p>
+</div>
+<div class="paragraph">
+<p>Complex patterns are also accepted:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://intellectualsites.github.io/fastasyncworldedit-documentation/patterns/patterns">FAWE Patterns</a> (If you have FAWE installed)</p>
+</li>
+<li>
+<p><a href="https://worldedit.enginehub.org/en/latest/usage/general/patterns/">WorldEdit Patterns</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_disallowed_blocks">3. Disallowed Blocks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To restrict what blocks are allowed for the patterns, configure the <code>disallowed-blocks</code> list in <code>plugins/WorldEdit/config.yml</code>, or <code>plugins/FastAsyncWorldEdit/worldedit-config.yml</code></p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

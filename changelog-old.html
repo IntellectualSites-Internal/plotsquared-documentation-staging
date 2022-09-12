@@ -1,0 +1,2069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Changelog (old)</title>
+<style>
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";
+@import "https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@2.0/data/stylesheets/asciidoctor-default.css";
+
+body {
+    font-family: inherit;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+h2, h3, #toctitle, a:hover, a:focus {
+    color: #2397f7;
+}
+
+h2 {
+    font-size: 2.1em;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+p {
+    line-height: 1.2;
+}
+
+a {
+    color: #717171;
+}
+
+code {
+    color: #002340;
+    font-size: 0.8em !important;
+}
+
+#toc a {
+    color: #555;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #424242;
+}
+
+/* dark-mode for sidebar*/
+
+/*
+#toc.toc2 {
+    background: #131313;
+}
+
+#toc a {
+    color: #a8a8a8;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #fff;
+}
+*/
+
+.sect1 + .sect1 {
+    border-top: 1px dotted #999;
+}
+
+#_return_to_the_index a {
+    text-decoration: unset;
+}
+
+.literalblock pre, .listingblock > .content > pre {
+  font-size: 0.9em;
+}
+
+.ulist > .title {
+    color: #000;
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: 800;
+}
+
+/* Icons: */
+.admonitionblock td.icon [class*=' icon-']::before {
+    text-shadow: 0 0 0;
+    color: #b0b0b0;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Changelog (old)</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_v4_to_v5">2. v4 to v5:</a></li>
+<li><a href="#_v5">3. V5:</a></li>
+<li><a href="#_v6">4. V6:</a></li>
+<li><a href="#_v5_0_0_to_5_9_0">5. v5.0.0 to 5.9.0</a></li>
+<li><a href="#_v5_10_0">6. v5.10.0</a></li>
+<li><a href="#_v5_10_1">7. v5.10.1</a></li>
+<li><a href="#_v5_10_2">8. v5.10.2</a></li>
+<li><a href="#_v5_10_4">9. v5.10.4</a></li>
+<li><a href="#_v5_10_5">10. v5.10.5</a></li>
+<li><a href="#_v5_11_0">11. v5.11.0</a></li>
+<li><a href="#_v5_11_1">12. v5.11.1</a></li>
+<li><a href="#_v5_12_0">13. v5.12.0</a></li>
+<li><a href="#_major_changes">14. Major Changes</a></li>
+<li><a href="#_other_changes">15. Other Changes</a></li>
+<li><a href="#_v5_12_1">16. v5.12.1</a></li>
+<li><a href="#_v5_12_2">17. v5.12.2</a></li>
+<li><a href="#_v5_12_3">18. v5.12.3</a></li>
+<li><a href="#_v5_12_4">19. v5.12.4</a></li>
+<li><a href="#_v5_13_0">20. v5.13.0</a></li>
+<li><a href="#_v5_13_1">21. v5.13.1</a></li>
+<li><a href="#_v5_13_2">22. v5.13.2</a></li>
+<li><a href="#_v5_13_3">23. v5.13.3</a></li>
+<li><a href="#_v5_13_4">24. v5.13.4</a></li>
+<li><a href="#_v5_13_5">25. v5.13.5</a></li>
+<li><a href="#_v5_13_6">26. v5.13.6</a></li>
+<li><a href="#_v5_13_8">27. v5.13.8</a></li>
+<li><a href="#_v5_13_9">28. v5.13.9</a></li>
+<li><a href="#_v5_13_10">29. v5.13.10</a></li>
+<li><a href="#_v5_13_11">30. v5.13.11</a></li>
+<li><a href="#_plotsquared_6_0_0">31. PlotSquared 6.0.0</a></li>
+<li><a href="#_settings_yml_changes">32. Settings.yml Changes:</a></li>
+<li><a href="#_worlds_yml_changes">33. Worlds.yml Changes:</a></li>
+<li><a href="#_translation_changes">34. Translation Changes:</a></li>
+<li><a href="#_permission_changes">35. Permission Changes:</a></li>
+<li><a href="#_placeholder_changes">36. Placeholder changes</a></li>
+<li><a href="#_command_changes">37. Command changes</a></li>
+<li><a href="#_usability_changes">38. Usability changes</a></li>
+<li><a href="#_flag_changes">39. Flag changes</a></li>
+<li><a href="#_bug_fixes_only_listing_issues_present_in_previous_versions_not_something_introduced_addressed_in_v6">40. Bug fixes (Only listing issues present in previous versions, not something introduced &amp; addressed in v6)</a></li>
+<li><a href="#_other_changes_2">41. Other changes</a></li>
+<li><a href="#_plotsquared_6_0_1">42. PlotSquared 6.0.1</a></li>
+<li><a href="#_plotsquared_6_0_2">43. PlotSquared 6.0.2</a></li>
+<li><a href="#_plotsquared_6_0_3">44. PlotSquared 6.0.3</a></li>
+<li><a href="#_plotsquared_6_0_4">45. PlotSquared 6.0.4</a></li>
+<li><a href="#_plotsquared_v6_0_5">46. PlotSquared v6.0.5</a></li>
+<li><a href="#_plotsquared_v6_0_6">47. PlotSquared v6.0.6</a></li>
+<li><a href="#_plotsquared_v6_0_7">48. PlotSquared v6.0.7</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<h5 id="_return_to_the_index" class="discrete"><a href="README.html">« Return to the index</a></h5>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>New changelogs can be obtained on the Releases tab on GitHub.</p>
+</div>
+<div class="paragraph">
+<p>Direct links to versions:</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v4_to_v5">2. v4 to v5:</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="spigot-changelog-v4----v5.html">Click here</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5">3. V5:</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v500-to-590">v5.0.0 to 5.9.0</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5100">v5.10.0</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5101">v5.10.1</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5102">v5.10.2</a></p>
+</li>
+<li>
+<p>[v5.10.3]Internal changes, no public version released.</p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5104">v5.10.4</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5105">v5.10.5</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5110">v5.11.0</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5111">v5.11.1</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5120">v5.12.0</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5121">v5.12.1</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5122">v5.12.2</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5123">v5.12.3</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5124">v5.12.4</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5130">v5.13.0</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5131">v5.13.1</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5132">v5.13.2</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5133">v5.13.3</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5134">v5.13.4</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5135">v5.13.5</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5136">v5.13.6</a></p>
+</li>
+<li>
+<p>[v5.13.7]Internal changes, no public version released.</p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5138">v5.13.8</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v5139">v5.13.9</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v51310">v5.13.10</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#v51311">v5.13.11</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v6">4. V6:</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#plotsquared-600">v6.0.0</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#plotsquared-601">v6.0.1</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#plotsquared-602">v6.0.2</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#plotsquared-603">v6.0.3</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#plotsquared-604">v6.0.4</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#plotsquared-605">v6.0.5</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#plotsquared-606">v6.0.6</a></p>
+</li>
+<li>
+<p><a href="https://github.com/IntellectualSites/PlotSquared-Documentation/wiki/Changelog#plotsquared-607">v6.0.7</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_0_0_to_5_9_0">5. v5.0.0 to 5.9.0</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Flags:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Completely rewritten flag system</p>
+</li>
+<li>
+<p>Improved flag database handling</p>
+</li>
+<li>
+<p>Add support for material tags/categories in flags</p>
+</li>
+<li>
+<p>Improve /plot flag info and /plot flag list</p>
+</li>
+<li>
+<p>Add flag command completion</p>
+</li>
+<li>
+<p>Rewritten wiki flag pages</p>
+</li>
+<li>
+<p>Make golems be included in animal-attack</p>
+</li>
+<li>
+<p>Fix block-ignition in merged plots</p>
+</li>
+<li>
+<p>Fix liquid-flow</p>
+</li>
+<li>
+<p>Fix untrusted-visit</p>
+</li>
+<li>
+<p>Fix fly not restoring player flight correctly</p>
+</li>
+<li>
+<p>Add a coral-dry flag</p>
+</li>
+<li>
+<p>Add a chat flag handling plot chat</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Performance:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Prevent synchronous chunk loads throughout the plugin. This greatly reduces the impact /plot auto has on performance</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Generator:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Make sure clearing augmented plots with full vanilla terrain does not generate walls</p>
+</li>
+<li>
+<p>Use WorldEdit to regenerate chunks in augmented plots (Warning: This is very slow!)</p>
+</li>
+<li>
+<p>Support schematics v2 (biomes, entities, etc!)
+Other:</p>
+</li>
+<li>
+<p>Fix retrieval of offline player profiles in 1.15</p>
+</li>
+<li>
+<p>Add option to have road regeneration persistent across restarts</p>
+</li>
+<li>
+<p>Add option to have /plot purge also clear the purged plots</p>
+</li>
+<li>
+<p>Make PlotSqaured events platform agnostic</p>
+</li>
+<li>
+<p>Make the PlotSquared events tidier</p>
+</li>
+<li>
+<p>Fix issue where /plot swap didn&#8217;t correctly update owners</p>
+</li>
+<li>
+<p>Fix issue where /plot move didn&#8217;t clear the plots</p>
+</li>
+<li>
+<p>Fix issue where /plot swap didn&#8217;t correctly update the plot signs</p>
+</li>
+<li>
+<p>Improve the swapping/moving API</p>
+</li>
+<li>
+<p>Fix /plot comment (from V4)</p>
+</li>
+<li>
+<p>Fix pattern generation (from V4)</p>
+</li>
+<li>
+<p>Fix the legacy converter (from V4)</p>
+</li>
+<li>
+<p>Allow restone to be used in server plots  with redstone.disable-offline enabled</p>
+</li>
+<li>
+<p>Fix biome setting (it now works in 1.13-1.15+)</p>
+</li>
+<li>
+<p>Fix issue where liquids could flow from borders/walls into plots</p>
+</li>
+<li>
+<p>Improve plot owner API</p>
+</li>
+<li>
+<p>Improve the code base internally by removing a bunch of magic values, and increasing code encapsulation</p>
+</li>
+<li>
+<p>Allow trusted users to use /plot set</p>
+</li>
+<li>
+<p>Add PAPI placeholders to PlotSquared (moved from the expansion)</p>
+</li>
+<li>
+<p>Fix issue where Bukkit world API was interacted with asynchronously, which caused PlotSquared augmented generation to fail when using recent Paper builds</p>
+</li>
+<li>
+<p>Better organisation of the code base</p>
+</li>
+<li>
+<p>Completely restructed package names</p>
+</li>
+<li>
+<p>Added option to force plot chat</p>
+</li>
+<li>
+<p>Lots of other minor changes..</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_10_0">6. v5.10.0</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed issues with update notifications</p>
+</li>
+<li>
+<p>Fixed issue with extremely slow plot clearing</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_10_1">7. v5.10.1</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed updater issue caused by the Spigot API returning 5.1 not 5.10 for the version.</p>
+</li>
+<li>
+<p>Updated default config value for plot biome to match the format WorldEdit accepts, and fix incorrectly formatted existing config values.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_10_2">8. v5.10.2</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Update notifications are now polled every 30 minutes, and only congratulates for running the latest version once. No longer polls every time a player with permissions joins when update checking is enabled either.</p>
+</li>
+<li>
+<p>Fix getting plot comments.</p>
+</li>
+<li>
+<p>Fix null errors with PlaceholderAPI. Also sure up some of the logic so that even if the player is not in a plot, relevant placeholders can still be used.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_10_4">9. v5.10.4</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Added Paper-specific listeners (configurable) to:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Prevent mobs from leaving the plot by wandering out</p>
+</li>
+<li>
+<p>Improve mob spawn prevention performance</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Reduce default update poll rate even more (default 6 hrs, with config option)</p>
+</li>
+<li>
+<p>LiquidFlow flag enabled will override block physics denied</p>
+</li>
+<li>
+<p>Flag names must be 64 characters or less (should allow for older Database schemas to not error)</p>
+</li>
+<li>
+<p>Plotworlds with plot + road size less than 16 will no longer cause generation issues.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>This version also contains the following changes:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add config option to disable polling after an update is found (will also no longer print updates to console). Players in-game will still receive the prompt.</p>
+</li>
+<li>
+<p>Correctly detect when a newer version is available to counter Spigot&#8217;s API lag</p>
+</li>
+<li>
+<p>LiquidFlow flag is now an enum with three values: default, enabled and disabled</p>
+</li>
+<li>
+<p>Bring SpawnReasons up-to-date with what&#8217;s in Spigot</p>
+</li>
+<li>
+<p>Plot expiry messages are now clickable to run commands</p>
+</li>
+<li>
+<p>Plot setup will correctly display the world type options</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_10_5">10. v5.10.5</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Fix errors during plot analysis</p>
+</li>
+<li>
+<p>Correctly display grants used and grants remaining</p>
+</li>
+<li>
+<p>Fix grants when using /plot auto</p>
+</li>
+<li>
+<p>Fix block tags (#buttons) when used in flags after restarting server</p>
+</li>
+<li>
+<p>Fix /plot merge all</p>
+</li>
+<li>
+<p>Don&#8217;t send chat spy to message sender</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_11_0">11. v5.11.0</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is a larger update. It is highly recommend that you read through the linked material. Please note that the backup system is enabled by default, and will delay <code>/plot clear</code> and <code>/plot set &lt;component&gt;</code> until a snapshot has been taken of the plot. This can be disabled in the settings file.</p>
+</div>
+<div class="paragraph">
+<p>If you have extremely big plots (&gt;200 blocks in width) you should probably disable automatic backups.</p>
+</div>
+<div class="paragraph">
+<p><strong>If you&#8217;re going to use the backup system together with FAWE, please update to the latest FAWE build!</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>New Features</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Added plot backups <a href="https://wiki.intellectualsites.com/en/plotsquared/backups" class="bare">https://wiki.intellectualsites.com/en/plotsquared/backups</a></p>
+</li>
+<li>
+<p>Added a <code>keep-inventory</code> flag</p>
+</li>
+<li>
+<p>Added a way to disable certain blocks from being used in <code>/plot set</code> (in settings.yml) (<a href="https://i.imgur.com/pO0grZd.png" class="bare">https://i.imgur.com/pO0grZd.png</a>). By default this includes: <a href="https://pastie.io/qhceln.txt" class="bare">https://pastie.io/qhceln.txt</a></p>
+</li>
+<li>
+<p>Added a new wiki page for <code>/plot set</code>: <a href="https://wiki.intellectualsites.com/en/plotsquared/plot-settings" class="bare">https://wiki.intellectualsites.com/en/plotsquared/plot-settings</a></p>
+</li>
+<li>
+<p>Added command completions for <code>/plot set</code>: <a href="https://i.imgur.com/kNz3zks.png" class="bare">https://i.imgur.com/kNz3zks.png</a></p>
+</li>
+<li>
+<p>Added updated French translations</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Fixes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed slime navigation bug</p>
+</li>
+<li>
+<p>Fixed potential issue with our entity combat listener</p>
+</li>
+<li>
+<p>Fixed <code>/plot merge auto</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_11_1">12. v5.11.1</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This update focuses a lot on the chunk processor and I have therefore updated its wiki page: <a href="https://wiki.intellectualsites.com/en/plotsquared/optimization/chunk-processor" class="bare">https://wiki.intellectualsites.com/en/plotsquared/optimization/chunk-processor</a>. This system is quite handy if your server suffers from large tile entity counts, and now it now works properly again.</p>
+</div>
+<div class="paragraph">
+<p><strong>Additions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Added the flag <code>prevent-creative-copy</code> to prevent people from copying NBT data in the plot</p>
+</li>
+<li>
+<p>Added the option to enable the tile entity check on block placement when using Paper</p>
+</li>
+<li>
+<p>Added a new bStats chart for tracking FAWE usage</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Changes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(Currently WE only - Not FAWE compatible) Updated the WE listener to correctly limit tile entitites, and make the limit apply per chunk rather than per edit</p>
+</li>
+<li>
+<p>Made <code>/plot set &lt;component&gt;</code> respect the tile entity limit</p>
+</li>
+<li>
+<p>Updated the chunk manager code</p>
+</li>
+<li>
+<p>Allow <code>/plot auto</code> from non-plot areas if the server only has one plot area</p>
+</li>
+<li>
+<p>Copy NBT data on plot move, swap, etc</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Fixes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed the update notifier for the 950th time</p>
+</li>
+<li>
+<p>Fixed an issue where <code>/plot set ##*category</code> would bypass the blacklist</p>
+</li>
+<li>
+<p>Fixed an issue where the tile entity and entity limit would delete all entities in the chunk</p>
+</li>
+<li>
+<p>Fixed an issue where style.yml wouldn&#8217;t update the default values</p>
+</li>
+<li>
+<p>Made <code>/plot setbiome</code> properly load chunks before updating the biome</p>
+</li>
+<li>
+<p>Made <code>/plot clear</code> empty tile entities before removing them</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>If you are using FastAsyncWorldEdit, please update to the latest FAWE build, as PlotSquared&#8217;s chunk manager has changed</strong></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_12_0">13. v5.12.0</h2>
+<div class="sectionbody">
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Due to changes to plot components in this version, it is highly recommended using the latest version of FastAsyncWorldEdit (If you want to use FAWE).</p>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_major_changes">14. Major Changes</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_single_plot_area">14.1. Single Plot Area</h3>
+<div class="paragraph">
+<p>This version makes it a lot easier to create single plots in a non-plot world, making use of the WorldEdit selection want. You can now create plots anywhere you like and leverage the power of PlotSquared in all your worlds. Read more <a href="/plotsquared/installation/single-plot-area">here</a>.</p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="_plot_component_gui">14.2. Plot Component GUI</h3>
+<div class="paragraph">
+<p>PlotSquared now allows you create component presets that can be used through a GUI. Read more <a href="/plotsquared/installation/plot-components">here</a>.</p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="_uuid_system_remake">14.3. UUID System Remake</h3>
+<div class="paragraph">
+<p>We have rewritten our UUID handling from scratch, and UUID to username mapping should be a lot more reliable going roward. This should be able to resolve all issues with "Unknown" plot members, owners, etc.</p>
+</div>
+<div class="paragraph">
+<p>When you run the usernames automatically from different sources (in the given order):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In memory cache</p>
+</li>
+<li>
+<p>New user_data.db (SQLite cache)</p>
+</li>
+<li>
+<p>Legacy userdata.db (SQLite cache)</p>
+</li>
+<li>
+<p>Bukkit offline players / Paper profiles</p>
+</li>
+<li>
+<p>(Optional) Essentials user files</p>
+</li>
+<li>
+<p>(Optional) LuckPerms user data</p>
+</li>
+<li>
+<p>(Optional) BungeePerms user data</p>
+</li>
+<li>
+<p>Mojang API</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The first time you run PlotSquared v5.12.0 it might have to run for an extended amount of time, depending on the amount of missing UUIDs on your server. The reason it&#8217;s particularly slow in this case is because Mojang enforces a very restrictive rate limit on the amount of requests we can make. When this entire process has been completed once, PlotSquared will be able to index thousands of UUIDs in a matter of seconds.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>If you run an offline-mode server without BungeeCord, your old UUID cache may no longer be functional, which means that everyone will be listed as "Unknown" until they join the server for the first time. If this happens, please contact us on Discord so we can evaulate your particular setup and hopefully remedy the issue.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>This also means that you can add people to plots, make them owners etc, even if they have never been on the server before.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_other_changes">15. Other Changes</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_features">15.1. Features</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Added a new internal world management system.</p>
+</li>
+<li>
+<p>Added tab completion for <code>/plot visit</code>.</p>
+</li>
+<li>
+<p>Added tab completion for <code>/plot list</code>.</p>
+</li>
+<li>
+<p>Added tab completion for <code>/plot &lt;add|trust|deny|kick|remove&gt;</code>.</p>
+</li>
+<li>
+<p>Added support for asynchronous tab completion (Paper only).</p>
+</li>
+<li>
+<p>Added <code>/plot toggle debug</code> which will inform plot owners and administrators when flags are changing the outcome of events</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_changes">15.2. Changes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Switched issue tracker. We now use <a href="https://issues.intellectualsites.com/projects/ps">YouTrack</a>.</p>
+</li>
+<li>
+<p>PlotSquared will now register itself in <code>bukkit.yml</code>, which should resolve issue where worlds were not recognized as plot worlds.</p>
+</li>
+<li>
+<p>Make large operations less prone to crash the server.</p>
+</li>
+<li>
+<p>Moved the cuboid operation method, this now means that FAWE can take control of operations like <code>/plot set</code>.</p>
+</li>
+<li>
+<p>Switch out the internal plot area mappings and use an <a href="https://en.wikipedia.org/wiki/R-tree">R-tree</a>. This will perform better when a world has a large amount of plot areas.</p>
+</li>
+<li>
+<p>Greatly improve the plot area API.</p>
+</li>
+<li>
+<p>Add a plot query API and use it internally.</p>
+</li>
+<li>
+<p>Overhauled the internals of the <code>/plot setup</code> command. It also got some tab completion e.g. for blocks.</p>
+</li>
+<li>
+<p>Made the list of command aliases that the paper command completer will act on.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fixes">15.3. Fixes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed issues with schematic saving (<a href="https://github.com/IntellectualSites/PlotSquared/commit/d5d18a60fb68e95115a1f8678043e6f01a76d328">#2836</a>).</p>
+</li>
+<li>
+<p>Fixed an issue where plot chat was not send to actor when plot chat spy activated (<a href="https://issues.intellectualsites.com/issue/PS-7">#PS-7</a>).</p>
+</li>
+<li>
+<p>As a consequence of the new UUID system, "unknown" should not be an issue anymore :smile:.</p>
+</li>
+<li>
+<p>Fixed issues where visit would bring you to the wrong player&#8217;s plot.</p>
+</li>
+<li>
+<p>Fixed an issue where merging plots would generate the plot blocks on road height instead of plot height (<a href="https://issues.intellectualsites.com/issue/PS-46">#PS-46</a>)</p>
+</li>
+<li>
+<p>Correct the the keep-commands sent during expiration.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_12_1">16. v5.12.1</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This version is a minor hotfix in regards to v5.12.0</p>
+</div>
+<div class="paragraph">
+<p><strong>Changes:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This version fixes an issue where old player objects were not cleaned up properly. This is caused by an issue with the event order in Spigot (and Spigot derivatives).</p>
+</li>
+<li>
+<p>Issues relating commands not working have been resolved as well.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_12_2">17. v5.12.2</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This update focuses a lot on 1.16 with all its new features and enhancements.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://www.spigotmc.org/resources/plotsquared-v5.77506/update?update=346686" class="bare">https://www.spigotmc.org/resources/plotsquared-v5.77506/update?update=346686</a></p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><strong>Warn:</strong> If <code>/plots home</code> does not function, please delete your <code>plugins/PlotSquared/config/commands.yml</code> file.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p><strong>Additions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Added the placeholder <code>%plotsquared_currentplot_localflag_&lt;flag&gt;%</code> and <code>%plotsquared_currentplot_flag_&lt;flag&gt;%</code> to return flag values of  plot flags.</p>
+</li>
+<li>
+<p>Added 1.16.1 support</p>
+</li>
+<li>
+<p>Added a config option to make cache expiration configurable.</p>
+</li>
+<li>
+<p>Added config option to disable background caching of uuids.</p>
+</li>
+<li>
+<p>Added a method to hook into plot clearing and modify the behavior, which allows plugins like FAWE to boost clearing speed.</p>
+</li>
+<li>
+<p>Added the ability to set flags for the plot road. You can do so in the worlds.yml.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Changes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Lowered tab completion cache time to 15 seconds rather than 1 minute.</p>
+</li>
+<li>
+<p>Only initialise EconHandler when economy is enabled and stop accessing the static instance directly.</p>
+</li>
+<li>
+<p>Separate the Vault Permission Handling from the Economy Handling.</p>
+</li>
+<li>
+<p>Added <code>plots.admin.alias.remove</code> and <code>plots.admin.alias.set</code> permission nodes.</p>
+</li>
+<li>
+<p><code>/plot visit</code> and <code>/plot home</code> where split up in two different commands. (You can now teleport to your 12384th plot without any issues)</p>
+</li>
+<li>
+<p><code>/plot visit</code> and <code>/plot home</code> now have separate permission nodes: <code>plots.visit</code> and <code>plots.home</code>.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Check the new syntax: <a href="https://wiki.intellectualsites.com/en/plotsquared/commands-and-permissions#home">/p home</a> and <a href="https://wiki.intellectualsites.com/en/plotsquared/commands-and-permissions#visit">/p visit</a>. The new placeholders are descriped at <a href="https://wiki.intellectualsites.com/en/plotsquared/placeholders">here</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Fixes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed an issue with the OfflinePlayerUUIDService breaking when no worlds have been loaded</p>
+</li>
+<li>
+<p>Fixed an issue where numbers were sometimes parsed as usernames when they shouldn&#8217;t be.</p>
+</li>
+<li>
+<p>Fixed "Not a valid plot ID" being sent twice</p>
+</li>
+<li>
+<p>Fixed "invalid player" message on /plot kick</p>
+</li>
+<li>
+<p>Fixed world border update on Plot#claim [<a href="https://issues.intellectualsites.com/issue/PS-13">PS-13</a>]</p>
+</li>
+<li>
+<p>Fixed an issue with plot backups</p>
+</li>
+<li>
+<p>Fixed incorrect biome data for road intersections [<a href="https://issues.intellectualsites.com/issue/PS-50">PS-50</a>]</p>
+</li>
+<li>
+<p>Fixed incorrect /plot alias tab completion</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>If you are experiencing constant rain on 1.16.1 in your plot worlds, update your SpigotMC build (or derivatives). This refers to an issue on Spigot&#8217;s end [<a href="https://hub.spigotmc.org/jira/browse/SPIGOT-5849">SPIGOT-5849</a>] which has been fixed by now.</strong></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_12_3">18. v5.12.3</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Changes:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Remove <code>commands.yml</code>. This will be reimplemented in version 6</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Fixes:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed issue where players couldn&#8217;t interact with their own plots</p>
+</li>
+<li>
+<p>Fixed issue where players couldn&#8217;t teleport to merged plots</p>
+</li>
+<li>
+<p>Fixed issue where the plot expiration task wouldn&#8217;t start</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_12_4">19. v5.12.4</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Fixes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixes a bunch of issues related to dispensers and plot roads (<a href="https://github.com/IntellectualSites/PlotSquared/pull/2874">#2874</a>)</p>
+</li>
+<li>
+<p>Fix the <code>%plotsquared_currentplot_owner%</code> placeholder throwing exceptions (PS-62)</p>
+</li>
+<li>
+<p>Fix kill-road-mobs (PS-73)</p>
+</li>
+<li>
+<p>Fixes issues related to pistons and plot roads (<a href="https://github.com/IntellectualSites/PlotSquared/pull/2875">#2875</a> / PS-39)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Changes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Send teleportation cancellation message immediately on movement (PS-33)</p>
+</li>
+<li>
+<p>Split failed UUID batches into individual requests rather than just throwing an IllegalArgumentException</p>
+</li>
+<li>
+<p>Made PlotPlayer#getLocation return a copy of the location</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_13_0">20. v5.13.0</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Fixes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed paste on top of road schematics</p>
+</li>
+<li>
+<p>Fixed <code>/plot target nearest</code> [<a href="https://issues.intellectualsites.com/issue/PS-74">PS-74</a>]</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Changes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cleaned up bukkit listeners by splitting them up into own classes.</p>
+</li>
+<li>
+<p>Removed a few old debugs.</p>
+</li>
+<li>
+<p>Fixed a few typos on the javadocs.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Additions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Added config option <code>PASTE_ROAD_ON_TOP</code> to declare whether road schematics should be pasted differently from plot schematics.</p>
+</li>
+<li>
+<p>Added config options to enable or disable each UUID service</p>
+</li>
+<li>
+<p>Added chunk coordinator, a utility that allows for the loading and coordination of chunk actions.
+The coordinator takes in collection of chunk coordinates, loads them and allows the caller to specify a sink for the loaded chunks. The coordinator will prevent the chunks from being unloaded until the sink has fully consumed the chunk.</p>
+</li>
+<li>
+<p>Added support for other placeholder API&#8217;s like MVdWPlaceholderAPI. Version 3.1.1 is recommended.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_13_1">21. v5.13.1</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Fixes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed the redstone flag on roads</p>
+</li>
+<li>
+<p>Fixed <code>misc_spawn_unowned</code> in the worlds.yml [<a href="https://issues.intellectualsites.com/issue/PS-81">PS-81</a>]</p>
+</li>
+<li>
+<p>Fixed <code>use</code> flag when applied to the road [<a href="https://issues.intellectualsites.com/issue/PS-95">PS-95</a>]</p>
+</li>
+<li>
+<p>Fixed dupe on death when using the <code>keep-inventory</code> flag.</p>
+</li>
+<li>
+<p>Fixed pve against animals on other plots and roads</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Changes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Separated <code>misc-spawning</code> from <code>mob-spawning</code> in the worlds.yml</p>
+</li>
+<li>
+<p>Removed a few old debugs.</p>
+</li>
+<li>
+<p>Fixed a few typos on the javadocs.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Additions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Added weeping and twisted vines to the <code>vine-grow</code> flag [<a href="https://github.com/IntellectualSites/PlotSquaredSuggestions/issues/133">#133</a>]</p>
+</li>
+<li>
+<p>Added german translation strings for flag descriptions</p>
+</li>
+<li>
+<p>Added Skyblock template</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_13_2">22. v5.13.2</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Fixes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed an issue where PlotSquared would try to convert databases created in v5 from v4 to v5, which obviously fails, because they never used v4.</p>
+</li>
+<li>
+<p>Fixed an OfflinePlayerUtil breakaged caused by NMS Changes</p>
+</li>
+<li>
+<p>Fixed an issue where visiting merged plots with multiple owners didn&#8217;t work properly.</p>
+</li>
+<li>
+<p>Fixed <code>/plot trust</code> and <code>/plot add</code> not displaying a message when trying to add or trust the plot owner.</p>
+</li>
+<li>
+<p>Fixed block ignition not being denied by default [<a href="https://issues.intellectualsites.com/issue/PS-114">PS-114</a>]</p>
+</li>
+<li>
+<p>Fixed signs not being generated by default</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Additions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Added 1.16.2 support.
+If you want to use 1.16.2, use a WorldEdit build from here: <a href="https://builds.enginehub.org/job/worldedit?branch=master" class="bare">https://builds.enginehub.org/job/worldedit?branch=master</a>
+If you are using FAWE, update your FAWE build from here: <a href="https://ci.athion.net/job/FastAsyncWorldEdit-1.16/" class="bare">https://ci.athion.net/job/FastAsyncWorldEdit-1.16/</a></p>
+</li>
+<li>
+<p>Allow teleporting to merged plots with multiple owners using <code>/plot home</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_13_3">23. v5.13.3</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Fixes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed validations of plot aliases with offline players <a href="https://issues.intellectualsites.com/issue/PS-126">[PS-126]</a></p>
+</li>
+<li>
+<p>Fixed TileState checks on 1.13.2 <a href="https://issues.intellectualsites.com/issue/PS-122">[PS-122]</a></p>
+</li>
+<li>
+<p>Fixed default namespace not being added when wrapping block categories by their ids <a href="https://issues.intellectualsites.com/issue/PS-131">[PS-131]</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Additions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Added an option to opt-out of MvDWPlaceholderAPI to skip the placeholder injection. This setting is enabled by default, however, you can simply disable it if you don&#8217;t use PlotSquared placeholder with FeatherBoard or don&#8217;t want to use FeatherBoard&#8217;s build in placeholders and simply use it with PlaceholderAPI, that works as well.</p>
+</li>
+<li>
+<p>Added a debug (<code>/plot toggle debug</code>) onto <code>onBlockIgnite</code> event notifying players to set the <code>block-ingition</code> flag when using flint and steel before cancelling the event.</p>
+</li>
+<li>
+<p>Added a debug (<code>/plot toggle debug</code>) onto <code>onEntityBlockForm</code> event notifying players if the <code>ice-form</code> flag is not set before cancelling the event.</p>
+</li>
+<li>
+<p>Don&#8217;t send <code>notify-enter/leave</code> messages if vanished players visit a plot. <a href="https://issues.intellectualsites.com/issue/PS-103">[PS-103]</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_13_4">24. v5.13.4</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Additions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Added support for 1.16.3
+You will need to update Fawe or WorldEdit when updating.
+You can get the latest Fawe build here: <a href="https://www.spigotmc.org/resources/13932/update?update=360354" class="bare">https://www.spigotmc.org/resources/13932/update?update=360354</a>
+You can get the latest WorldEdit build here: <a href="https://builds.enginehub.org/job/worldedit?branch=master" class="bare">https://builds.enginehub.org/job/worldedit?branch=master</a></p>
+</li>
+<li>
+<p>Added pigstep music disc to <code>/plot music</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_13_5">25. v5.13.5</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Fixes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed <code>/plot grant</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Additions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Allow /plot home <code>[area|world]</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_13_6">26. v5.13.6</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Fixes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix inconsistency between using Paper listeners and normal Spigot listeners regarding misc entity spawning</p>
+</li>
+<li>
+<p>Prevent blocks from becoming waterlogged sometimes when at the edge of the plot (prevent road water grief)</p>
+</li>
+<li>
+<p>Allow worlds to be named with uppercase lettering</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_13_8">27. v5.13.8</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Additions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1.16.4 support has been added
+You will need to update <a href="https://www.spigotmc.org/resources/fast-async-worldedit.13932/">FAWE</a> or <a href="https://dev.bukkit.org/projects/worldedit/files/3100517">WorldEdit</a> as well, depending on what you use.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_13_9">28. v5.13.9</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Fixes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>/plot setowner none now works to remove the plot&#8217;s owner</p>
+</li>
+<li>
+<p>Boats can no longer be placed on other plots by interacting with interactable blocks, fixes <a href="https://issues.intellectualsites.com/issue/PS-175">PS-175</a></p>
+</li>
+<li>
+<p>Fixed single plot worlds</p>
+</li>
+<li>
+<p>Schematics now save uncorrupted tile entities</p>
+</li>
+<li>
+<p>Fixed <code>/plot deny *</code> not teleporting everyone from the plot <a href="https://issues.intellectualsites.com/issue/PS-182">PS-182</a></p>
+</li>
+<li>
+<p>Fixed <code>/plot f set disable-physics</code> true creating floating ghost blocks <a href="https://issues.intellectualsites.com/issue/PS-182">PS-159</a></p>
+</li>
+<li>
+<p>Fixed issues with schematic x/z offset being doubled up</p>
+</li>
+<li>
+<p>Fix error when attempting to purge by owner/added</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_13_10">29. v5.13.10</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Fixes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot debugpaste</code> failing to grab Multiverse&#8217;s worlds.yml properly</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v5_13_11">30. v5.13.11</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Additions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Added a couple of new metrics to bStats.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Fixes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed [<a href="https://issues.intellectualsites.com/issue/PS-188">PS-188</a>]</p>
+</li>
+<li>
+<p>Fixed <code>java.lang.NoSuchFieldException: mustSave</code> on startup when server version &gt;= 1.13.2</p>
+</li>
+<li>
+<p>Fixed <code>teleport.per-world-visit</code> from settings.yml</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_plotsquared_6_0_0">31. PlotSquared 6.0.0</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_settings_yml_changes">32. Settings.yml Changes:</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following entries have been removed or altered and can be deleted safely from the file.</p>
+</div>
+<div class="sect2">
+<h3 id="_removed">32.1. Removed:</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The option <code>web.assets</code> has been removed due the asset interface no longer existing within v4 and v5.</p>
+</li>
+<li>
+<p>The option <code>chat.console_color</code> has been removed. PlotSquared now respects legacy and adventure components properly and will always send the correct colors.</p>
+</li>
+<li>
+<p>The options <code>uuid.use-sqluuidhandler</code>, <code>enabled_components.per-world-visit</code>, <code>chunk.block-cache</code>, <code>enabled_components.permisison-cache</code>, <code>chat.interactive</code> have been removed due to serving no purpose anymore.</p>
+</li>
+<li>
+<p>The category <code>chat</code> has been removed.</p>
+</li>
+<li>
+<p>The standalone option <code>titles</code> has been moved into its own configuration block alongside its new options.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_additions">32.2. Additions:</h3>
+<div class="paragraph">
+<p>The following entries have been added. This process is done automatically on the first start up of v6.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The option <code>enabled-components.default-locale</code> was added. The specified value will be used to find the correct translation file.</p>
+</li>
+<li>
+<p>The option <code>enabled-components.per-user-locale</code> was added. When enabling it, PlotSquared will send texts in the user&#8217;s locale if translations exist.</p>
+</li>
+<li>
+<p>The options <code>teleport.on-clear</code> and <code>teleport.on-delete</code> determining whether the user should be teleported upon clearing or deletion.</p>
+</li>
+<li>
+<p>The options <code>timeformat.date-format</code> and <code>timeformat.time-zone</code> have been added formatting the plot creation date placeholder and the appearance in <code>/plot info</code>. Editing the format does not affect the storage date.</p>
+</li>
+<li>
+<p>Added the options <code>titles.titles-fade-in</code>, <code>titles.titles-stay</code>, <code>titles.titles-fade-out</code> and <code>titles.titles-as-actionbar</code> making plot titles duration customizable and allowing you to opt in plot titles send as actionbar message.</p>
+</li>
+<li>
+<p>The former option <code>titles</code> has been transformed into <code>titles.display-titles</code>.</p>
+</li>
+<li>
+<p>The option <code>ratings.block-0</code> to 8 has been added determining the blocks to use for the <code>/plot rate</code> GUI.</p>
+</li>
+<li>
+<p>The option <code>chat.log-plotchat-to-console</code> has been added declaring whether the plot chat should be logged to console or not.</p>
+</li>
+<li>
+<p>The option <code>chat.notification-as-actionbar</code> has been added determining whether notification flags, such as notify-enter, notify-leave, greeting or farewell should send an actionbar message over a regular chat message.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_worlds_yml_changes">33. Worlds.yml Changes:</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>The option <code>plot.sign_material</code> (respectively <code>plot.legacy_sign_material</code> for versions equal to 1.13) has been added allowing you to change the material of plot signs.</p>
+</li>
+<li>
+<p>Within the removal of the Nashorm scripting engine and the switch to <a href="https://worldedit.enginehub.org/en/latest/usage/other/expressions/">WorldEdit Expressions</a>. Expression in prices are no longer formed with <code>{arg}</code> but <code>{plots}</code> making it more intuitive to use. The conversion is done automatically by PlotSquared if such a field is detected. If you used JS functions like <code>Math.pow()</code> before, you&#8217;ll need to update that manually. For help with that, look at the WorldEdit wiki or ask on our discord.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_translation_changes">34. Translation Changes:</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>PlotSquared uses Adventure as of v6 to handle translations and support hex color codes, gradients, etc. Click <a href="https://docs.adventure.kyori.net/minimessage.html#color">here</a> for an explanation how to apply it.</p>
+</li>
+<li>
+<p>We are now available on Crowdin Enterprise to manage our translations. Click <a href="https://intellectualsites.crowdin.com/plotsquared">here</a> to help us translating PlotSquared into your language.</p>
+</li>
+<li>
+<p>You can change the language of PlotSquared in the settings.yml, with the key <code>&lt;key&gt;</code>. You don&#8217;t need to rename any files anylonger.</p>
+</li>
+<li>
+<p>Translations are located in the <code>lang</code> folder. You can safely delete the old <code>translations</code> folder, it&#8217;s no longer needed.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_permission_changes">35. Permission Changes:</h2>
+<div class="sectionbody">
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Within PlotSquared v6, permissions are no longer granted by default if the person is an operator (/op [player]). PlotSquared comes with a complex permission system that <strong>should</strong> be used with a permission management software, such as <a href="https://www.spigotmc.org/resources/luckperms.28140/">LuckPerms</a>.
+However, you can grant people all PlotSquared permissions with the node <code>plots.*</code>.</p>
+</div>
+</blockquote>
+</div>
+<div class="sect2">
+<h3 id="_single_permission_changes">35.1. Single permission changes</h3>
+<div class="sect3">
+<h4 id="_additions_2">35.1.1. Additions:</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The permission <code>plots.admin.music.other</code> has been added. It allows you to use <code>/plot music</code> on foreign plots.</p>
+</li>
+<li>
+<p>The permission <code>plots.visit.denied</code> has been added. Without the permission, players cannot visit plots they are denied on.</p>
+</li>
+<li>
+<p>The permissions <code>plots.add.&lt;amount&gt;</code>, <code>plots.trust.&lt;amount&gt;</code> and <code>plots.deny.&lt;amount&gt;</code> have been added. They are working in the same way like the range-typic permissions of <code>plots.plot.&lt;amount&gt;</code> do; you specify the amount within the permission node.</p>
+</li>
+<li>
+<p>The permission <code>plots.admin.flight</code> has been added to bypass the <code>fly</code> flag.</p>
+</li>
+<li>
+<p>The permission <code>plots.flag.notify-leave.bypass</code> has been added. <code>plots.flag.notify-enter.bypass</code> does no longer cover both types.</p>
+</li>
+<li>
+<p>The permission <code>plots.admin.components.other</code> has been added as administrative override to use <code>/plot components</code> on plots you don&#8217;t own but need to administer.</p>
+<div class="paragraph">
+<p>==== Changes:</p>
+</div>
+</li>
+<li>
+<p><code>/plot flag remove &lt;flag&gt;</code> now requires the permission node <code>plots.flag.remove</code>. Previously it was inherited by <code>plots.flag.add</code>.</p>
+</li>
+<li>
+<p>The permission <code>plots.admin.command.unlink</code> has been fixed.</p>
+</li>
+<li>
+<p>The permission <code>plots.set.alias</code> has been replaced with <code>plots.alias.set</code></p>
+</li>
+<li>
+<p>The permission <code>plots.admin.command.rate</code> has been replaced with <code>plots.admin.command.purge.ratings</code>.</p>
+</li>
+<li>
+<p>The permission <code>plots.admin.command.chat</code> has been replaced with <code>plots.admin.command.chatspy</code></p>
+</li>
+<li>
+<p>The command <code>/plot toggle &lt;attribute&gt;</code> now requires the base permission <code>plots.toggle</code> too.</p>
+<div class="paragraph">
+<p>==== Removal:</p>
+</div>
+</li>
+<li>
+<p>The permission <code>plots.list.unknown</code> has been removed.</p>
+</li>
+<li>
+<p>The permission <code>plots.admin.command.update</code> has been removed.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_permission_pack_changes">35.2. Permission pack changes</h3>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>All <code>plotme.&lt;pack&gt;</code> packs have been removed. Below we will list the new pack that replaces the removed permission pack or the permission node to assign.
+Note: If you didn&#8217;t use the old PlotMe permissions before, you can ignore the following table!
+<mark>#</mark>#
+| Removed Permission | Replacement |
+|----------------------------------------|------------------------------------------------------|
+| plotme.use | <code>plots.permpack.basic</code>, <code>plots.plot.1</code> |
+| plotme.admin | <code>plots.admin</code> |
+| plotme.admin.clear | <code>plots.admin.command.clear</code> |
+| plotme.admin.reset | <code>plots.admin.command.delete</code> |
+| plotme.admin.add | <code>plots.admin.command.add</code> |
+| plotme.admin.deny | <code>plots.admin.command.deny</code> |
+| plotme.admin.remove | <code>plots.admin.command.remove</code> |
+| plotme.admin.undeny | <code>plots.admin.command.remove</code> |
+| plotme.admin.bypassdeny | <code>plots.admin.entry.denied</code> |
+| plotme.admin.setowner | <code>plots.admin.command.setowner</code> |
+| plotme.admin.move | <code>plots.admin.command.move</code> |
+| plotme.admin.weanywhere | <code>plots.admin.weanywhere</code> |
+| plotme.admin.list | <code>plots.list.world</code>, <code>plots.list.world.<strong></code>, <code>plots.list.top</code>, <code>plots.list.all</code>, <code>plots.list.unowned</code>, <code>plots.list.player</code>, <code>plots.list.done</code>, <code>plots.list.expired</code>, <code>plots.list.fuzzy</code>, <code>plots.list.area</code> |
+| plotme.admin.dispose | <code>plots.admin.command.delete</code> |
+| plotme.admin.done | <code>plots.admin.command.done</code> |
+| plotme.admin.expired | <code>plots.list.expired</code> |
+| plotme.admin.buildanywhere | <code>plots.admin.vehicle.</strong></code>, <code>plots.admin.interact.<strong></code>, <code>plots.admin.build.</strong></code>, <code>plots.admin.destroy.<strong></code> |
+| plotme.use.middle | <code>plots.middle</code> |
+| plotme.use.buy | <code>plots.buy</code> |
+| plotme.use.sell | <code>plots.set</code>, <code>plots.flag</code>, <code>plots.set.flag</code>, <code>plots.set.flag.price.</strong></code> |
+| plotme.use.dispose | <code>plots.delete</code> |
+| plotme.use.done | <code>plots.done</code> |
+| plotme.use.claim | <code>plots.claim</code> |
+| plotme.use.auto | <code>plots.auto</code> |
+| plotme.use.reset | <code>plots.delete</code> |
+| plotme.use.home | <code>plots.home</code> |
+| <code>plotme.use.info</code> | <code>plots.info</code> |
+| plotme.use.biome | <code>plots.set</code>, <code>plots.set.biome</code> |
+| plotme.use.clear | <code>plots.clear</code> |
+| plotme.use.list | <code>plots.list</code>, <code>plots.list.forsale</code>, <code>plots.list.mine</code>, <code>plots.list.shared</code> |
+| plotme.use.add | <code>plots.add</code>, <code>plots.trust</code>, <code>plots.add.everyone</code>, <code>plots.trust.everyone</code> |
+| plotme.use.deny | <code>plots.deny</code>, <code>plots.deny.everyone</code> |
+| plotme.use.remove | <code>plots.remove</code> |
+| plotme.use.undeny | <code>plots.remove</code> |
+| plotme.use.protect | <code>plots.set</code>, <code>plots.flag</code>, <code>plots.set.flag</code>, <code>plots.set.flag.keep.<strong></code> |
+| plotme.use.nameplot | <code>plots.alias.set</code>, <code>plots.alias.remove</code> |
+| plotme.limit.</strong> | <code>plots.plot.*</code> |
+| plotme.limit.1 | <code>plots.plot.1</code> |
+| plotme.limit.5 | <code>plots.plot.5</code> |
+| plotme.limit.10 | <code>plots.plot.10</code> |</p>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_placeholder_changes">36. Placeholder changes</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_additions_3">36.1. Additions:</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The placeholder <code>%plotsquared_currentplot_creationdate%</code> has been added showing the plot creation date. You can customize the format in the settings.yml timeformat section.</p>
+</li>
+<li>
+<p>The placeholders<code>%plotsquared_currentplot_members_trusted_list%</code>, <code>%plotsquared_currentplot_members_added_list%</code> and <code>%plotsquared_currentplot_members_denied_list%</code> have been added displaying a list of added/trusted/denied people.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_changes_2">36.2. Changes:</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>%plotsquared_currentplot_world%</code> has been renamed to <code>%plotsquared_currentplot_world_name%</code></p>
+</li>
+<li>
+<p><code>%plotsquared_has_build_rights%</code> has been renamed to <code>%plotsquared_currentplot_can_build</code> matching more appropriately <code>/plot info</code></p>
+</li>
+<li>
+<p><code>%plotsquared_allowed_plot_count%</code> now returns <code>infinite</code> if you have * permission</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_command_changes">37. Command changes</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>The command <code>/plot save</code> has been removed and replaced by Arkitektonika usable via <code>/plot download</code> ingame.</p>
+</li>
+<li>
+<p>The command <code>/plot download</code> has been overhauled with Arkitektonika. You now receive a deletion key alongside the download URL to delete the schematic whenever you want.</p>
+</li>
+<li>
+<p>The command <code>/plot wea</code> has been removed due deprecation and is superseded by <code>/plot toggle worldedit</code>. Alternative aliases are <code>/plot toggle wea</code> or <code>/plot toggle we</code>.</p>
+</li>
+<li>
+<p><code>/plot help</code> now supports tab completion of categories and notifies the user if they cannot access certain help pages.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usability_changes">38. Usability changes</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Tab completion has been added to (almost) all commands suggesting proper arguments if the user has permission.</p>
+</li>
+<li>
+<p>Vault is now being used as default currency allowing other plugins to provide their own currency ($, €, etc.)</p>
+</li>
+<li>
+<p>Destructive plot commands, such as <code>clear</code> or <code>delete</code> have been removed from plot worlds plots.</p>
+</li>
+<li>
+<p>A variety of plot commands now include the plot ID when running commands, e.g <code>/plot clear</code> or <code>/plot set biome</code></p>
+</li>
+<li>
+<p>Plot world plots now use an underscore (<code>_</code>) as index separator instead of a (semi)colon.</p>
+</li>
+<li>
+<p><code>/plot setowner</code> now respects grants</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_flag_changes">39. Flag changes</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_additions_4">39.1. Additions:</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The flag <code>leaf-decay</code> has been added determining whether leaves should decay or not. The flag is set to true by default, you need to set it via <code>/plot flag set leaf-decay false</code> to stop leaves from decaying.</p>
+</li>
+<li>
+<p>The flag <code>fall-damage</code> has been added determining whether an entity or a player should take fall damange.</p>
+</li>
+<li>
+<p>The flag <code>crop-grow</code> has been added determining whether an crops can grow or not.</p>
+</li>
+<li>
+<p>The flags <code>deny-portals</code> and <code>deny-portal-travel</code> have been added determining whether portals can be created or not and can be used.</p>
+</li>
+<li>
+<p>The flag <code>deny-portal-travel</code> has been added determining whether players can travel thru portals across dimensions.</p>
+</li>
+<li>
+<p>The flag <code>lectern-read-book</code> has been added determining whether players can open lecterns to read books. Note: This requires the <code>use</code> flag set with <code>lectern</code> input.</p>
+</li>
+<li>
+<p>The flag <code>entity-change-block</code> has been added allowing to control misc entity events in a more controllable way, e.g if a player jumps on a big dripleaf.</p>
+<div class="paragraph">
+<p>=== Changes:</p>
+</div>
+</li>
+<li>
+<p>The flag <code>weather</code> now solely takes the couple of inputs <code>rain</code> and <code>clear</code> matching the vanilla naming scheme.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bug_fixes_only_listing_issues_present_in_previous_versions_not_something_introduced_addressed_in_v6">40. Bug fixes (Only listing issues present in previous versions, not something introduced &amp; addressed in v6)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed issue with plot saving and loading of merged plots <a href="https://issues.intellectualsites.com/issue/PS-29">PS-29</a>, <a href="https://issues.intellectualsites.com/issue/PS-197">PS-197</a></p>
+</li>
+<li>
+<p>Fixed an issue with players not being added to the plot but jumping in cauldrons to extinguish themself draining water <a href="https://github.com/IntellectualSites/PlotSquared/issues/3034">3034</a></p>
+</li>
+<li>
+<p>Fixed an issue where kicking/denying a player from a plot did not kick them from the server if no spawn location has been set up <a href="https://github.com/IntellectualSites/PlotSquared/issues/3057">3057</a></p>
+</li>
+<li>
+<p>Fixed a couple of issues related to the handling of dragon eggs <a href="https://github.com/IntellectualSites/PlotSquared/issues/3074">3074</a>, <a href="https://github.com/IntellectualSites/PlotSquared/issues/3076">3076</a>.</p>
+</li>
+<li>
+<p>Fixed an issue where <code>/plot rate</code> would not render empty item stacks <a href="https://github.com/IntellectualSites/PlotSquared/issues/3063">3063</a></p>
+</li>
+<li>
+<p>Compatibility and targetting Java 16</p>
+</li>
+<li>
+<p>Fixed a couple of issues with <code>/plot inbox</code>: <a href="https://github.com/IntellectualSites/PlotSquared/issues/3021">3021</a>, <a href="https://github.com/IntellectualSites/PlotSquared/issues/3021">3020</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_other_changes_2">41. Other changes</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Our <a href="https://ci.athion.net/job/PlotSquared-v6-Javadocs/">Javadocs</a> are now searchable and link to external resources of our dependencies used.</p>
+</li>
+<li>
+<p>Full 1.17 support</p>
+</li>
+<li>
+<p>Requiring Java 16 or higher.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_plotsquared_6_0_1">42. PlotSquared 6.0.1</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Changes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Changed version of PlotAPI to 6</p>
+</li>
+<li>
+<p>Deprecated API methods scheduled for removal will now outline they are going to be removed soon</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Fixes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed changing the locale not working after reboot but /plot reload <a href="https://github.com/IntellectualSites/PlotSquared/issues/3099">#3099</a></p>
+</li>
+<li>
+<p>Fixed not teleporting all players out of the plot on clear and delete if configured <a href="https://github.com/IntellectualSites/PlotSquared/issues/3102">#3102</a></p>
+</li>
+<li>
+<p>Fixed issues with Citizens using fake uuids <a href="https://github.com/IntellectualSites/PlotSquared/issues/3105">#3105</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_plotsquared_6_0_2">43. PlotSquared 6.0.2</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Changes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Update to the latest 1.17-compatible versions of FAWE</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Fixes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix typo in expression parsing for plot pricing</p>
+</li>
+<li>
+<p>Do not allow moss spread on <a href="https://github.com/IntellectualSites/PlotSquared/issues/3100">#3100</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_plotsquared_6_0_3">44. PlotSquared 6.0.3</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Fixes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Don&#8217;t attempt to load 1.17 listeners on earlier versions</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_plotsquared_6_0_4">45. PlotSquared 6.0.4</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>**Fixes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix the regions found for merged plots (fixes some cases of issues with plot visit/home)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_plotsquared_v6_0_5">46. PlotSquared v6.0.5</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Changes:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Check super types and interfaces on PlotPlayer#from <a href="https://github.com/IntellectualSites/FastAsyncWorldEdit/issues/1140">IntellectualSites/FastAsyncWorldEdit#1140</a></p>
+</li>
+<li>
+<p>The placeholder plotsquared_currentplot_rating does no longer display plot ratings in scientific notation if disabled <a href="https://github.com/IntellectualSites/PlotSquared/issues/3091">#3091</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Fixes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed update notification message, update your translations file by deleting it, pulling from crowdin or deleting all <code>update.</code> strings from the file located in the <code>/lang/</code> folder.</p>
+</li>
+<li>
+<p>Fixed plot.added/trusted/deny.<amount>permissions</amount></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_plotsquared_v6_0_6">47. PlotSquared v6.0.6</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Additions:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add <code>copper-oxide</code> flag</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Fixes</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Don&#8217;t append color codes to component lore</p>
+</li>
+<li>
+<p>Fix issue when batching SQL queries</p>
+</li>
+<li>
+<p>Workaround for when plugins teleport players before they are fully online</p>
+</li>
+<li>
+<p>Don&#8217;t error when attempting to visit plots outside max int range</p>
+</li>
+<li>
+<p>Handle <code>/p f add</code> message properly</p>
+</li>
+<li>
+<p>Projectile hits events and splash potions event cancellation is now handled properly</p>
+</li>
+<li>
+<p>Fix off-by-one error in schematic pasting</p>
+</li>
+<li>
+<p>Check plot ownership/event before handling Direction.ALL</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_plotsquared_v6_0_7">48. PlotSquared v6.0.7</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Additions:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add option to strip user-defined click events in descriptions/farewells/greetings</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Fixes:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix issue with music flag displaying</p>
+</li>
+<li>
+<p>Fix boats and lilypad breaking on your own plot</p>
+</li>
+<li>
+<p>Fix various issues with projectiles not being removed properly</p>
+</li>
+<li>
+<p>Don&#8217;t affect players in entity change block flag</p>
+</li>
+<li>
+<p>Allow players to evapourate snow on their own plot when on fire</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

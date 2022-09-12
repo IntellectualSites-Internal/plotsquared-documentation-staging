@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>PlotSquared Documentation</title>
+<style>
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";
+@import "https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@2.0/data/stylesheets/asciidoctor-default.css";
+
+body {
+    font-family: inherit;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+h2, h3, #toctitle, a:hover, a:focus {
+    color: #2397f7;
+}
+
+h2 {
+    font-size: 2.1em;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+p {
+    line-height: 1.2;
+}
+
+a {
+    color: #717171;
+}
+
+code {
+    color: #002340;
+    font-size: 0.8em !important;
+}
+
+#toc a {
+    color: #555;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #424242;
+}
+
+/* dark-mode for sidebar*/
+
+/*
+#toc.toc2 {
+    background: #131313;
+}
+
+#toc a {
+    color: #a8a8a8;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #fff;
+}
+*/
+
+.sect1 + .sect1 {
+    border-top: 1px dotted #999;
+}
+
+#_return_to_the_index a {
+    text-decoration: unset;
+}
+
+.literalblock pre, .listingblock > .content > pre {
+  font-size: 0.9em;
+}
+
+.ulist > .title {
+    color: #000;
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: 800;
+}
+
+/* Icons: */
+.admonitionblock td.icon [class*=' icon-']::before {
+    text-shadow: 0 0 0;
+    color: #b0b0b0;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>PlotSquared Documentation</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_get_plotsquared">1. Get PlotSquared</a></li>
+<li><a href="#_about">2. About</a>
+<ul class="sectlevel2">
+<li><a href="#_why_should_you_switch_to_plotsquared">2.1. Why should you switch to PlotSquared?</a></li>
+</ul>
+</li>
+<li><a href="#_api">3. API</a>
+<ul class="sectlevel2">
+<li><a href="#_api_documentation">3.1. API Documentation</a></li>
+<li><a href="#_api_flag_documentation">3.2. API Flag Documentation</a></li>
+<li><a href="#_event_api">3.3. Event API</a></li>
+</ul>
+</li>
+<li><a href="#_basic_functionality">4. Basic Functionality</a>
+<ul class="sectlevel2">
+<li><a href="#_plot_backups">4.1. Plot Backups</a></li>
+</ul>
+</li>
+<li><a href="#_commands">5. Commands</a>
+<ul class="sectlevel2">
+<li><a href="#_commands_2">5.1. Commands</a></li>
+</ul>
+</li>
+<li><a href="#_configuration_files">6. Configuration files</a>
+<ul class="sectlevel2">
+<li><a href="#_settings_yml">6.1. Settings.yml</a></li>
+<li><a href="#_storage_yml">6.2. Storage.yml</a></li>
+<li><a href="#_worlds_yml">6.3. Worlds.yml</a></li>
+</ul>
+</li>
+<li><a href="#_customization">7. Customization</a>
+<ul class="sectlevel2">
+<li><a href="#_placeholders">7.1. Placeholders</a></li>
+<li><a href="#_plot_components">7.2. Plot components</a></li>
+<li><a href="#_plot_component_presets">7.3. Plot component presets</a></li>
+<li><a href="#_single_plot_area">7.4. Single plot area</a></li>
+</ul>
+</li>
+<li><a href="#_flags">8. Flags</a>
+<ul class="sectlevel2">
+<li><a href="#_plot_flags">8.1. Plot Flags</a></li>
+</ul>
+</li>
+<li><a href="#_installation">9. Installation</a>
+<ul class="sectlevel2">
+<li><a href="#_installation_2">9.1. Installation</a></li>
+<li><a href="#_migrating_from_an_older_major_release">9.2. Migrating from an older major release</a></li>
+<li><a href="#_updating_from_1_12_to_1_13">9.3. Updating from 1.12 to 1.13</a></li>
+</ul>
+</li>
+<li><a href="#_permissions">10. Permissions</a>
+<ul class="sectlevel2">
+<li><a href="#_bypass_permissions">10.1. Bypass Permissions</a></li>
+<li><a href="#_permission_packs">10.2. Permission Packs</a></li>
+</ul>
+</li>
+<li><a href="#_schematic">11. Schematic</a>
+<ul class="sectlevel2">
+<li><a href="#_schematic_generation">11.1. Schematic Generation</a></li>
+<li><a href="#_schematic_on_claim">11.2. Schematic on claim</a></li>
+<li><a href="#_schematic_export">11.3. Schematic export</a></li>
+</ul>
+</li>
+<li><a href="#_world_optimization">12. World optimization</a>
+<ul class="sectlevel2">
+<li><a href="#_chunk_processor">12.1. Chunk Processor</a></li>
+<li><a href="#_plot_analysis">12.2. Plot analysis</a></li>
+<li><a href="#_world_reduction">12.3. World reduction</a></li>
+</ul>
+</li>
+<li><a href="#_other_documentation">13. Other documentation</a>
+<ul class="sectlevel2">
+<li><a href="#_block_buckets">13.1. Block Buckets</a></li>
+<li><a href="#_chestshop_compatibility">13.2. Chestshop Compatibility</a></li>
+<li><a href="#_plot_membership_tiers">13.3. Plot membership tiers</a></li>
+<li><a href="#_vanilla_tags">13.4. Vanilla Tags</a></li>
+<li><a href="#_uuid_conversion">13.5. UUID conversion</a></li>
+<li><a href="#_worldeditfawe_features">13.6. WorldEdit/FAWE Features</a></li>
+</ul>
+</li>
+<li><a href="#_changelog_archive">14. Changelog archive</a>
+<ul class="sectlevel2">
+<li><a href="#_spigot_changelog_v4_to_v5">14.1. Spigot changelog v4 to v5</a></li>
+<li><a href="#_changelog_old_on_the_release_tab">14.2. Changelog (old, on the "Release" tab)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_get_plotsquared">1. Get PlotSquared</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Download <a href="https://www.spigotmc.org/resources/77506/">PlotSquared</a></p>
+</li>
+<li>
+<p>Our support discord is available at <a href="https://discord.gg/intellectualsites" class="bare">https://discord.gg/intellectualsites</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_about">2. About</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_why_should_you_switch_to_plotsquared">2.1. <a href="why-plotsquared.html">Why should you switch to PlotSquared?</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_api">3. API</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_api_documentation">3.1. <a href="api-documentation.html">API Documentation</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_api_flag_documentation">3.2. <a href="flag-api.html">API Flag Documentation</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_event_api">3.3. <a href="event-api.html">Event API</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_basic_functionality">4. Basic Functionality</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_plot_backups">4.1. <a href="plot-backups.html">Plot Backups</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_commands">5. Commands</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_commands_2">5.1. <a href="commands.html">Commands</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration_files">6. Configuration files</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_settings_yml">6.1. <a href="settings.yml.html">Settings.yml</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_storage_yml">6.2. <a href="storage.yml.html">Storage.yml</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_worlds_yml">6.3. <a href="worlds.yml.html">Worlds.yml</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_customization">7. Customization</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_placeholders">7.1. <a href="placeholders.html">Placeholders</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_plot_components">7.2. <a href="plot-components.html">Plot components</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_plot_component_presets">7.3. <a href="plot-component-presets.html">Plot component presets</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_single_plot_area">7.4. <a href="single-plot-area.html">Single plot area</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_flags">8. Flags</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_plot_flags">8.1. <a href="plot-flags.html">Plot Flags</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation">9. Installation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_installation_2">9.1. <a href="installation.html">Installation</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_migrating_from_an_older_major_release">9.2. <a href="migrating-from-an-older-major-release.html">Migrating from an older major release</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_updating_from_1_12_to_1_13">9.3. <a href="updating-from-1.12-to-1.13.html">Updating from 1.12 to 1.13</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_permissions">10. Permissions</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_bypass_permissions">10.1. <a href="bypass-permissions.html">Bypass Permissions</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_permission_packs">10.2. <a href="permission-packs.html">Permission Packs</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_schematic">11. Schematic</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_schematic_generation">11.1. <a href="schematic-generation.html">Schematic Generation</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_schematic_on_claim">11.2. <a href="schematic-on-claim.html">Schematic on claim</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_schematic_export">11.3. <a href="schematic-export.html">Schematic export</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_world_optimization">12. World optimization</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_chunk_processor">12.1. <a href="chunk-processor.html">Chunk Processor</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_plot_analysis">12.2. <a href="plot-analysis.html">Plot analysis</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_world_reduction">12.3. <a href="world-reduction.html">World reduction</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_other_documentation">13. Other documentation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_block_buckets">13.1. <a href="block-bucket.html">Block Buckets</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_chestshop_compatibility">13.2. <a href="chestshop-compatibility.html">Chestshop Compatibility</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_plot_membership_tiers">13.3. <a href="plot-membership-tiers.html">Plot membership tiers</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_vanilla_tags">13.4. <a href="vanilla-tags.html">Vanilla Tags</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_uuid_conversion">13.5. <a href="uuid-conversion.html">UUID conversion</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_worldeditfawe_features">13.6. <a href="worldedit-features.html">WorldEdit/FAWE Features</a></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_changelog_archive">14. Changelog archive</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_spigot_changelog_v4_to_v5">14.1. <a href="spigot-changelog-v4----v5.html">Spigot changelog v4 to v5</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="_changelog_old_on_the_release_tab">14.2. <a href="changelog-old.html">Changelog (old, on the "Release" tab)</a></h3>
+<div class="paragraph">
+<p><span class="image"><a class="image" href="https://www.spigotmc.org/resources/77506/"><img src="https://img.shields.io/badge/dynamic/json.svg?url=https://api.spiget.org/v2/resources/77506&amp;label=Spigot-Downloads&amp;query=$.downloads&amp;colorB=ee8a18&amp;style=flat-square&amp;maxAge=3600" alt="Spigot Downloads"></a></span>
+<span class="image"><a class="image" href="https://www.spigotmc.org/resources/77506/"><img src="https://img.shields.io/badge/dynamic/json.svg?url=https://api.spiget.org/v2/resources/77506&amp;label=Rating&amp;query=$.rating.average&amp;colorB=00AB66&amp;style=flat-square&amp;maxAge=3600" alt="Spigot Rating"></a></span>
+<span class="image"><a class="image" href="https://discord.gg/intellectualsites"><img src="https://img.shields.io/discord/268444645527126017.svg?style=flat-square&amp;maxAge=3600&amp;colorB=7289DA" alt="Discord"></a></span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

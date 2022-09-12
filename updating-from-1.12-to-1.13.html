@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Updating from 1.12 to 1.13</title>
+<style>
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";
+@import "https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@2.0/data/stylesheets/asciidoctor-default.css";
+
+body {
+    font-family: inherit;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+h2, h3, #toctitle, a:hover, a:focus {
+    color: #2397f7;
+}
+
+h2 {
+    font-size: 2.1em;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+p {
+    line-height: 1.2;
+}
+
+a {
+    color: #717171;
+}
+
+code {
+    color: #002340;
+    font-size: 0.8em !important;
+}
+
+#toc a {
+    color: #555;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #424242;
+}
+
+/* dark-mode for sidebar*/
+
+/*
+#toc.toc2 {
+    background: #131313;
+}
+
+#toc a {
+    color: #a8a8a8;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #fff;
+}
+*/
+
+.sect1 + .sect1 {
+    border-top: 1px dotted #999;
+}
+
+#_return_to_the_index a {
+    text-decoration: unset;
+}
+
+.literalblock pre, .listingblock > .content > pre {
+  font-size: 0.9em;
+}
+
+.ulist > .title {
+    color: #000;
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: 800;
+}
+
+/* Icons: */
+.admonitionblock td.icon [class*=' icon-']::before {
+    text-shadow: 0 0 0;
+    color: #b0b0b0;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Updating from 1.12 to 1.13</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_updating_to_1_13">1. Updating to 1.13</a>
+<ul class="sectlevel2">
+<li><a href="#_schematics">1.1. Schematics</a></li>
+<li><a href="#_dependencies">1.2. Dependencies</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<h5 id="_return_to_the_index" class="discrete"><a href="README.html">« Return to the index</a></h5>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_updating_to_1_13">1. Updating to 1.13</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you are updating to 1.13 you might have to manually change some things.</p>
+</div>
+<div class="paragraph">
+<p>PlotSquared will attempt to convert your <code>worlds.yml</code> configuration file on startup. After that has been done, you should review the file to see that everything has converted properly.</p>
+</div>
+<div class="paragraph">
+<p>Please note that PlotSquared for 1.13 only supports Bukkit at the moment.</p>
+</div>
+<div class="sect2">
+<h3 id="_schematics">1.1. Schematics</h3>
+<div class="paragraph">
+<p>PlotSquared will not update your schematics, so you might have to do that manually.
+The new version of PlotSquared introduced a format for configuring blocks for the different plot components. You can read more about that <a href="./block-bucket.html">here</a>. This
+change allows you to use multiple block types in every plot component.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dependencies">1.2. Dependencies</h3>
+<div class="paragraph">
+<p>PlotSquared now depends on <a href="https://dev.bukkit.org/projects/worldedit/files">WorldEdit</a> or <a href="https://www.spigotmc.org/resources/fast-async-worldedit.13932">FastAsyncWorldEdit</a>, so you will need to have that installed on the server in order to use PlotSquared.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

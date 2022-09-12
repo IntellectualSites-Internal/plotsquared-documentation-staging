@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Why should you switch to PlotSquared?</title>
+<style>
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";
+@import "https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@2.0/data/stylesheets/asciidoctor-default.css";
+
+body {
+    font-family: inherit;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+h2, h3, #toctitle, a:hover, a:focus {
+    color: #2397f7;
+}
+
+h2 {
+    font-size: 2.1em;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+p {
+    line-height: 1.2;
+}
+
+a {
+    color: #717171;
+}
+
+code {
+    color: #002340;
+    font-size: 0.8em !important;
+}
+
+#toc a {
+    color: #555;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #424242;
+}
+
+/* dark-mode for sidebar*/
+
+/*
+#toc.toc2 {
+    background: #131313;
+}
+
+#toc a {
+    color: #a8a8a8;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #fff;
+}
+*/
+
+.sect1 + .sect1 {
+    border-top: 1px dotted #999;
+}
+
+#_return_to_the_index a {
+    text-decoration: unset;
+}
+
+.literalblock pre, .listingblock > .content > pre {
+  font-size: 0.9em;
+}
+
+.ulist > .title {
+    color: #000;
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: 800;
+}
+
+/* Icons: */
+.admonitionblock td.icon [class*=' icon-']::before {
+    text-shadow: 0 0 0;
+    color: #b0b0b0;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Why should you switch to PlotSquared?</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_speed">1. Speed</a></li>
+<li><a href="#_reduce_lag">2. Reduce lag</a></li>
+<li><a href="#_safety">3. Safety</a></li>
+<li><a href="#_looks">4. Looks</a></li>
+<li><a href="#_support">5. Support</a></li>
+<li><a href="#_features">6. Features</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<h5 id="_return_to_the_index" class="discrete"><a href="README.html">« Return to the index</a></h5>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_speed">1. Speed</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Async: clear plots more than 800 times faster than PlotMe</p>
+</li>
+<li>
+<p>Plot auto doesn&#8217;t lag or crash the server</p>
+</li>
+<li>
+<p>Much faster chunk generation, plot moving, swapping + everything</p>
+</li>
+<li>
+<p>Supports huge plot sizes (e.g. 1024x1024 of custom terrain)</p>
+</li>
+<li>
+<p>Works with hundreds of thousands of plots</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reduce_lag">2. Reduce lag</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Plot purging and old plot removal</p>
+</li>
+<li>
+<p>Optional dynamic world border and world chunk trimming</p>
+</li>
+<li>
+<p>Mass plot condensation</p>
+</li>
+<li>
+<p>Redstone clock prevention</p>
+</li>
+<li>
+<p>Mob limiting</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_safety">3. Safety</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>You can safely allow redstone, tnt without worrying about lag, griefing from sand cannons, pistons, tnt, &#8230;&#8203;</p>
+</li>
+<li>
+<p>You have a reliable <a href="https://dev.bukkit.org/projects/worldedit">WorldEdit</a> / <a href="https://www.spigotmc.org/resources/fast-async-worldedit.13932">FastAsyncWorldEdit</a> restriction</p>
+</li>
+<li>
+<p>Chunk and WorldEdit processor to prevent lag, crashes and data corruption</p>
+</li>
+<li>
+<p>Lots of redundancies. e.g. Backup your database with <code>/plot database</code>, or if you loose both, you can still recover based on plot sign information.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_looks">4. Looks</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Add amazing roads schematics and plot schematics to existing worlds</p>
+</li>
+<li>
+<p>Easily change the message color scheme</p>
+</li>
+<li>
+<p>Titles (entry notifications)</p>
+</li>
+<li>
+<p>Per plot time / weather / music via <a href="plot-flags.html">plot flags</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_support">5. Support</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Support for Minecraft 1.13.2 to 1.18.2 and higher</p>
+</li>
+<li>
+<p>Works with offline-mode servers</p>
+</li>
+<li>
+<p><a href="https://intellectualsites.crowdin.com/plotsquared">Community Translations</a></p>
+</li>
+<li>
+<p>fast <a href="https://discord.gg/intellectualsites">Discord</a> support</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_features">6. Features</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Plot merging</p>
+</li>
+<li>
+<p>Extensive flag system (~100+ flags)</p>
+</li>
+<li>
+<p>Plot clusters in normal worlds</p>
+</li>
+<li>
+<p>Augmented generation (e.g. Vanilla, Islands, TerrainControl)</p>
+</li>
+<li>
+<p>PlotSquared Web interface</p>
+</li>
+<li>
+<p>Plot approval system</p>
+</li>
+<li>
+<p>Donut shaped plots (or any shape symmetrical about x=z)</p>
+</li>
+<li>
+<p>FastAsyncVoxelSniper support</p>
+</li>
+<li>
+<p>Plot component percent composition control</p>
+</li>
+<li>
+<p>Biome generation inside plots</p>
+</li>
+<li>
+<p>Dynmap</p>
+</li>
+<li>
+<p>and much more &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

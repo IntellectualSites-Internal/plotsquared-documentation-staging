@@ -1,0 +1,2883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Commands</title>
+<style>
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";
+@import "https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@2.0/data/stylesheets/asciidoctor-default.css";
+
+body {
+    font-family: inherit;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+h2, h3, #toctitle, a:hover, a:focus {
+    color: #2397f7;
+}
+
+h2 {
+    font-size: 2.1em;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+p {
+    line-height: 1.2;
+}
+
+a {
+    color: #717171;
+}
+
+code {
+    color: #002340;
+    font-size: 0.8em !important;
+}
+
+#toc a {
+    color: #555;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #424242;
+}
+
+/* dark-mode for sidebar*/
+
+/*
+#toc.toc2 {
+    background: #131313;
+}
+
+#toc a {
+    color: #a8a8a8;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #fff;
+}
+*/
+
+.sect1 + .sect1 {
+    border-top: 1px dotted #999;
+}
+
+#_return_to_the_index a {
+    text-decoration: unset;
+}
+
+.literalblock pre, .listingblock > .content > pre {
+  font-size: 0.9em;
+}
+
+.ulist > .title {
+    color: #000;
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: 800;
+}
+
+/* Icons: */
+.admonitionblock td.icon [class*=' icon-']::before {
+    text-shadow: 0 0 0;
+    color: #b0b0b0;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Commands</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_command_overview">2. Command Overview</a></li>
+<li><a href="#_basics">3. Basics</a></li>
+<li><a href="#_info">4. Info</a></li>
+<li><a href="#_teleport">5. Teleport</a></li>
+<li><a href="#_chat">6. Chat</a></li>
+<li><a href="#_claiming">7. Claiming</a></li>
+<li><a href="#_settings">8. Settings</a></li>
+<li><a href="#_schematic">9. Schematic</a></li>
+<li><a href="#_rating">10. Rating</a></li>
+<li><a href="#_administration">11. Administration</a></li>
+<li><a href="#_debug">12. Debug</a></li>
+<li><a href="#_other_permissions">13. Other permissions</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<h5 id="_return_to_the_index" class="discrete"><a href="README.html">« Return to the index</a></h5>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All commands start with <code>/plot</code> if not configured else wise.</p>
+</div>
+<div class="paragraph">
+<p>As alternative or short-command you can use the following aliases:
+<code>plots, p, plotsquared, p2, ps, 2, plotme</code></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_command_overview">2. Command Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>PlotSquared have an amount of commands for different uses. At here you find the complete command list with her syntax and permissions.</p>
+</div>
+<div class="paragraph">
+<p>command-categories:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#_basics">Basics</a></p>
+</li>
+<li>
+<p><a href="#_info">Info</a></p>
+</li>
+<li>
+<p><a href="#_teleport">Teleport</a></p>
+</li>
+<li>
+<p><a href="#_chat">Chat</a></p>
+</li>
+<li>
+<p><a href="#_claiming">Claiming</a></p>
+</li>
+<li>
+<p><a href="#_settings">Settings</a></p>
+</li>
+<li>
+<p><a href="#_schematic">Schematic</a></p>
+</li>
+<li>
+<p><a href="#_rating">Rating</a></p>
+</li>
+<li>
+<p><a href="#_administration">Administration</a></p>
+</li>
+<li>
+<p><a href="#_debug">Debug</a></p>
+</li>
+<li>
+<p><a href="#_other_permissions">Other permissions</a></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a command or permission contains the <code>Secondary</code> description, it means that a command supports several sub-commands or has several purposes. Furthermore, permissions with <code>.admin</code> contain administrative overrides.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can check out our <a href="/permission-packs.html">permission-packs</a> to avoid redundant permission assignments.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_basics">3. Basics</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_help">3.1. HELP</h3>
+<div class="paragraph">
+<p>Get this help menu</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot help [category|#]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ ? ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.use</code> - Access to the command <code>/plot help</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Help.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_confirm">3.2. CONFIRM</h3>
+<div class="paragraph">
+<p>Confirm an action</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot confirm</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.confirm</code> - Access to the command <code>/plot confirm</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Confirm.java">here</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_info">4. Info</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_info_2">4.1. INFO</h3>
+<div class="paragraph">
+<p>Display plot info</p>
+</div>
+<div class="paragraph">
+<p>With <code>-f</code> you get the administrative override to bypass the <code>hide-info</code> flag.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot [[world;]X;Z] info [-f]</code></p>
+</li>
+<li>
+<p><code>/plot info [[world;]X;Z] [-f]</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot [[world;]X;Z] info [-f] &lt;categorie: members, alias, biome, seen, denied, flags, id, size, trusted, owner, rating&gt;</code></p>
+</li>
+<li>
+<p><code>/plot info [[world;]X;Z] [-f] &lt;categorie: members, alias, biome, seen, denied, flags, id, size, trusted, owner, rating&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ i ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.info</code> - Access to the command <code>/plot info</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.info.force</code> - Access to the command flag <code>-f</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Info.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_list">4.2. LIST</h3>
+<div class="paragraph">
+<p>List plots</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot list &lt;forsale | mine | shared | world | top | all | unowned | unknown | player | world | done |fuzzy &lt;search...&gt;&gt; [#]</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot list fuzzy &lt;search...&gt; [#]</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ l, find, search ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.list</code> - Access to the command <code>/plot list</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.list.world.&lt;arg&gt;</code></p>
+</li>
+<li>
+<p><code>plots.list.top</code> - Access to the command <code>/plot list top</code></p>
+</li>
+<li>
+<p><code>plots.list.mine</code> - Access to the command <code>/plot list mine</code></p>
+</li>
+<li>
+<p><code>plots.list.world</code> - Access to the command <code>/plot list world</code></p>
+</li>
+<li>
+<p><code>plots.list.done</code> - Access to the command <code>/plot list done</code></p>
+</li>
+<li>
+<p><code>plots.list.all</code> - Access to the command <code>/plot list all</code></p>
+</li>
+<li>
+<p><code>plots.list.shared</code> - Access to the command <code>/plot list shared</code></p>
+</li>
+<li>
+<p><code>plots.list.expired</code> - Access to the command <code>/plot list expired</code></p>
+</li>
+<li>
+<p><code>plots.list.unowned</code> - Access to the command <code>/plot list unowned</code></p>
+</li>
+<li>
+<p><code>plots.list.world.&lt;world&gt;"</code> - Access to the command <code>/plot list world &lt;world&gt;</code></p>
+</li>
+<li>
+<p><code>plots.list.player</code> - Access to the command <code>/plot list player &lt;player&gt;</code></p>
+</li>
+<li>
+<p><code>plots.list.forsale</code> - Access to the command <code>/plot list forsale</code></p>
+</li>
+<li>
+<p><code>plots.list.unknown</code> - Access to the command <code>/plot list unknown</code></p>
+</li>
+<li>
+<p><code>plots.list.area</code> - Access to the command <code>/plot list area</code></p>
+</li>
+<li>
+<p><code>plots.list.fuzzy</code> - Access to the command <code>/plot list fuzzy #</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/ListCmd.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_target">4.3. TARGET</h3>
+<div class="paragraph">
+<p>Target a plot with your compass</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot target &lt;&lt;X;Z&gt; | nearest&gt;</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.target</code> - Access to the command <code>/plot target</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Target.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_caps">4.4. CAPS</h3>
+<div class="paragraph">
+<p>Show plot mob and entity caps</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] caps</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.caps</code> - Access to the command <code>/plot caps</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.caps.other</code> - Administrative override to manage caps at other plots</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Caps.java">here</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_teleport">5. Teleport</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_home">5.1. HOME</h3>
+<div class="paragraph">
+<p>Teleport to your plot(s).</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong></p>
+</div>
+<div class="paragraph">
+<p>normal:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot home</code></p>
+</li>
+<li>
+<p><code>/plot home &lt;#&gt;</code></p>
+</li>
+<li>
+<p><code>/plot home &lt;area/world&gt; &lt;#&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>alias:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot home &lt;alias&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>coordinates:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot home &lt;X&gt;;&lt;Z&gt;</code></p>
+</li>
+<li>
+<p><code>/plot home &lt;area/world&gt; &lt;X&gt;;&lt;Z&gt;</code></p>
+</li>
+<li>
+<p><code>/plot home &lt;area/world&gt;;&lt;X&gt;;&lt;Z&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ h ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.home</code> - Access to the command <code>/plot home</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.visit.owned</code> - Access to visit owned plots</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/blob/v6/Core/src/main/java/com/plotsquared/core/command/HomeCommand.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_visit">5.2. Visit</h3>
+<div class="paragraph">
+<p>Visit someones plot.</p>
+</div>
+<div class="paragraph">
+<p>normal:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot visit &lt;player&gt;</code></p>
+</li>
+<li>
+<p><code>/plot visit &lt;player&gt; &lt;#&gt;</code></p>
+</li>
+<li>
+<p><code>/plot visit &lt;player&gt; &lt;area/world&gt;</code></p>
+</li>
+<li>
+<p><code>/plot visit &lt;player&gt; &lt;area/world&gt; &lt;#&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>alias:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot visit &lt;alias&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>coordinates:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot visit &lt;X&gt;;&lt;Z&gt;</code></p>
+</li>
+<li>
+<p><code>/plot visit &lt;area/world&gt;;&lt;X&gt;;&lt;Z&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ v, tp, teleport, goto, warp ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.visit</code> - Access to the command <code>/plot visit</code></p>
+</li>
+<li>
+<p><code>plots.visit.other</code> - Access to visit other people&#8217;s plots</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.visit.unowned</code> - Access to visit unowned plots</p>
+</li>
+<li>
+<p><code>plots.visit.owned</code> - Acecss to visit owned plots</p>
+</li>
+<li>
+<p><code>plots.visit.shared</code> - Access to visit shared plots</p>
+</li>
+<li>
+<p><code>plots.admin.visit.untrusted</code> - Access to visit plots where the player is not trusted to</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Visit.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_middle">5.3. MIDDLE</h3>
+<div class="paragraph">
+<p>Teleports you to the center of the plot.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] middle</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ center, centre ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.middle</code> - Access to the command <code>/plot middle</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Middle.java">here</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_chat">6. Chat</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_comment">6.1. COMMENT</h3>
+<div class="paragraph">
+<p>Comment on a plot</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] comment &lt;message-type: owner | public | report (= for staff)&gt; &lt;comment&gt;</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ msg ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.comment</code> - Access to the command <code>/plots comment</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Comment.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_inbox">6.2. INBOX</h3>
+<div class="paragraph">
+<p>List the comments for a plot / delete a message or clear the list</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot [[world;]X;Z] inbox</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot [[world;]X;Z] inbox &lt;message-type: owner | public | report&gt; [delete &lt;index&gt; | clear | page]</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.inbox</code> - Access to the command <code>/plots inbox</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Inbox.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_chat_2">6.3. CHAT</h3>
+<div class="paragraph">
+<p>Toggle plot chat on or off</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot chat</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.chat</code> - Access to the command <code>/plot chat</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.chat.color</code> - Access to color codes in plot chat</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Chat.java">here</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_claiming">7. Claiming</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_buy">7.1. BUY</h3>
+<div class="paragraph">
+<p>Buy the plot you are standing on.</p>
+</div>
+<div class="paragraph">
+<p>For this command the economy feature is to activate in the <code>worlds.yml</code> for this world. Additionally you can change the the prices for "merge", "sell" and "claim" at tis config part too.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] buy</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.buy</code> - Access to <code>/plot buy</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Buy.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_claim">7.2. CLAIM</h3>
+<div class="paragraph">
+<p>Claim the current plot you are standing on, if you&#8217;re not activated the economy feature in the <code>worlds.yml</code> for this world.
+If you activated the "specify_on_claim" option in the worlds.yml you can define a plot-schematic.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot [[world;]X;Z] claim</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot [[world;]X;Z] claim &lt;schematic&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ c ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.claim</code> - Access to <code>/plot claim</code></p>
+</li>
+<li>
+<p><code>plots.plot.&lt;max plot amount&gt;</code> - Limit the amounts of plots a player can claim</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.claim.&lt;schem&gt;</code> - Dynamic permission associated with your schematic, if used.</p>
+</li>
+<li>
+<p><code>plots.admin.command.schematic</code> - Administrative access to schematic claims.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Claim.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_auto">7.3. AUTO</h3>
+<div class="paragraph">
+<p>Claim the nearest plot in your world if you&#8217;re not activated the economy feature in the <code>worlds.yml</code> for this world.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot auto [length, width]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ a ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.auto</code> - Access to the command <code>/plot auto</code></p>
+</li>
+<li>
+<p><code>plots.plot.&lt;max plot amount&gt;</code> - Limit the amounts of plots a player can claim</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.claim.&lt;schem&gt;</code> - Dynamic permission associated with your schematic, if used.</p>
+</li>
+<li>
+<p><code>plots.auto.mega</code> - Access to the length and width arguments</p>
+</li>
+<li>
+<p><code>plots.admin.command.schematic</code> - Administrative access to schematic claims.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Auto.java">here</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_settings">8. Settings</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_setowner">8.1. SETOWNER</h3>
+<div class="paragraph">
+<p>Set the plot owner.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] setowner &lt;player&gt;</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ owner, so, seto ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.command.setowner</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Owner.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_add">8.2. ADD</h3>
+<div class="paragraph">
+<p>Whith this command you "add him" to the whitelist of the plot. Allow a user to build in a plot while the plot owner is online.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] add &lt;player | *&gt;</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.add</code> - Access to the command <code>/plot add</code></p>
+</li>
+<li>
+<p><code>plots.add.&lt;amount&gt;</code> - Specifying the amount of people the plot owner can add</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.command.add</code> - Administrative override</p>
+</li>
+<li>
+<p><code>plots.add.everyone</code> - Access to add everyone</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Add.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_trust">8.3. TRUST</h3>
+<div class="paragraph">
+<p>Whith this command you "add him" to the whitelist of the plot. It gives the added user more permissions as the normal ADD command: it allow a user to build in a plot every time and use WorldEdit while the plot owner is offline.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] trust &lt;player | *&gt;</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ t ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.trust</code> - Access to the command <code>/plot trust</code></p>
+</li>
+<li>
+<p><code>plots.trust.&lt;amount&gt;</code> - Specifying the amount of people the plot owner can trust</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.command.trust</code> - Administrative override</p>
+</li>
+<li>
+<p><code>plots.trust.everyone</code> - Access to trust everyone</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Trust.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_remove">8.4. REMOVE</h3>
+<div class="paragraph">
+<p>Remove a player from a plot. This include the player whitelist (ADD, TRUST) and the blacklist (DENY) of the plot.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] remove &lt;player | *&gt;</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ r, untrust, ut, undeny, ud, unban ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.remove</code> - Access to the command <code>/plot remove</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.command.remove</code> Administrative override</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Remove.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deny">8.5. DENY</h3>
+<div class="paragraph">
+<p>Deny a user from entering a plot. With this command you "add him" to the blacklist of the plot.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] deny &lt;player | *&gt;</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ d, ban ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.deny</code> - Access to the command <code>/plot deny</code></p>
+</li>
+<li>
+<p><code>plots.deny.&lt;amount&gt;</code> - Specifying the amount of people the plot owner can deny</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.command.deny</code> - Administrative override</p>
+</li>
+<li>
+<p><code>plots.admin.entry.denied</code> - Administrative override to bypass plot deny</p>
+</li>
+<li>
+<p><code>plots.deny.everyone</code> - Access to deny everyone</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Deny.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_grant">8.6. GRANT</h3>
+<div class="paragraph">
+<p>Manage plot grants.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot grant &lt;check | add&gt; [player]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.grant</code> - Access to the command <code>/plot grant</code></p>
+</li>
+<li>
+<p><code>plots.grant.add</code> - Access to the command <code>/plot grant add</code></p>
+</li>
+<li>
+<p><code>plots.grant.check</code> - Access to the command <code>/plot grant check</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Grant.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_kick">8.7. KICK</h3>
+<div class="paragraph">
+<p>Kick a player from your plot.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] kick &lt;player | *&gt;</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ k ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.kick</code> - Access to the command <code>/plot kick</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.command.kick</code> - Administrative override</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Kick.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_merge">8.8. MERGE</h3>
+<div class="paragraph">
+<p>Merge the plot you are standing on with another plot.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] merge &lt;all | n | e | s | w&gt; [removeroads]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ m ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.merge</code> - Access to the command <code>/plot claim</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.merge.&lt;amount&gt;</code> - Limit the amount of plots a player can merge to a mega plot</p>
+</li>
+<li>
+<p><code>plots.admin.command.merge</code> - Administrative override</p>
+</li>
+<li>
+<p><code>plots.merge.other</code> - Access to merge the plot with other people</p>
+</li>
+<li>
+<p><code>plots.merge.keeproad</code> - Access to use the keeproad argument</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Merge.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_unlink">8.9. UNLINK</h3>
+<div class="paragraph">
+<p>Unlink a mega-plot (merged plot)</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] unlink [createroads]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ u, unmerge ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.unlink</code> - Access to the command <code>/plot unlink</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.command.unlink</code> - Administrative override</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Unlink.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sethome">8.10. SETHOME</h3>
+<div class="paragraph">
+<p>Set the plot-home you&#8217;re standing on. The plothome is the position where the player will teleported if he use the <code>/plot home</code> or <code>/plot visit</code> command. With the argument <code>none</code> you reset the position.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] set home [none]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ sh, seth, sethome ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.set.home</code> - Access to the command <code>/plot set home</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/SetHome.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_alias">8.11. ALIAS</h3>
+<div class="paragraph">
+<p>Set the plot name</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot [[world;]X;Z] alias set &lt;alias&gt;</code></p>
+</li>
+<li>
+<p><code>/plot [[world;]X;Z] alias remove &lt;alias&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ setalias, sa, name, rename, setname, seta, nameplot ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.alias.set</code> - Access to the command <code>/plot alias set</code></p>
+</li>
+<li>
+<p><code>plots.alias.remove</code> - Access to the command <code>/plot alias remove</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.alias.set</code> - Administrative override to set an alias</p>
+</li>
+<li>
+<p><code>plots.admin.alias.remove</code> - Administrative override to remove an alias</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Alias.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_setdescription">8.12. SETDESCRIPTION</h3>
+<div class="paragraph">
+<p>Set the plot description</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] desc &lt;description&gt;</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ setdescription, setdesc, setd, description ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.set.desc</code> - Access to the command <code>/plot set description</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Desc.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_music">8.13. MUSIC</h3>
+<div class="paragraph">
+<p>Player music in a plot</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] music</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.music</code> - Access to the command <code>/plot music</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Music.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_setbiome">8.14. SETBIOME</h3>
+<div class="paragraph">
+<p>List all possible biomes or change the plot biome. (You can change the biome with WorldEdit / FAWE too.) If you clear or delete the plot, you reset the biom setting too, so the default biome (changeable in the <code>worlds.yml</code>) will be used.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] biome [biome]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ biome, sb, setb, b ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.set.biome</code> - Access to the command <code>/plot set biome</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Biome.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_setflag">8.15. SETFLAG</h3>
+<div class="paragraph">
+<p>Manage plot flags.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot [[world;]X;Z] flag</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot [[world;]X;Z] flag info &lt;flag&gt;</code></p>
+</li>
+<li>
+<p><code>/plot [[world;]X;Z] flag set &lt;flag&gt; &lt;value&gt;</code></p>
+</li>
+<li>
+<p><code>/plot [[world;]X;Z] flag add &lt;flag&gt; &lt;values&gt;</code></p>
+</li>
+<li>
+<p><code>/plot [[world;]X;Z] flag remove &lt;flag&gt; [values]</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ f, flag ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.flag</code> - Access to the command <code>/plot flag</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.set.flag</code> - Access to the command <code>/plot set flag</code></p>
+</li>
+<li>
+<p><code>plots.flag.remove</code> - Access to the command <code>/plot flag remove</code></p>
+</li>
+<li>
+<p><code>plots.flag.add</code> - Access to the command <code>/plot flag add</code></p>
+</li>
+<li>
+<p><code>plots.set.flag.other</code> - Access to set flag on other people&#8217;s plots</p>
+</li>
+<li>
+<p><code>plots.set.flag.&lt;arg&gt;</code> - Access to the command <code>/plot set flag &lt;arg&gt;</code></p>
+</li>
+<li>
+<p><code>plots.flag.list</code> - Access to the command <code>/plot flag list</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/FlagCommand.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_done">8.16. DONE</h3>
+<div class="paragraph">
+<p>Mark a plot as done</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] done</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ submit ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.done</code> - Access to the command <code>/plot done</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.command.done</code> - Administrative override</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Done.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_continue">8.17. CONTINUE</h3>
+<div class="paragraph">
+<p>Continue a plot that was previously marked as done</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] continue</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.continue</code> - Access to the command <code>/plot continue</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.command.continue</code> - Administrative override</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Continue.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_toggle">8.18. TOGGLE</h3>
+<div class="paragraph">
+<p>Toggle per user settings</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] toggle &lt;chat | chatspy | clear-confirmation | time | titles | worldedit&gt;</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.use</code> - Access to the command <code>/plot toggle</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.command.chat</code> - Access to the command <code>/plot toggle chat-spy</code></p>
+</li>
+<li>
+<p><code>plots.worldedit.bypass</code> - Access to the command <code>/plot wea</code></p>
+</li>
+<li>
+<p><code>plots.toggle.chat</code> - Access to the command <code>/plot chat</code></p>
+</li>
+<li>
+<p><code>plots.admin.command.autoclear</code> - Access to the command <code>/plot toggle clear-confirmation</code></p>
+</li>
+<li>
+<p><code>plots.toggle.titles</code> - Access to the command <code>/plot toggle titles</code></p>
+</li>
+<li>
+<p><code>plots.toggle.time</code> - Access to the command <code>/plots toggle time</code></p>
+</li>
+<li>
+<p><code>plots.toggle.debug</code> - Access to the command <code>/plots toggle debug</code></p>
+</li>
+<li>
+<p><code>plots.admin.debug.other</code> - Administrative override to toggle the debugmode for other players</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Toggle.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_set">8.19. SET</h3>
+<div class="paragraph">
+<p>Set a plot value</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] set &lt;biome | alias | home | floor | wall | all | air | main | middle | outline | border&gt; &lt;value...&gt;</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ s ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.set</code> - Access to the command <code>/plot set</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.set." + &lt;component&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Set.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_copy">8.20. COPY</h3>
+<div class="paragraph">
+<p>Copy a plot.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] copy &lt;X;Z&gt;</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ copypaste ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.copy</code> - Access to the command <code>/plot copy</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Copy.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_move">8.21. MOVE</h3>
+<div class="paragraph">
+<p>Move a plot.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] move &lt;X;Z&gt;</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.move</code> - Access to the command <code>/plot move</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Move.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_swap">8.22. SWAP</h3>
+<div class="paragraph">
+<p>Swap two plots.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] swap &lt;X;Z&gt;</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ switch ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.swap</code> - Access to the command <code>/plot swap</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Swap.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_backup">8.23. BACKUP</h3>
+<div class="paragraph">
+<p>Manage plot backups</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] backup &lt;save | list | load&gt;</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.backup</code> - Access to the command <code>/plot backup</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.backup.save</code> - Access to the command <code>/plot backup save</code></p>
+</li>
+<li>
+<p><code>plots.backup.load</code> - Access to the command <code>/plot backup load</code></p>
+</li>
+<li>
+<p><code>plots.backup.list</code> - Access to the command <code>/plot backup list</code></p>
+</li>
+<li>
+<p><code>plots.admin.backup.other</code> - Administrative override to manage backups at other plots</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Backup.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_clear">8.24. CLEAR</h3>
+<div class="paragraph">
+<p>Clear the plot you stand on. It doesn&#8217;t reset any plot settigns or flag (with exception of the biome setting).</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] clear</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ reset ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.clear</code> - Access to the command <code>/plot clear</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.command.clear</code> - Administrative override</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Clear.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_delete">8.25. DELETE</h3>
+<div class="paragraph">
+<p>Delete the plot you stand on.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] delete</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ dispose, del ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.delete</code> - Access to the command <code>/plot delete</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.command.delete</code> - Administrative override to delete plots.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Delete.java">here</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_schematic">9. Schematic</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_save">9.1. SAVE</h3>
+<div class="paragraph">
+<p>Save your plot</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] save</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.save</code> - Access to the command <code>/plot save</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.command.save</code> - Administrative override to save plots</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Save.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_load">9.2. LOAD</h3>
+<div class="paragraph">
+<p>List the plot snapshots (after: <code>/plot save</code>) or load a snapshot</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot [[world;]X;Z] load</code></p>
+</li>
+<li>
+<p><code>/plot [[world;]X;Z] load &lt;index&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ restore ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.load</code> - Access to the command <code>/plot load</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.command.load</code> - Administrative override to load a plot.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Load.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_download">9.3. DOWNLOAD</h3>
+<div class="paragraph">
+<p>Download your plot</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] download [schematic | world]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ download, dl ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.download</code> - Access to the command <code>/plot download</code></p>
+</li>
+<li>
+<p><code>plots.download.world</code> - Access to the command <code>/plot download &lt;world&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.command.download</code> - Administrative override to download other plots</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Download.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_schematic_2">9.4. SCHEMATIC</h3>
+<div class="paragraph">
+<p>Schematic command</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] schematic &lt;save | saveall | paste&gt;</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ sch, schem ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.schematic</code> - Access to the command <code>/plot schematic</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.command.schematic.paste</code> - Administrative override to paste schematics</p>
+</li>
+<li>
+<p><code>plots.admin.command.schematic.save</code> - Administrative override to save schematics</p>
+</li>
+<li>
+<p><code>plots.schematic.save</code> - Access to the command <code>/plot schematic save</code></p>
+</li>
+<li>
+<p><code>plots.schematic.paste</code> - Access to the command `/plot schematic paste `</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/SchematicCmd.java">here</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rating">10. Rating</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_like">10.1. LIKE</h3>
+<div class="paragraph">
+<p>Like a plot</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] like [next | purge]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.like</code> - Access to the command <code>/plot like</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.command.rate</code> - Administrative override for ratings</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Like.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dislike">10.2. Dislike</h3>
+<div class="paragraph">
+<p>Dislike a plot</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] dislike [next | purge]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.dislike</code> - Access to the command <code>/plot like</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.command.rate</code> - Administrative override for ratings</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Disike.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rate">10.3. RATE</h3>
+<div class="paragraph">
+<p>Rate the plot</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot [[world;]X;Z] rate [# | next | purge]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ rt ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.rate</code> - Access to the command <code>/plot rate</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.comment</code> - Access to the command <code>/plot comment</code></p>
+</li>
+<li>
+<p><code>plots.admin.command.rate</code> - Administrative override for ratings</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Rate.java">here</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_administration">11. Administration</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_plugin">11.1. PLUGIN</h3>
+<div class="paragraph">
+<p>Show plugin information</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot plugin</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ version ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.use</code> - Access to the command <code>/plot plugin</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/PluginCmd.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_template">11.2. TEMPLATE</h3>
+<div class="paragraph">
+<p>Create or use a world template</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot template [import | export] &lt;world&gt; &lt;template&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot template &lt;import|export&gt; &lt;world&gt; [template]</code></p>
+</li>
+<li>
+<p><code>/plot template export &lt;world&gt;</code></p>
+</li>
+<li>
+<p><code>/plot template import &lt;world&gt; &lt;template&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.admin</code> - Access to the command <code>/plot template</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Template.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_setup">11.3. SETUP</h3>
+<div class="paragraph">
+<p>Setup wizard for plot worlds</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot setup</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ create ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.admin.command.setup</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Setup.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_area">11.4. AREA</h3>
+<div class="paragraph">
+<p>Create a new PlotArea</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot area &lt;create|info|list|tp|regen&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot visit [area]</code></p>
+</li>
+<li>
+<p><code>/plot area info [area]</code></p>
+</li>
+<li>
+<p><code>/plot area create [world[:id]] [&lt;modifier&gt;=&lt;value&gt;]...</code></p>
+</li>
+<li>
+<p><code>/plot area list [#]</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ world ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.area</code> - Access to the command <code>/plot area</code></p>
+</li>
+<li>
+<p><code>plots.area.list</code> - Access to the command <code>/plot area list</code></p>
+</li>
+<li>
+<p><code>plots.area.info</code> - Access to the command <code>/plot area info</code></p>
+</li>
+<li>
+<p><code>plots.area.create</code> - Access to the command <code>/plot area create</code></p>
+</li>
+<li>
+<p><code>plots.area.tp</code> - Access to the command <code>/plot area tp</code></p>
+</li>
+<li>
+<p><code>plots.area.regen</code> - Access to the command <code>/plot area regen</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Area.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_createroadschematic">11.5. CREATEROADSCHEMATIC</h3>
+<div class="paragraph">
+<p>Add a road schematic to your world using the roads around your current plot</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot createroadschematic</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ crs ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.createroadschematic</code> - Access to the command <code>/plot createroadschematic</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/CreateRoadSchematic.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_regenallroads">11.6. REGENALLROADS</h3>
+<div class="paragraph">
+<p>Regenerate all roads in the map using the set road schematic</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot regenallroads &lt;world&gt; [height]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ rgar ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.regenallroads</code> - Access to the command <code>/plot regenallroads</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/RegenAllRoads.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_purge">11.7. PURGE</h3>
+<div class="paragraph">
+<p>Purge all plots for a world</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot purge world:&lt;world&gt; area:&lt;area&gt; id:&lt;id&gt; owner:&lt;owner&gt; shared:&lt;shared&gt; unknown:[true|false] clear:[true|false]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin</code> - Access to the command <code>/plot purge</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Purge.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_reload">11.8. RELOAD</h3>
+<div class="paragraph">
+<p>Reload translations and world settings</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot reload</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ rl ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.admin.command.reload</code> - Access to the command <code>/plot reload</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Reload.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_database">11.9. DATABASE</h3>
+<div class="paragraph">
+<p>Convert/Backup Storage</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plots database [area] &lt;sqlite | mysql | import&gt;</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ convert ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.database</code> - Access to the command <code>/plot database</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/blob/v6/Core/src/main/java/com/plotsquared/core/command/DatabaseCommand.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_condense">11.10. CONDENSE</h3>
+<div class="paragraph">
+<p>Condense a plotworld</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot condense &lt;area&gt; &lt;start | stop |info&gt; [radius]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.admin</code> - Access to the command <code>/plot condense</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Condense.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_trim">11.11. TRIM</h3>
+<div class="paragraph">
+<p>Delete unmodified portions of your plotworld</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot trim &lt;world&gt; [regenerate]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.admin</code> - Access to the command <code>/plot trim</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Trim.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cluster">11.12. CLUSTER</h3>
+<div class="paragraph">
+<p>Manage a plot cluster</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot cluster</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot cluster resize &lt;pos1&gt; &lt;pos2&gt;</code></p>
+</li>
+<li>
+<p><code>/plot cluster leave [name]</code></p>
+</li>
+<li>
+<p><code>/plot cluster info [name]</code></p>
+</li>
+<li>
+<p><code>/plot cluster create &lt;name&gt; &lt;id-bot&gt; &lt;id-top&gt;</code></p>
+</li>
+<li>
+<p><code>/plot cluster delete [name]</code></p>
+</li>
+<li>
+<p><code>/plot cluster list</code></p>
+</li>
+<li>
+<p><code>/plot cluster invite &lt;player&gt;</code></p>
+</li>
+<li>
+<p><code>/plot cluster sethome</code></p>
+</li>
+<li>
+<p><code>/plot cluster helpers &lt;add|remove&gt; &lt;player&gt;</code></p>
+</li>
+<li>
+<p><code>/plot cluster tp &lt;name&gt;</code></p>
+</li>
+<li>
+<p><code>/plot cluster kick &lt;player&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ clusters ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.cluster</code> - Access to the command <code>/plot cluster</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.cluster.delete.other</code> - Administrative override to delete other clusters</p>
+</li>
+<li>
+<p><code>plots.cluster.kick</code> - Access to the command <code>/plot cluster kick</code></p>
+</li>
+<li>
+<p><code>plots.cluster.leave</code> - Access to the command <code>/plot cluster leave</code></p>
+</li>
+<li>
+<p><code>plots.cluster.helpers</code> - Access to the command <code>/plot cluster helpers</code></p>
+</li>
+<li>
+<p><code>plots.cluster.create</code> - Access to the command <code>/plot cluster create</code></p>
+</li>
+<li>
+<p><code>plots.cluster.resize</code> - Access to the command <code>/plot cluster resize</code></p>
+</li>
+<li>
+<p><code>plots.cluster.invite.other</code> - Access to the command <code>/plot cluster invite</code></p>
+</li>
+<li>
+<p><code>plots.cluster.invite</code> - Access to the command <code>/plot cluster invite</code></p>
+</li>
+<li>
+<p><code>plots.cluster.tp</code> - Access to the command <code>/plot cluster tp</code></p>
+</li>
+<li>
+<p><code>plots.cluster.&lt;#&gt;</code> - Limit the amount of clusters a player can have</p>
+</li>
+<li>
+<p><code>plots.cluster.resize.expand</code> - Access to the command <code>/plot cluster expand</code></p>
+</li>
+<li>
+<p><code>plots.cluster.info</code> - Access to the command <code>/plot cluster info</code></p>
+</li>
+<li>
+<p><code>plots.cluster.sethome.other</code> - Administrative override to sethome for other clusters</p>
+</li>
+<li>
+<p><code>plots.cluster.resize.other</code> - Administrative override to resize other clusters</p>
+</li>
+<li>
+<p><code>plots.cluster.tp.other</code> - Administrative override to teleport to other clusters</p>
+</li>
+<li>
+<p><code>plots.cluster.kick.other</code> - Administrative override to kick players from other clusters</p>
+</li>
+<li>
+<p><code>plots.cluster.create.other</code> - Administrative override to create other clusters</p>
+</li>
+<li>
+<p><code>plots.cluster.list</code> - Access to the command <code>/plot cluster list</code></p>
+</li>
+<li>
+<p><code>plots.cluster.delete</code> - Access to the command <code>/plot cluster delete</code></p>
+</li>
+<li>
+<p><code>plots.cluster.resize.shrink</code> - Access to the command <code>/plot cluster resize shrink</code></p>
+</li>
+<li>
+<p><code>plots.cluster.sethome</code> - Access to the command <code>/plot cluster sethome</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Cluster.java">here</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_debug">12. Debug</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_debugsavetest">12.1. DEBUGSAVETEST</h3>
+<div class="paragraph">
+<p>This command will force the recreation of all plots in the DB</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot debugsavetest</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.debugsavetest</code> - Access to the command <code>/plot debugsavetest</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/DebugSaveTest.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_debugloadtest">12.2. DEBUGLOADTEST</h3>
+<div class="paragraph">
+<p>This debug command will force the reload of all plots in the DB</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot debugloadtest</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.debugloadtest</code> - Access to the command <code>/plot debugloadtest</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/DebugLoadTest.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_debugallowunsafe">12.3. DEBUGALLOWUNSAFE</h3>
+<div class="paragraph">
+<p>Allow unsafe actions until toggled off</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot debugallowunsafe</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ debugallowunsafe ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.debugallowunsafe</code> - Access to the command <code>/plot debugallowunsafe</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/DebugAllowUnsafe.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_debug_2">12.4. DEBUG</h3>
+<div class="paragraph">
+<p>Show debug information or all language messages</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot debug [msg]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.admin</code> - Access to the command <code>/plot debug msg</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/Debug.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_debugpaste">12.5. DEBUGPASTE</h3>
+<div class="paragraph">
+<p>Upload settings.yml, worlds.yml, your latest.log and Multiverse&#8217;s worlds.yml (if being used) to <a href="https://athion.net/ISPaster/paste" class="bare">https://athion.net/ISPaster/paste</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot debugpaste</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ dp ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.debugpaste</code> - Access to the command <code>/plot debugpaste</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/DebugPaste.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_debugroadregen">12.6. DEBUGROADREGEN</h3>
+<div class="paragraph">
+<p>Regenerate all roads based on the road schematic. Insert "plot" to regen it from the plot height, input "height [height]" to regen from a custom height.</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong>
+<code>/plot debugroadregen &lt;plot | region [height]&gt;</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.debugroadregen</code> - Access to the command <code>/plot debugroadregen</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/DebugRoadRegen.java">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_debugexec">12.7. DEBUGEXEC</h3>
+<div class="paragraph">
+<p>Multi-purpose debug command</p>
+</div>
+<div class="paragraph">
+<p><strong>Usage:</strong></p>
+</div>
+<div class="paragraph">
+<p>Primary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot debugexec</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Secondary:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/plot debugexec remove-flag &lt;flag&gt;</code></p>
+</li>
+<li>
+<p><code>/plot debugexec allcmd &lt;condition&gt; &lt;command&gt;</code></p>
+</li>
+<li>
+<p><code>/plot debugexec list-scripts [#]</code></p>
+</li>
+<li>
+<p><code>/plot debugexec all &lt;condition&gt; &lt;code&gt;</code></p>
+</li>
+<li>
+<p><code>/plot debugexec addcmd &lt;file&gt;</code></p>
+</li>
+<li>
+<p><code>/plot debugexec analyze &lt;threshold&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Aliases:</strong>
+<code>[ exec, $ ]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Permissions:</strong>
+<code>plots.admin</code> - Access to the command <code>/plot debugexec</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Source Code:</strong> <a href="https://github.com/IntellectualSites/PlotSquared/tree/v6/Core/src/main/java/com/plotsquared/core/command/DebugExec.java">here</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_other_permissions">13. Other permissions</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.admin.area.sudo</code> - ???</p>
+</li>
+<li>
+<p><code>plots.projectile.unowned</code> - Shoot projectiles on unowned plots</p>
+</li>
+<li>
+<p><code>plots.projectile.other</code> - Shoot projectiles at other people&#8217;s plots</p>
+</li>
+<li>
+<p><code>plots.admin.interact.blockedcommands</code> - Access to blocked commands of the <code>blocked-cmds</code> flag</p>
+</li>
+<li>
+<p><code>plots.admin.update.notify</code> - Receive update notifications from SpigotMC.</p>
+</li>
+<li>
+<p><code>plots.admin.exit.denied</code> - Administrative override to leave plots with the <code>deny-exit</code> flag.</p>
+</li>
+<li>
+<p><code>plots.admin.entry.forcefield</code> - Administrative override to bypass the <code>forcefield</code> flag</p>
+</li>
+<li>
+<p><code>plots.admin.destroy.unowned</code> - Administrative override to destroy blocks at unowned plots</p>
+</li>
+<li>
+<p><code>plots.admin.build.unowned</code> - Administrative override to build blocks at unowned plots</p>
+</li>
+<li>
+<p><code>plots.admin.destroy.groundlevel</code> - Administrative override to break the ground level</p>
+</li>
+<li>
+<p><code>plots.admin.destroy.other</code> - Administrative override to destroy blocks at other plots</p>
+</li>
+<li>
+<p><code>plots.admin.destroy.road</code> - Administrative override to destroy blocks at the road</p>
+</li>
+<li>
+<p><code>plots.admin.build.road</code> - Administrative override to place blocks at the road</p>
+</li>
+<li>
+<p><code>plots.admin.interact.unowned</code> - Administrative override to interact at unowned plots</p>
+</li>
+<li>
+<p><code>plots.admin.interact.other</code> - Administrative override to interact with other plots</p>
+</li>
+<li>
+<p><code>plots.admin.build.heightlimit</code> - Administrative override to bypass a custom height limit</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

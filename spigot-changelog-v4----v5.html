@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Spigot Changelog from v4 and v5</title>
+<style>
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";
+@import "https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@2.0/data/stylesheets/asciidoctor-default.css";
+
+body {
+    font-family: inherit;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+h2, h3, #toctitle, a:hover, a:focus {
+    color: #2397f7;
+}
+
+h2 {
+    font-size: 2.1em;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+p {
+    line-height: 1.2;
+}
+
+a {
+    color: #717171;
+}
+
+code {
+    color: #002340;
+    font-size: 0.8em !important;
+}
+
+#toc a {
+    color: #555;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #424242;
+}
+
+/* dark-mode for sidebar*/
+
+/*
+#toc.toc2 {
+    background: #131313;
+}
+
+#toc a {
+    color: #a8a8a8;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #fff;
+}
+*/
+
+.sect1 + .sect1 {
+    border-top: 1px dotted #999;
+}
+
+#_return_to_the_index a {
+    text-decoration: unset;
+}
+
+.literalblock pre, .listingblock > .content > pre {
+  font-size: 0.9em;
+}
+
+.ulist > .title {
+    color: #000;
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: 800;
+}
+
+/* Icons: */
+.admonitionblock td.icon [class*=' icon-']::before {
+    text-shadow: 0 0 0;
+    color: #b0b0b0;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Spigot Changelog from v4 and v5</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_new_plotsquared_features_since_5_1">1. New PlotSquared features since 5.1+</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<h5 id="_return_to_the_index" class="discrete"><a href="README.html">« Return to the index</a></h5>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_new_plotsquared_features_since_5_1">1. New PlotSquared features since 5.1+</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>100% Compatibility with PlotSquared version 4/5</p>
+</li>
+<li>
+<p>Complete rewrite of the flag system</p>
+</li>
+<li>
+<p>Improved tab completion and added tab completion to flags</p>
+</li>
+<li>
+<p>New extensive API allowing you to register custom flags</p>
+</li>
+<li>
+<p>Added new flag lookup commands for each flag</p>
+</li>
+<li>
+<p>Added support for vanilla item and block tags in flags</p>
+</li>
+<li>
+<p>Make golems be included in "animal-attack" flag</p>
+</li>
+<li>
+<p>Fixed various types of flags not working as intended</p>
+</li>
+<li>
+<p>Added new types of flags such as "coral-dry"</p>
+</li>
+<li>
+<p>Made all flags interact- and clickable</p>
+</li>
+<li>
+<p>Improved flag database handling</p>
+</li>
+<li>
+<p>Made all flags translatable (80+ custom strings)</p>
+</li>
+<li>
+<p>Improved MySQL Support</p>
+</li>
+<li>
+<p>Replaced current updater with spigot update notifications</p>
+</li>
+<li>
+<p>Improved existing and added new flags</p>
+</li>
+<li>
+<p>Bundled external placeholders into PlotSquared</p>
+</li>
+<li>
+<p>Added ability to customize bundled placeholders</p>
+</li>
+<li>
+<p>Ability to force clear all plots</p>
+</li>
+<li>
+<p>Prevent synchronous chunk loads throughout the plugin. This greatly reduces the impact <code>/plot auto</code> has on performance</p>
+</li>
+<li>
+<p>Persistent road generation (continues after server reboot)</p>
+</li>
+<li>
+<p>Added support for Schematic v2 (storing biomes, entities, etc.)</p>
+</li>
+<li>
+<p>Make sure clearing augmented plots with full vanilla terrain does not generate walls</p>
+</li>
+<li>
+<p>Added support for liquid plot borders</p>
+</li>
+<li>
+<p>Added ability to use redstone on server plots</p>
+</li>
+<li>
+<p>Fix retrieval of offline player profiles in 1.15</p>
+</li>
+<li>
+<p>Add an option to have <code>/plot purge</code> also clear the purged plots</p>
+</li>
+<li>
+<p>Overhauled plot pasting of merged plots</p>
+</li>
+<li>
+<p>PlotSquared events are now platform agnostic</p>
+</li>
+<li>
+<p>PlotSquared events are now tidier</p>
+</li>
+<li>
+<p>Improved the swapping/moving API</p>
+</li>
+<li>
+<p>Improved plot owner API</p>
+</li>
+<li>
+<p>Added "/plot caps" command to count and display mob and entity caps</p>
+</li>
+<li>
+<p>Overhauled mob and entity cap system</p>
+</li>
+<li>
+<p>Improve the code base internally by removing a bunch of magic values, and increasing code encapsulation</p>
+</li>
+<li>
+<p>Allow trusted users to use <code>/plot set</code></p>
+</li>
+<li>
+<p>Complete rewrite of the wiki</p>
+</li>
+<li>
+<p>Include PAPI placeholders from the expansion</p>
+</li>
+<li>
+<p>Better organisation of the code base</p>
+</li>
+<li>
+<p>Added more API documentation</p>
+</li>
+<li>
+<p>Lots of smelly code cleanup</p>
+</li>
+<li>
+<p>Plot Backups</p>
+</li>
+<li>
+<p>Disallowed blocks for "/plot set"</p>
+</li>
+<li>
+<p>Prevent mobs from leaving the plot by wandering out</p>
+</li>
+<li>
+<p>Does no longer send chat spy to the sender</p>
+</li>
+<li>
+<p>"Keep-inventory" flag</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

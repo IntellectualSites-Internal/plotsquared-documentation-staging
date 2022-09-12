@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>settings.yml</title>
+<style>
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";
+@import "https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@2.0/data/stylesheets/asciidoctor-default.css";
+
+body {
+    font-family: inherit;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+h2, h3, #toctitle, a:hover, a:focus {
+    color: #2397f7;
+}
+
+h2 {
+    font-size: 2.1em;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+p {
+    line-height: 1.2;
+}
+
+a {
+    color: #717171;
+}
+
+code {
+    color: #002340;
+    font-size: 0.8em !important;
+}
+
+#toc a {
+    color: #555;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #424242;
+}
+
+/* dark-mode for sidebar*/
+
+/*
+#toc.toc2 {
+    background: #131313;
+}
+
+#toc a {
+    color: #a8a8a8;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #fff;
+}
+*/
+
+.sect1 + .sect1 {
+    border-top: 1px dotted #999;
+}
+
+#_return_to_the_index a {
+    text-decoration: unset;
+}
+
+.literalblock pre, .listingblock > .content > pre {
+  font-size: 0.9em;
+}
+
+.ulist > .title {
+    color: #000;
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: 800;
+}
+
+/* Icons: */
+.admonitionblock td.icon [class*=' icon-']::before {
+    text-shadow: 0 0 0;
+    color: #b0b0b0;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+/*! Stylesheet for CodeRay to loosely match GitHub themes | MIT License */
+pre.CodeRay{background:#f7f7f8}
+.CodeRay .line-numbers{border-right:1px solid;opacity:.35;padding:0 .5em 0 0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
+.CodeRay .line-numbers strong{color:#000}
+table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.CodeRay td{vertical-align:top;line-height:inherit}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.code{padding:0 0 0 .75em}
+.CodeRay .debug{color:#fff!important;background:navy!important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:navy}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:teal}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:teal}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:teal}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword{color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:teal}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}
+</style>
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>settings.yml</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_default">2. Default</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<h5 id="_return_to_the_index" class="discrete"><a href="README.html">« Return to the index</a></h5>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is the main settings file for PlotSquared.</p>
+</div>
+<div class="paragraph">
+<p><strong>Located in:</strong> <code>/plugins/PlotSquared/config/settings.yml</code></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_default">2. Default</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="YAML"><span class="comment"># This value is not configurable. It shows the platform you are using.</span>
+<span class="key">platform</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Bukkit</span><span class="delimiter">&quot;</span></span>
+<span class="comment"># Show additional information in console. It helps us at IntellectualSites to find out more about an issue.</span>
+<span class="comment"># Leave it off if you don't need it, it can spam your console.</span>
+<span class="key">debug</span>: <span class="string"><span class="content">true</span></span>
+
+<span class="comment"># Redstone related settings</span>
+<span class="key">redstone</span>:
+  <span class="comment"># Disable redstone in unoccupied plots</span>
+  <span class="key">disable-unoccupied</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Disable redstone when all owners/trusted/members are offline</span>
+  <span class="key">disable-offline</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Detect and cancel invalid pistons on the edge of plots (e.g. placed with WorldEdit)</span>
+  <span class="key">detect-invalid-edge-pistons</span>: <span class="string"><span class="content">false</span></span>
+
+<span class="comment"># UUID settings</span>
+<span class="comment"># DO NOT EDIT them unless you know what you are doing.</span>
+<span class="key">uuid</span>:
+  <span class="comment"># Force using offline UUIDs (it usually detects the right mode)</span>
+  <span class="key">offline</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Force using lowercase UUIDs</span>
+  <span class="key">force-lowercase</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># How many UUIDs that may be stored in the cache</span>
+  <span class="key">uuid-cache-size</span>: <span class="string"><span class="content">100000</span></span>
+  <span class="comment"># Rate limit (per 10 minutes) for background UUID fetching from the Mojang API</span>
+  <span class="key">background-limit</span>: <span class="string"><span class="content">200</span></span>
+  <span class="comment"># Rate limit (per 10 minutes) for random UUID fetching from the Mojang API</span>
+  <span class="key">impromptu-limit</span>: <span class="string"><span class="content">300</span></span>
+  <span class="comment"># Timeout (in milliseconds) for non-blocking UUID requests (mostly commands)</span>
+  <span class="key">non-blocking-timeout</span>: <span class="string"><span class="content">3000</span></span>
+  <span class="comment"># Timeout (in milliseconds) for blocking UUID requests (events)</span>
+  <span class="key">blocking-timeout</span>: <span class="string"><span class="content">10</span></span>
+  <span class="comment"># Whether or not PlotSquared should read from the legacy database</span>
+  <span class="key">legacy-database-support</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Whether or not PlotSquared should return Unknown if it fails to fulfill a request</span>
+  <span class="key">unknown-as-default</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Whether or not automatic background caching should be enabled. It is HIGHLY recommended to keep this turned on. This should only be disabled if the server has a very large number of plots (&gt;100k)</span>
+  <span class="key">background-caching-enabled</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Whether the PaperMC service is enabled</span>
+  <span class="key">service-paper</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Whether the LuckPerms service is enabled</span>
+  <span class="key">service-luckperms</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Whether the Bukkit service is enabled</span>
+  <span class="key">service-bukkit</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Whether the EssentialsX service is enabled</span>
+  <span class="key">service-essentialsx</span>: <span class="string"><span class="content">true</span></span>
+
+<span class="comment"># Enable or disable parts of the plugin</span>
+<span class="comment"># Note: A cache will use some memory if enabled</span>
+<span class="key">enabled-components</span>:
+  <span class="comment"># The database stores all the plots</span>
+  <span class="key">database</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Events are needed to track a lot of things</span>
+  <span class="key">events</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Commands are used to interact with the plugin</span>
+  <span class="key">commands</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Whether we should notify you about updates or not.</span>
+  <span class="key">update-notifications</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Stores user metadata in a database</span>
+  <span class="key">persistent-meta</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Getting a rating won't need the database</span>
+  <span class="key">rating-cache</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Allow WorldEdit to be restricted to plots</span>
+  <span class="key">worldedit-restrictions</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Allow economy to be used to sell, claim or buy plots.</span>
+  <span class="key">economy</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Expiry will clear old or simplistic plots</span>
+  <span class="key">plot-expiry</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Processes chunks (trimming, or entity/tile limits)</span>
+  <span class="key">chunk-processor</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Kill mobs on roads (Chicken, Cow, etc.)</span>
+  <span class="key">kill-road-mobs</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Also kill any road mobs that are being ridden, or are leashed</span>
+  <span class="key">kill-owned-road-mobs</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Kill items on roads (Stick, Paper, etc.)</span>
+  <span class="key">kill-road-items</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Kill vehicles on roads (Boat, Minecart, etc.)</span>
+  <span class="key">kill-road-vehicles</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Notify a player of any missed plot comments upon plot entry</span>
+  <span class="key">comment-notifier</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Let players claim entire worlds with PlotSquared</span>
+  <span class="key">worlds</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Actively purge invalid database entries</span>
+  <span class="key">database-purger</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Delete plots when a player is banned.</span>
+  <span class="comment"># Note: This only works with the /minecraft:ban command. Any punishment plugin is not supported.</span>
+  <span class="key">ban-deleter</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Allows PlaceholderAPI placeholders to be used in captions, flags, etc.</span>
+  <span class="key">external-placeholders</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Make road regeneration persistent across restarts</span>
+  <span class="key">persistent-road-regen</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Enable the `/plot component` preset GUI</span>
+  <span class="comment"># Read more about components here: https://intellectualsites.github.io/plotsquared-documentation/customization/plot-components</span>
+  <span class="key">component-presets</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Enable per user locale</span>
+  <span class="key">per-user-locale</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># The default locale. Before changing the language, make sure you downloaded the appropriate file and put it in the 'lang' folder.</span>
+  <span class="comment"># You can find additional translations here: https://intellectualsites.crowdin.com/plotsquared</span>
+  <span class="key">default-locale</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">en</span><span class="delimiter">&quot;</span></span>
+  <span class="comment"># Use UUID cache to complete usernames</span>
+  <span class="key">extended-username-completion</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Command aliases that will be tab completed</span>
+  <span class="key">tab-completed-aliases</span>:
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">plot</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">plots</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">p</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">plotsquared</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">plot2</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">p2</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">ps</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">2</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">plotme</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">plotz</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">ap</span><span class="delimiter">&quot;</span></span>
+  <span class="comment"># Whether PlotSquared should hook into MvDWPlaceholderAPI or not</span>
+  <span class="key">use-mvdwapi</span>: <span class="string"><span class="content">true</span></span>
+
+<span class="comment"># This is an auto clearing task called `task1`</span>
+<span class="key">auto-clear</span>:
+  <span class="key">task1</span>:
+    <span class="key">threshold</span>: <span class="string"><span class="content">-1</span></span>
+    <span class="key">required-plots</span>: <span class="string"><span class="content">-1</span></span>
+    <span class="key">confirmation</span>: <span class="string"><span class="content">true</span></span>
+    <span class="key">days</span>: <span class="string"><span class="content">90</span></span>
+    <span class="key">skip-account-age-days</span>: <span class="string"><span class="content">-1</span></span>
+    <span class="comment"># True, if a plot should be deleted if the plot owner is unknown to the server</span>
+    <span class="key">delete-if-owner-is-unknown</span>: <span class="string"><span class="content">false</span></span>
+    <span class="key">worlds</span>:
+    - <span class="string"><span class="delimiter">&quot;</span><span class="content">*</span><span class="delimiter">&quot;</span></span>
+    <span class="comment"># See: https://intellectualsites.github.io/plotsquared-documentation/optimization/plot-analysis for a description of each value.</span>
+    <span class="key">calibration</span>:
+      <span class="key">variety</span>: <span class="string"><span class="content">0</span></span>
+      <span class="key">variety-sd</span>: <span class="string"><span class="content">0</span></span>
+      <span class="key">changes</span>: <span class="string"><span class="content">0</span></span>
+      <span class="key">changes-sd</span>: <span class="string"><span class="content">1</span></span>
+      <span class="key">faces</span>: <span class="string"><span class="content">0</span></span>
+      <span class="key">faces-sd</span>: <span class="string"><span class="content">0</span></span>
+      <span class="key">data-sd</span>: <span class="string"><span class="content">0</span></span>
+      <span class="key">air</span>: <span class="string"><span class="content">0</span></span>
+      <span class="key">air-sd</span>: <span class="string"><span class="content">0</span></span>
+      <span class="key">data</span>: <span class="string"><span class="content">0</span></span>
+
+<span class="comment"># Miscellaneous settings</span>
+<span class="key">done</span>:
+  <span class="comment"># Require a plot marked as done to download (/plot download)</span>
+  <span class="key">required-for-download</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Only plots marked as done can be rated</span>
+  <span class="key">required-for-ratings</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Restrict building when a plot is marked as done</span>
+  <span class="key">restrict-building</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># The limit being how many plots a player can claim</span>
+  <span class="key">counts-towards-limit</span>: <span class="string"><span class="content">true</span></span>
+
+<span class="comment"># Configure the paths that will be used</span>
+<span class="key">paths</span>:
+  <span class="key">schematics</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">schematics</span><span class="delimiter">&quot;</span></span>
+  <span class="key">templates</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">templates</span><span class="delimiter">&quot;</span></span>
+
+<span class="comment"># Schematic interface related settings</span>
+<span class="key">web</span>:
+  <span class="comment"># The web interface for schematics</span>
+  <span class="comment">#  - All schematics are anonymous and private</span>
+  <span class="comment">#  - Downloads can be deleted by the user</span>
+  <span class="comment">#  - Supports plot uploads, downloads and saves</span>
+  <span class="key">url</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://schem.intellectualsites.com/plots/</span><span class="delimiter">&quot;</span></span>
+  <span class="comment"># Whether or not the legacy web interface will be used for /plot download and /plot save</span>
+  <span class="comment"># Note that this will be removed in future versions. Updating to Arkitektonika is highly suggested</span>
+  <span class="key">legacy-webinterface</span>: <span class="string"><span class="content">false</span></span>
+
+<span class="comment"># Rating related settings</span>
+<span class="key">ratings</span>:
+  <span class="comment"># Replace the rating system with a like system. Will add /plot like/dislike, and remove the rating command</span>
+  <span class="key">use-likes</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Rating categories</span>
+  <span class="key">categories</span>: <span class="string"><span class="content">[]</span></span>
+  <span class="comment"># The blocks to use for the rating GUI if categories are set above</span>
+  <span class="key">block-0</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">brown_wool</span><span class="delimiter">&quot;</span></span>
+  <span class="key">block-1</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">red_wool</span><span class="delimiter">&quot;</span></span>
+  <span class="key">block-2</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">orange_wool</span><span class="delimiter">&quot;</span></span>
+  <span class="key">block-3</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">yellow_wool</span><span class="delimiter">&quot;</span></span>
+  <span class="key">block-4</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">lime_wool</span><span class="delimiter">&quot;</span></span>
+  <span class="key">block-5</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">cyan_wool</span><span class="delimiter">&quot;</span></span>
+  <span class="key">block-6</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">blue_wool</span><span class="delimiter">&quot;</span></span>
+  <span class="key">block-7</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">purple_wool</span><span class="delimiter">&quot;</span></span>
+  <span class="key">block-8</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">magenta_wool</span><span class="delimiter">&quot;</span></span>
+
+<span class="comment"># Teleportation related settings</span>
+<span class="key">teleport</span>:
+  <span class="comment"># Teleport to your plot on death</span>
+  <span class="key">on-death</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Teleport to your plot on login</span>
+  <span class="key">on-login</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Teleport to your plot on claim (/plot claim)</span>
+  <span class="key">on-claim</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Teleport to your plot on auto (/plot auto)</span>
+  <span class="key">on-auto</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Add a delay to all teleport commands (in seconds)</span>
+  <span class="comment"># Assign `plots.teleport.delay.bypass` to bypass the cooldown</span>
+  <span class="key">delay</span>: <span class="string"><span class="content">0</span></span>
+  <span class="comment"># Teleport outside of the plot before clearing</span>
+  <span class="key">on-clear</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Teleport outside of the plot before deleting</span>
+  <span class="key">on-delete</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># The visit command is ordered by world instead of globally</span>
+  <span class="key">per-world-visit</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Search merged plots for having multiple owners when using the visit command</span>
+  <span class="key">visit-merged-owners</span>: <span class="string"><span class="content">true</span></span>
+
+<span class="comment"># Chunk processor related settings</span>
+<span class="comment"># See https://intellectualsites.github.io/plotsquared-documentation/optimization/Chunk-processor for more information.</span>
+<span class="key">chunk-processor</span>:
+  <span class="comment"># Auto trim will not save chunks which aren't claimed</span>
+  <span class="key">auto-trim</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Max tile entities per chunk</span>
+  <span class="key">max-tiles</span>: <span class="string"><span class="content">4096</span></span>
+  <span class="comment"># Max entities per chunk</span>
+  <span class="key">max-entities</span>: <span class="string"><span class="content">512</span></span>
+  <span class="comment"># Disable block physics</span>
+  <span class="key">disable-physics</span>: <span class="string"><span class="content">false</span></span>
+
+<span class="comment"># Claim related settings</span>
+<span class="key">claim</span>:
+  <span class="comment"># The max plots claimed in a single `/plot auto &lt;size&gt;` command</span>
+  <span class="key">max-auto-area</span>: <span class="string"><span class="content">4</span></span>
+
+<span class="comment"># Relating to how many plots someone can claim</span>
+<span class="key">limit</span>:
+  <span class="comment"># Should the limit be global (over multiple worlds)</span>
+  <span class="key">global</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># The max range of permissions to check for, e.g. plots.plot.127</span>
+  <span class="comment"># The value covers the permission range to check, you need to assign the permission to players/groups still</span>
+  <span class="comment"># Modifying the value does NOT change the amount of plots players can claim</span>
+  <span class="key">max-plots</span>: <span class="string"><span class="content">127</span></span>
+
+<span class="comment"># Settings related to plot titles</span>
+<span class="key">titles</span>:
+  <span class="comment"># The big text that appears when you enter a plot.</span>
+  <span class="comment"># For a single plot set `/plot flag set titles false` to disable it.</span>
+  <span class="comment"># For just you run `/plot toggle titles` to disable it.</span>
+  <span class="comment"># For all plots: Add `titles: false` in the worlds.yml flags block to disable it.</span>
+  <span class="key">display-titles</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Plot titles fading in (duration in ticks)</span>
+  <span class="key">titles-fade-in</span>: <span class="string"><span class="content">10</span></span>
+  <span class="comment"># Plot titles being shown (duration in ticks)</span>
+  <span class="key">titles-stay</span>: <span class="string"><span class="content">50</span></span>
+  <span class="comment"># Plot titles fading out (duration in ticks)</span>
+  <span class="key">titles-fade-out</span>: <span class="string"><span class="content">20</span></span>
+  <span class="comment"># Changes the notification method on plot entry from Title + SubTitle -&gt; ActionBar.</span>
+  <span class="comment"># The message still sent to the player is pulled from the lang key &quot;titles.title_entered_plot&quot;.</span>
+  <span class="comment"># If you would like to still show the owner of the plot, append the contents of &quot;titles.title_entered_plot_sub&quot; onto the former lang key.</span>
+  <span class="key">titles-as-actionbar</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># If the default title should be displayed on plots with server-plot flag set.</span>
+  <span class="comment"># Titles will still be sent if the plot-title flag is set.</span>
+  <span class="key">display-default-on-server-plot</span>: <span class="string"><span class="content">false</span></span>
+
+<span class="comment"># Settings related to tab completion</span>
+<span class="key">tab-completions</span>:
+  <span class="comment"># The time in seconds how long tab completions should remain in cache.</span>
+  <span class="comment"># 0 will disable caching. Lower values may be less performant.</span>
+  <span class="key">cache-expiration</span>: <span class="string"><span class="content">15</span></span>
+
+<span class="comment"># Settings relating to PlotSquared's GlobalBlockQueue</span>
+<span class="key">queue</span>:
+  <span class="comment"># Average time per tick spent completing chunk tasks in ms.</span>
+  <span class="comment"># Queue will adjust the batch size to match this.</span>
+  <span class="key">max-iteration-time</span>: <span class="string"><span class="content">30</span></span>
+  <span class="comment"># Initial number of chunks to process by the queue. This can be increased or</span>
+  <span class="comment"># decreased by the queue based on the actual iteration time compared to above.</span>
+  <span class="key">initial-batch-size</span>: <span class="string"><span class="content">5</span></span>
+  <span class="comment"># Notify progress of the queue to the player or console.</span>
+  <span class="key">notify-progress</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Interval in ms to notify player or console of progress.</span>
+  <span class="key">notify-interval</span>: <span class="string"><span class="content">5000</span></span>
+  <span class="comment"># Time to wait in ms before beginning to notify player or console of progress.</span>
+  <span class="comment"># Prevent needless notification of progress for short queues.</span>
+  <span class="key">notify-wait</span>: <span class="string"><span class="content">5000</span></span>
+  <span class="comment"># How lighting should be handled by the queue. Modes:</span>
+  <span class="comment">#   - 0 - Do not do any lighting (fastest)</span>
+  <span class="comment">#   - 1 - Only execute lighting where blocks with light values are placed</span>
+  <span class="comment">#   - 2 - Only execute lighting where blocks with light values are placed or removed/replaced</span>
+  <span class="comment">#   - 3 - Always execute lighting (slowest)</span>
+  <span class="key">lighting-mode</span>: <span class="string"><span class="content">1</span></span>
+  <span class="comment"># If blocks at the edges of queued operations should be set causing updates</span>
+  <span class="comment">#  - Slightly slower, but prevents issues such as fences left connected to nothing</span>
+  <span class="key">update-edges</span>: <span class="string"><span class="content">true</span></span>
+
+<span class="comment"># Enable or disable parts of the plugin specific to using Paper</span>
+<span class="key">paper-components</span>:
+  <span class="comment"># Enable Paper's listeners.</span>
+  <span class="key">paper-listeners</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Prevent entities from leaving plots</span>
+  <span class="key">entity-pathing</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Cancel entity spawns when the chunk is loaded if the PlotArea's mob spawning is off</span>
+  <span class="key">cancel-chunk-spawn</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Use paper's PlayerLaunchProjectileEvent to cancel projectiles</span>
+  <span class="key">player-projectile</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Cancel entity spawns from spawners before they happen (performance buff)</span>
+  <span class="key">spawner-spawn</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Cancel entity spawns from tick spawn rates before they happen (performance buff)</span>
+  <span class="key">creature-spawn</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Check the tile entity limit on block placement</span>
+  <span class="key">tile-entity-check</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Use Paper's async tab completion</span>
+  <span class="key">async-tab-completion</span>: <span class="string"><span class="content">false</span></span>
+
+<span class="comment"># Enable or disable all of or parts of the FAWE-P2 hook</span>
+<span class="key">fawe-components</span>:
+  <span class="comment"># Use FAWE for queue handling.</span>
+  <span class="key">fawe-hook</span>: <span class="string"><span class="content">true</span></span>
+  <span class="key">cuboids</span>: <span class="string"><span class="content">true</span></span>
+  <span class="key">clear</span>: <span class="string"><span class="content">true</span></span>
+  <span class="key">copy-and-swap</span>: <span class="string"><span class="content">true</span></span>
+  <span class="key">set-biome</span>: <span class="string"><span class="content">true</span></span>
+
+<span class="comment"># Confirmation timeout related settings</span>
+<span class="key">confirmation</span>:
+  <span class="comment"># Timeout before a confirmation prompt expires</span>
+  <span class="key">confirmation-timeout-seconds</span>: <span class="string"><span class="content">20</span></span>
+
+<span class="comment"># Backup related settings</span>
+<span class="comment"># See https://intellectualsites.github.io/plotsquared-documentation/plot-backups for more information.</span>
+<span class="key">backup</span>:
+  <span class="comment"># Automatically backup plots when destructive commands are performed, e.g. /plot clear</span>
+  <span class="key">automatic-backups</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Maximum amount of backups associated with a plot</span>
+  <span class="key">backup-limit</span>: <span class="string"><span class="content">3</span></span>
+  <span class="comment"># Whether or not backups should be deleted when the plot is unclaimed</span>
+  <span class="key">delete-on-unclaim</span>: <span class="string"><span class="content">true</span></span>
+
+<span class="comment"># Chat related settings</span>
+<span class="key">chat</span>:
+  <span class="comment"># Should the plot chat be logged to console?</span>
+  <span class="key">log-plotchat-to-console</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Whether an action bar message should be send over a chat message for notification purposes such for the</span>
+  <span class="comment"># notify-enter, notify-leave, greeting or farewell flag.</span>
+  <span class="key">notification-as-actionbar</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># The click event actions that should be removed from user input in e.g. plot flags like 'greeting'.</span>
+  <span class="comment"># Actions like 'RUN_COMMAND' may be used maliciously as players could trick staff into clicking on messages</span>
+  <span class="comment"># triggering destructive commands.</span>
+  <span class="key">click-event-actions-to-remove</span>:
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">OPEN_URL</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">OPEN_FILE</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">RUN_COMMAND</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">SUGGEST_COMMAND</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">CHANGE_PAGE</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">COPY_TO_CLIPBOARD</span><span class="delimiter">&quot;</span></span>
+
+<span class="comment"># Used to format the plot creation date placeholder. Modifying the format does not affect the storage time.</span>
+<span class="key">timeformat</span>:
+  <span class="comment"># The date used formatted in ISO 8601</span>
+  <span class="key">date-format</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">yyyy-MM-dd HH:mm:ss z</span><span class="delimiter">&quot;</span></span>
+  <span class="comment"># The time zone used</span>
+  <span class="key">time-zone</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">GMT</span><span class="delimiter">&quot;</span></span>
+
+<span class="comment"># Schematic web interface related settings</span>
+<span class="key">arkitektonika</span>:
+  <span class="comment"># The url of the backend server (Arkitektonika)</span>
+  <span class="key">backend-url</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://api.schematic.cloud/</span><span class="delimiter">&quot;</span></span>
+  <span class="comment"># The url used to generate a download link from.</span>
+  <span class="comment"># {key} will be replaced with the generated key</span>
+  <span class="key">download-url</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://api.schematic.cloud/download/{key}</span><span class="delimiter">&quot;</span></span>
+  <span class="comment"># The url used to generate a deletion link from.</span>
+  <span class="comment"># {key} will be replaced with the generated key</span>
+  <span class="key">delete-url</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://api.schematic.cloud/delete/{key}</span><span class="delimiter">&quot;</span></span>
+
+<span class="comment"># Schematic Settings</span>
+<span class="comment"># See https://intellectualsites.github.io/plotsquared-documentation/schematics/schematic-on-claim for more information.</span>
+<span class="key">schematics</span>:
+  <span class="comment"># Whether schematic based generation should paste schematic on top of plots, or from Y=1</span>
+  <span class="key">paste-on-top</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Whether schematic based road generation should paste schematic on top of roads, or from Y=1</span>
+  <span class="key">paste-road-on-top</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># If schematics that do not match a plot's size should be pasted anyway</span>
+  <span class="comment">#  - This will still only paste a schematic with a plot's bounds.</span>
+  <span class="comment">#  - If a schematic is too big, it will cut off, and if too small, will not full the plot.</span>
+  <span class="key">paste-mismatches</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># If the wall height should be taken into account when calculating the road schematic paste height</span>
+  <span class="comment">#  - If true, will use the lower of wall and road height.</span>
+  <span class="comment">#  - If true, will ensure correct schematic behaviour (no parts are cut off).</span>
+  <span class="comment">#  - Set to false if you experience the road being set one block too low</span>
+  <span class="comment">#    (only for road schematics created pre 6.1.4).</span>
+  <span class="key">use-wall-in-road-schem-height</span>: <span class="string"><span class="content">true</span></span>
+
+<span class="comment"># Update checker settings</span>
+<span class="key">updatechecker</span>:
+  <span class="comment"># How often to poll for updates (in minutes)</span>
+  <span class="key">poll-rate</span>: <span class="string"><span class="content">360</span></span>
+  <span class="comment"># Only notify console once after an update is found</span>
+  <span class="key">notify-once</span>: <span class="string"><span class="content">true</span></span>
+
+<span class="comment"># General settings</span>
+<span class="key">general</span>:
+  <span class="comment"># Display scientific numbers (4.2E8)</span>
+  <span class="key">scientific</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Replace wall when merging</span>
+  <span class="key">merge-replace-wall</span>: <span class="string"><span class="content">true</span></span>
+  <span class="comment"># Always show explosion Particles, even if explosion flag is set to false</span>
+  <span class="key">always-show-explosions</span>: <span class="string"><span class="content">false</span></span>
+  <span class="comment"># Blocks that may not be used in plot components</span>
+  <span class="comment"># Checkout the wiki article regarding plot components before modifying: https://intellectualsites.github.io/plotsquared-documentation/customization/plot-components</span>
+  <span class="key">invalid-blocks</span>:
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">acacia_button</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">acacia_fence_gate</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">acacia_door</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">acacia_pressure_plate</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">acacia_trapdoor</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">acacia_sapling</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">acacia_sign</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">acacia_wall_sign</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">acacia_leaves</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">birch_button</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">birch_fence_gate</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">birch_door</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">birch_pressure_plate</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">birch_trapdoor</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">birch_sapling</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">birch_sign</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">birch_wall_sign</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">birch_leaves</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dark_oak_button</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dark_oak_fence_gate</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dark_oak_door</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dark_oak_pressure_plate</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dark_oak_trapdoor</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dark_oak_sapling</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dark_oak_sign</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dark_oak_wall_sign</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dark_oak_leaves</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">jungle_button</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">jungle_fence_gate</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">jungle_door</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">jungle_pressure_plate</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">jungle_trapdoor</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">jungle_sapling</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">jungle_sign</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">jungle_wall_sign</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">jungle_leaves</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">oak_button</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">oak_fence_gate</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">oak_door</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">oak_pressure_plate</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">oak_trapdoor</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">oak_sapling</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">oak_sign</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">oak_wall_sign</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">oak_leaves</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">spruce_button</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">spruce_fence_gate</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">spruce_door</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">spruce_pressure_plate</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">spruce_trapdoor</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">spruce_sapling</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">spruce_sign</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">spruce_wall_sign</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">spruce_leaves</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">activator_rail</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">detector_rail</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">rail</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">allium</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">azure_bluet</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">blue_orchid</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dandelion</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">lilac</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">orange_tulip</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">oxeye_daisy</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">peony</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">pink_tulip</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">poppy</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">potted_allium</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">potted_azure_bluet</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">potted_birch_sapling</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">potted_blue_orchid</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">potted_brown_mushroom</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">potted_cactus</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">potted_fern</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">potted_jungle_sapling</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">potted_oak_sapling</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">potted_orange_tulip</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">potted_oxeye_daisy</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">potted_pink_tulip</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">potted_red_mushroom</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">potted_red_tulip</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">red_mushroom</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">red_tulip</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">potted_spruce_sapling</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">potted_white_tulip</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">rose_bush</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">sunflower</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">white_tulip</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">cornflower</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">wither_rose</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">attached_melon_stem</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">attached_pumpkin_stem</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">melon_stem</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">pumpkin_stem</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">mushroom_stem</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">beetroots</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">brown_mushroom</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">cactus</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">carrots</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">chorus_flower</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">chorus_plant</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">cocoa</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dead_bush</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">fern</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">kelp_plant</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">large_fern</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">lily_pad</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">potatoes</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">sea_pickle</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">seagrass</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">sugar_cane</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">tall_grass</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">tall_seagrass</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">vine</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">wheat</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">bamboo</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">anvil</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">barrier</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">beacon</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">brewing_stand</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">bubble_column</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">cake</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">cobweb</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">comparator</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">creeper_head</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">creeper_wall_header</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">damaged_anvil</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">daylight_detector</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dragon_egg</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dragon_head</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dragon_wall_head</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">enchanting_table</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">end_gateway</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">end_portal</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">end_rod</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">ender_chest</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">chest</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">flower_pot</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">grass</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">heavy_weighted_pressure_plate</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">lever</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">light_weighted_pressure_plate</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">player_head</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">redstone_wire</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">repeater</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">comparator</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">redstone_torch</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">torch</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">redstone_wall_torch</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">wall_torch</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">sign</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">skeleton_skull</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">skeleton_wall_skull</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">snow</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">stone_pressure_plate</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">trapped_chest</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">tripwire</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">tripwire_hook</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">turtle_egg</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">wall_sign</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">zombie_head</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">zombie_wall_head</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">bell</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">black_bed</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">black_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">black_carpet</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">black_concrete_powder</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">black_wall_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">blue_bed</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">blue_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">blue_carpet</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">blue_concrete_powder</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">blue_wall_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">brown_bed</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">brown_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">brown_carpet</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">brown_concrete_powder</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">brown_wall_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">cyan_bed</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">cyan_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">cyan_concrete_powder</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">cyan_carpet</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">cyan_wall_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">gray_bed</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">gray_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">gray_concrete_powder</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">gray_carpet</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">gray_wall_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">green_bed</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">green_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">green_concrete_powder</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">green_carpet</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">green_wall_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">light_blue_bed</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">light_blue_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">light_blue_concrete_powder</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">light_blue_carpet</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">light_blue_wall_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">light_gray_bed</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">light_gray_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">light_gray_concrete_powder</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">light_gray_carpet</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">light_gray_wall_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">lime_bed</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">lime_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">lime_concrete_powder</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">lime_carpet</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">lime_wall_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">magenta_bed</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">magenta_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">magenta_concrete_powder</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">magenta_carpet</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">magenta_wall_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">orange_bed</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">orange_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">orange_concrete_powder</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">orange_carpet</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">orange_wall_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">pink_bed</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">pink_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">pink_concrete_powder</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">pink_carpet</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">pink_wall_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">purple_bed</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">purple_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">purple_concrete_powder</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">purple_carpet</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">purple_wall_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">red_bed</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">red_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">red_concrete_powder</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">red_carpet</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">red_wall_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">white_bed</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">white_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">white_concrete_powder</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">white_carpet</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">white_wall_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">yellow_bed</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">yellow_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">yellow_concrete_powder</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">yellow_carpet</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">yellow_wall_banner</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">brain_coral</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">brain_coral_fan</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">brain_coral_wall_fan</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">bubble_coral</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">bubble_coral_block</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">bubble_coral_fan</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">bubble_coral_wall_fan</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dead_brain_coral</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dead_brain_coral_block</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dead_brain_coral_fan</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dead_brain_coral_wall_fan</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dead_bubble_coral</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dead_bubble_coral_fan</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dead_bubble_coral_wall_fan</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dead_fire_coral</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dead_fire_coral_block</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dead_fire_coral_fan</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dead_fire_coral_wall_fan</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dead_horn_coral</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dead_horn_coral_block</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dead_horn_coral_fan</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dead_tube_coral</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dead_tube_coral_wall_fan</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">dried_kelp_block</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">horn_coral</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">horn_coral_block</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">horn_coral_fan</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">horn_coral_wall_fan</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">tube_coral</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">tube_coral_block</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">tube_coral_fan</span><span class="delimiter">&quot;</span></span>
+  - <span class="string"><span class="delimiter">&quot;</span><span class="content">tube_coral_wall_fan</span><span class="delimiter">&quot;</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Placeholders</title>
+<style>
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";
+@import "https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@2.0/data/stylesheets/asciidoctor-default.css";
+
+body {
+    font-family: inherit;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+h2, h3, #toctitle, a:hover, a:focus {
+    color: #2397f7;
+}
+
+h2 {
+    font-size: 2.1em;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+p {
+    line-height: 1.2;
+}
+
+a {
+    color: #717171;
+}
+
+code {
+    color: #002340;
+    font-size: 0.8em !important;
+}
+
+#toc a {
+    color: #555;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #424242;
+}
+
+/* dark-mode for sidebar*/
+
+/*
+#toc.toc2 {
+    background: #131313;
+}
+
+#toc a {
+    color: #a8a8a8;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #fff;
+}
+*/
+
+.sect1 + .sect1 {
+    border-top: 1px dotted #999;
+}
+
+#_return_to_the_index a {
+    text-decoration: unset;
+}
+
+.literalblock pre, .listingblock > .content > pre {
+  font-size: 0.9em;
+}
+
+.ulist > .title {
+    color: #000;
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: 800;
+}
+
+/* Icons: */
+.admonitionblock td.icon [class*=' icon-']::before {
+    text-shadow: 0 0 0;
+    color: #b0b0b0;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+/*! Stylesheet for CodeRay to loosely match GitHub themes | MIT License */
+pre.CodeRay{background:#f7f7f8}
+.CodeRay .line-numbers{border-right:1px solid;opacity:.35;padding:0 .5em 0 0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
+.CodeRay .line-numbers strong{color:#000}
+table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.CodeRay td{vertical-align:top;line-height:inherit}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.code{padding:0 0 0 .75em}
+.CodeRay .debug{color:#fff!important;background:navy!important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:navy}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:teal}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:teal}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:teal}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword{color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:teal}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}
+</style>
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Placeholders</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_setup">2. Setup</a></li>
+<li><a href="#_placeholder_deactivation_in_plotsquared">3. Placeholder Deactivation in PlotSquared</a></li>
+<li><a href="#_tips_for_specific_plugins">4. Tips for specific plugins</a>
+<ul class="sectlevel2">
+<li><a href="#_chat_system">4.1. Chat-System</a></li>
+</ul>
+</li>
+<li><a href="#_plotsquared_placeholders">5. PlotSquared placeholders</a></li>
+<li><a href="#_external_placeholders">6. External placeholders</a>
+<ul class="sectlevel2">
+<li><a href="#_placeholderapi_placeholders">6.1. PlaceholderAPI placeholders</a></li>
+<li><a href="#_mvdwplaceholderapi_placeholders">6.2. MVdWPlaceholderAPI placeholders</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<h5 id="_return_to_the_index" class="discrete"><a href="README.html">« Return to the index</a></h5>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The placeholder integration allows you to display data from other plugins in specific locations in PlotSquared.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For example, with <a href="https://www.spigotmc.org/resources/featherboard.2691">FeatherBoard</a> you can create a scoreboard (sideboard) with the info about the plot you&#8217;re standing on. And with using <a href="https://www.spigotmc.org/resources/placeholderapi.6245/">PlaceholderAPI</a>, you can do <code>/plot flag set greeting Welcome %player_name%</code> which translates to "Welcome Steve" when the player Steve enters a plot.<br>
+The <code>Player</code> expansion from PlaceholderAPI is required to be installed.</p>
+</div>
+<div class="paragraph">
+<p>Currently, (FeatherBoard and) PlaceholderAPI placeholders, can be used in the <code>greeting</code> and <code>farewell</code> flag of a plot.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setup">2. Setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>PlotSquared has explicit and official support for <a href="https://www.spigotmc.org/resources/placeholderapi.6245/"><strong>PlaceholderAPI</strong></a> and <a href="https://www.spigotmc.org/resources/mvdwplaceholderapi.11182/"><strong>MVdWPlaceholderAPI</strong></a>.</p>
+</div>
+<div class="paragraph">
+<p>Follow the instruction of these placeholder systems to install it correctly.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For the PlaceholderAPI placeholders of PlotSquared you don&#8217;t need to download a PAPI expansion. As opposed to some other plugins, PlotSquared handles everything internally.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_placeholder_deactivation_in_plotsquared">3. Placeholder Deactivation in PlotSquared</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Placeholders can be turned off in <code>settings.yml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="YAML">  <span class="key">external-placeholders</span>: <span class="string"><span class="content">false</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tips_for_specific_plugins">4. Tips for specific plugins</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_chat_system">4.1. Chat-System</h3>
+<div class="paragraph">
+<p>If you&#8217;re using <strong>EssentialsChat</strong> and <strong>PlaceholderAPI</strong>, you must install <a href="https://www.spigotmc.org/resources/chatinjector.38327/"><strong>ChatInjector</strong></a> in order for the placeholders to show up in the chat. However, please note it has been reported that ChatInjector might cause issues.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_plotsquared_placeholders">5. PlotSquared placeholders</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you think a placeholder for PlotSquared should be added, then please <a href="https://github.com/IntellectualSites/PlotSquared/issues/new/choose">raise an issue here</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><em>Available placeholders in 6.0.0 onwards:</em></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Placeholder</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_currentplot_alias%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alias of the plot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_currentplot_owner%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Owner of the plot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_currentplot_members%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amount of players added and trusted to the plot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_currentplot_members_added%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amount of players added to the plot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_currentplot_members_added_list%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display a list of added members</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_currentplot_members_trusted%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amount of players trusted to the plot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_currentplot_members_trusted_list%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display a list of trusted members</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_currentplot_members_denied%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amount of members denied from the plot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_currentplot_members_denied_list%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display a list of denied members</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_currentplot_world_name%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Get the world name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_currentplot_can_build%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays true or false whether the player has build rights on the plot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_world_name%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Get the name of the world</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_has_plot%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays true or false whether the player has plot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_has_plot_(world)%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays true or false whether the player has plot in a specific world</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_plot_count%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amount of global plots of a player</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_plot_count_(World)%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amount of plots for a player in a specific world</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_allowed_plot_count%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amount of maximum plots a player can have. Returns "infinite" if you have * permission</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_currentplot_xy%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays the X and Y ID of a plot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_currentplot_x%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays the X ID of a plot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_currentplot_y%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays the Y ID of a plot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_currentplot_rating%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays the average rating of a plot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_currentplot_biome%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays the biome of a plot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_currentplot_localflag_&lt;flag&gt;%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display the value of the flag set on current plot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_currentplot_flag_&lt;flag&gt;%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display the value of the flag set on current plot or if it&#8217;s not set: display the inherited flag value (worlds.yml)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%plotsquared_currentplot_creationdate%</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display the creation date of the plot</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_external_placeholders">6. External placeholders</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_placeholderapi_placeholders">6.1. PlaceholderAPI placeholders</h3>
+<div class="paragraph">
+<p><a href="https://github.com/PlaceholderAPI/PlaceholderAPI/wiki/Placeholders" class="bare">https://github.com/PlaceholderAPI/PlaceholderAPI/wiki/Placeholders</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mvdwplaceholderapi_placeholders">6.2. MVdWPlaceholderAPI placeholders</h3>
+<div class="paragraph">
+<p><a href="https://www.spigotmc.org/wiki/mvdw-placeholders" class="bare">https://www.spigotmc.org/wiki/mvdw-placeholders</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

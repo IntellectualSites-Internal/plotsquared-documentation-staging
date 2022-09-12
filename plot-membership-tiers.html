@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Plot membership tiers</title>
+<style>
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";
+@import "https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@2.0/data/stylesheets/asciidoctor-default.css";
+
+body {
+    font-family: inherit;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+h2, h3, #toctitle, a:hover, a:focus {
+    color: #2397f7;
+}
+
+h2 {
+    font-size: 2.1em;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+p {
+    line-height: 1.2;
+}
+
+a {
+    color: #717171;
+}
+
+code {
+    color: #002340;
+    font-size: 0.8em !important;
+}
+
+#toc a {
+    color: #555;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #424242;
+}
+
+/* dark-mode for sidebar*/
+
+/*
+#toc.toc2 {
+    background: #131313;
+}
+
+#toc a {
+    color: #a8a8a8;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #fff;
+}
+*/
+
+.sect1 + .sect1 {
+    border-top: 1px dotted #999;
+}
+
+#_return_to_the_index a {
+    text-decoration: unset;
+}
+
+.literalblock pre, .listingblock > .content > pre {
+  font-size: 0.9em;
+}
+
+.ulist > .title {
+    color: #000;
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: 800;
+}
+
+/* Icons: */
+.admonitionblock td.icon [class*=' icon-']::before {
+    text-shadow: 0 0 0;
+    color: #b0b0b0;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Plot membership tiers</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_tiers">2. Tiers</a>
+<ul class="sectlevel2">
+<li><a href="#_denied">2.1. Denied</a></li>
+<li><a href="#_guest">2.2. Guest</a></li>
+<li><a href="#_member">2.3. Member</a></li>
+<li><a href="#_trusted">2.4. Trusted</a></li>
+<li><a href="#_owner">2.5. Owner</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<h5 id="_return_to_the_index" class="discrete"><a href="README.html">« Return to the index</a></h5>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>PlotSquared works with the following tiers of memberships to define the different behaviors / permissions / restrictions for minecraft events, plot flags, commands etc.</p>
+</div>
+<div class="paragraph">
+<p>The member ties are one of the main part of PlotSquared by self. It&#8217;s not usable for LuckPerms, but other plugins can check the membership tier for a player for a specific plot with the <a href="/api-documentation.html">PlotSquared API</a>. No configurations
+needed here to have memberships.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tiers">2. Tiers</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_denied">2.1. Denied</h3>
+<div class="paragraph">
+<p>denied / banned players via <code>/p deny &#8230;&#8203;</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cannot edit the plot</p>
+</li>
+<li>
+<p>Cannot enter the plot</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_guest">2.2. Guest</h3>
+<div class="paragraph">
+<p>normal / non-added users</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cannot edit the plot</p>
+</li>
+<li>
+<p>Can enter the plot</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_member">2.3. Member</h3>
+<div class="paragraph">
+<p>added users via <code>/p add &#8230;&#8203;</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Can enter the plot</p>
+</li>
+<li>
+<p>Can place / break blocks while the plot owner is online</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_trusted">2.4. Trusted</h3>
+<div class="paragraph">
+<p>trusted users via <code>/p trust &#8230;&#8203;</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Can enter the plot</p>
+</li>
+<li>
+<p>Can place / break blocks even if the plot owner is offline</p>
+</li>
+<li>
+<p>Can use WorldEdit on the plot</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_owner">2.5. Owner</h3>
+<div class="paragraph">
+<p>plot owner via <code>/p auto</code>, <code>/p claim</code>, <code>/p setowner &#8230;&#8203;</code> or other</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Has full control over the plot</p>
+</li>
+<li>
+<p>Adding or removing users</p>
+</li>
+<li>
+<p>Can place / break blocks</p>
+</li>
+<li>
+<p>Use WorldEdit</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

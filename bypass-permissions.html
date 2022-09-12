@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Bypass Permissions</title>
+<style>
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";
+@import "https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@2.0/data/stylesheets/asciidoctor-default.css";
+
+body {
+    font-family: inherit;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+h2, h3, #toctitle, a:hover, a:focus {
+    color: #2397f7;
+}
+
+h2 {
+    font-size: 2.1em;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+p {
+    line-height: 1.2;
+}
+
+a {
+    color: #717171;
+}
+
+code {
+    color: #002340;
+    font-size: 0.8em !important;
+}
+
+#toc a {
+    color: #555;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #424242;
+}
+
+/* dark-mode for sidebar*/
+
+/*
+#toc.toc2 {
+    background: #131313;
+}
+
+#toc a {
+    color: #a8a8a8;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #fff;
+}
+*/
+
+.sect1 + .sect1 {
+    border-top: 1px dotted #999;
+}
+
+#_return_to_the_index a {
+    text-decoration: unset;
+}
+
+.literalblock pre, .listingblock > .content > pre {
+  font-size: 0.9em;
+}
+
+.ulist > .title {
+    color: #000;
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: 800;
+}
+
+/* Icons: */
+.admonitionblock td.icon [class*=' icon-']::before {
+    text-shadow: 0 0 0;
+    color: #b0b0b0;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Bypass Permissions</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_bypass_permissions">2. Bypass Permissions</a>
+<ul class="sectlevel2">
+<li><a href="#_event_bypass">2.1. Event bypass</a></li>
+<li><a href="#_command_bypass">2.2. Command bypass</a></li>
+<li><a href="#_flag_bypass">2.3. Flag bypass</a></li>
+<li><a href="#_misc_bypass">2.4. Misc bypass</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<h5 id="_return_to_the_index" class="discrete"><a href="README.html">« Return to the index</a></h5>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Do NOT give these to non-admins.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Use <code>plots.admin</code> to give a player all event and command bypass permissions listed below.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bypass_permissions">2. Bypass Permissions</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_event_bypass">2.1. Event bypass</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Bypass destroy and build needs "plots.admin.interact.other" to function.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>plots.admin.build.road</p>
+</li>
+<li>
+<p>plots.admin.build.unowned</p>
+</li>
+<li>
+<p>plots.admin.build.other</p>
+</li>
+<li>
+<p>plots.admin.destroy.road</p>
+</li>
+<li>
+<p>plots.admin.destroy.unowned</p>
+</li>
+<li>
+<p>plots.admin.destroy.other</p>
+</li>
+<li>
+<p>plots.admin.destroy.groundlevel</p>
+</li>
+<li>
+<p>plots.admin.interact.road</p>
+</li>
+<li>
+<p>plots.admin.interact.unowned</p>
+</li>
+<li>
+<p>plots.admin.interact.other</p>
+</li>
+<li>
+<p>plots.admin.vehicle.break.road</p>
+</li>
+<li>
+<p>plots.admin.vehicle.break.unowned</p>
+</li>
+<li>
+<p>plots.admin.vehicle.break.other</p>
+</li>
+<li>
+<p>plots.admin.projectile.road</p>
+</li>
+<li>
+<p>plots.admin.projectile.unowned</p>
+</li>
+<li>
+<p>plots.admin.projectile.other</p>
+</li>
+<li>
+<p>plots.admin.pve.road</p>
+</li>
+<li>
+<p>plots.admin.pve.unowned</p>
+</li>
+<li>
+<p>plots.admin.pve.other</p>
+</li>
+<li>
+<p>plots.admin.entry.denied</p>
+</li>
+<li>
+<p>plots.admin.chat.bypass</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_command_bypass">2.2. Command bypass</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>plots.admin.command.schematic</p>
+</li>
+<li>
+<p>plots.admin.command.schematic.paste</p>
+</li>
+<li>
+<p>plots.admin.command.schematic.save</p>
+</li>
+<li>
+<p>plots.admin.command.clear</p>
+</li>
+<li>
+<p>plots.admin.command.continue</p>
+</li>
+<li>
+<p>plots.admin.command.add</p>
+</li>
+<li>
+<p>plots.admin.command.deny</p>
+</li>
+<li>
+<p>plots.admin.command.done</p>
+</li>
+<li>
+<p>plots.admin.command.kick</p>
+</li>
+<li>
+<p>plots.admin.command.merge</p>
+</li>
+<li>
+<p>plots.admin.command.reload</p>
+</li>
+<li>
+<p>plots.admin.command.load</p>
+</li>
+<li>
+<p>plots.admin.command.download</p>
+</li>
+<li>
+<p>plots.admin.command.chat</p>
+</li>
+<li>
+<p>plots.admin.command.save</p>
+</li>
+<li>
+<p>plots.admin.command.setowner</p>
+</li>
+<li>
+<p>plots.admin.command.setup</p>
+</li>
+<li>
+<p>plots.admin.command.swap</p>
+</li>
+<li>
+<p>plots.admin.command.trust</p>
+</li>
+<li>
+<p>plots.admin.command.untrust</p>
+</li>
+<li>
+<p>plots.admin.command.unlink</p>
+</li>
+<li>
+<p>plots.admin.command.update</p>
+</li>
+<li>
+<p>plots.admin.command.delete</p>
+</li>
+<li>
+<p>plots.admin.command.autoclear</p>
+</li>
+<li>
+<p>plots.admin.command.remove</p>
+</li>
+<li>
+<p>plots.admin.command.blocked-cmds.shared</p>
+</li>
+<li>
+<p>plots.admin.command.blocked-cmds.other</p>
+</li>
+<li>
+<p>plots.admin.alias.remove</p>
+</li>
+<li>
+<p>plots.admin.alias.set</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_flag_bypass">2.3. Flag bypass</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>plots.flag.notify-leave.bypass</p>
+</li>
+<li>
+<p>plots.flag.notify-enter.bypass</p>
+</li>
+<li>
+<p>plots.gamemode.bypass</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_misc_bypass">2.4. Misc bypass</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>plots.teleport.delay.bypass</p>
+</li>
+<li>
+<p>plots.admin.build.heightlimit</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Plot flags</title>
+<style>
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";
+@import "https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@2.0/data/stylesheets/asciidoctor-default.css";
+
+body {
+    font-family: inherit;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+h2, h3, #toctitle, a:hover, a:focus {
+    color: #2397f7;
+}
+
+h2 {
+    font-size: 2.1em;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+p {
+    line-height: 1.2;
+}
+
+a {
+    color: #717171;
+}
+
+code {
+    color: #002340;
+    font-size: 0.8em !important;
+}
+
+#toc a {
+    color: #555;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #424242;
+}
+
+/* dark-mode for sidebar*/
+
+/*
+#toc.toc2 {
+    background: #131313;
+}
+
+#toc a {
+    color: #a8a8a8;
+}
+
+#toc a:hover {
+    font-weight: 600;
+    color: #fff;
+}
+*/
+
+.sect1 + .sect1 {
+    border-top: 1px dotted #999;
+}
+
+#_return_to_the_index a {
+    text-decoration: unset;
+}
+
+.literalblock pre, .listingblock > .content > pre {
+  font-size: 0.9em;
+}
+
+.ulist > .title {
+    color: #000;
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: 800;
+}
+
+/* Icons: */
+.admonitionblock td.icon [class*=' icon-']::before {
+    text-shadow: 0 0 0;
+    color: #b0b0b0;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+/*! Stylesheet for CodeRay to loosely match GitHub themes | MIT License */
+pre.CodeRay{background:#f7f7f8}
+.CodeRay .line-numbers{border-right:1px solid;opacity:.35;padding:0 .5em 0 0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
+.CodeRay .line-numbers strong{color:#000}
+table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.CodeRay td{vertical-align:top;line-height:inherit}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.code{padding:0 0 0 .75em}
+.CodeRay .debug{color:#fff!important;background:navy!important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:navy}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:teal}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:teal}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:teal}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword{color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:teal}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}
+</style>
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Plot flags</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_flag_list">2. Flag List</a></li>
+<li><a href="#_default_plot_and_road_flags">3. Default Plot and Road Flags</a></li>
+<li><a href="#_flag_types">4. Flag types</a>
+<ul class="sectlevel2">
+<li><a href="#_blocktypelist">4.1. BlockTypeList</a></li>
+<li><a href="#_boolean">4.2. Boolean</a></li>
+<li><a href="#_double">4.3. Double</a></li>
+<li><a href="#_enum">4.4. Enum</a></li>
+<li><a href="#_integer">4.5. Integer</a></li>
+<li><a href="#_internal">4.6. Internal</a></li>
+<li><a href="#_miscellaneous">4.7. Miscellaneous</a></li>
+<li><a href="#_string">4.8. String</a></li>
+<li><a href="#_teleportdeny">4.9. TeleportDeny</a></li>
+<li><a href="#_timed">4.10. Timed</a></li>
+</ul>
+</li>
+<li><a href="#_flag_permissions">5. Flag Permissions</a>
+<ul class="sectlevel2">
+<li><a href="#_basic_permission_schema">5.1. Basic Permission Schema</a></li>
+<li><a href="#_flag_specific_permission">5.2. Flag specific permission</a></li>
+</ul>
+</li>
+<li><a href="#_terminology">6. Terminology</a></li>
+<li><a href="#_entity_categories">7. Entity Categories</a></li>
+<li><a href="#_flags">8. Flags</a>
+<ul class="sectlevel2">
+<li><a href="#_blocktypelist_2">8.1. BlockTypeList</a></li>
+<li><a href="#_boolean_2">8.2. Boolean</a></li>
+<li><a href="#_double_2">8.3. Double</a></li>
+<li><a href="#_enum_2">8.4. Enum</a></li>
+<li><a href="#_integer_2">8.5. Integer</a></li>
+<li><a href="#_internal_2">8.6. Internal</a></li>
+<li><a href="#_miscellaneous_2">8.7. Miscellaneous</a></li>
+<li><a href="#_string_2">8.8. String</a></li>
+<li><a href="#_timed_2">8.9. Timed</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<h5 id="_return_to_the_index" class="discrete"><a href="README.html">« Return to the index</a></h5>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The extensive flagging system allows you to do all sorts of things such as setting the plot weather.</p>
+</div>
+<div class="paragraph">
+<p>Setting a flag is easy, just use <code>/plot flag set &lt;flag&gt; &lt;value&gt;</code>. For a boolean flag, the value would either be 'true' or 'false'.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_flag_list">2. Flag List</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To bring up a list of flags use <code>/plot flag list</code>. These values are clickable, and clicking a flag name will show you information about that particular flag. You can also use <code>/plot flag info &lt;flag&gt;</code> directly, if you already know the flag name.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://i.imgur.com/uTPjJEE.png" alt="Flag system">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_default_plot_and_road_flags">3. Default Plot and Road Flags</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can set default flags per world in the <code>plugins/PlotSquared/config/worlds.yml</code>. Default flags will be present in each claimed plot unless a different value is manually set for that plot.</p>
+</div>
+<div class="paragraph">
+<p>The following is an <strong>example</strong> of setting the <code>use</code> flag to allow interaction with doors, and trapdoors, levers, gates, pressure plates, buttons and trip wires:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="YAML"><span class="key">worlds</span>:
+  <span class="error">&lt;world&gt;</span>:
+    [<span class="error">...]</span>
+    <span class="key">flags</span>:
+      <span class="key">use</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">oak_door,iron_trapdoor,lever,acacia_fence_gate,light_weighted_pressure_plate,oak_button,tripwire</span><span class="delimiter">&quot;</span></span>
+      <span class="key">pvp</span>: <span class="string"><span class="content">true</span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>`&lt;world&gt;` indicates the name of that plotworld.</em></p>
+</div>
+<div class="paragraph">
+<p>You can use <a href="vanilla-tags.html">Vanilla block tags</a> too.</p>
+</div>
+<div class="paragraph">
+<p>The same works for road flags.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="YAML"><span class="key">worlds</span>:
+  <span class="error">&lt;world&gt;</span>:
+    [<span class="error">...]</span>
+    <span class="key">road</span>:
+      [<span class="error">...]</span>
+      <span class="key">flags</span>:
+        <span class="key">use</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">oak_door,iron_trapdoor,lever,acacia_fence_gate,light_weighted_pressure_plate,oak_button,tripwire</span><span class="delimiter">&quot;</span></span>
+        <span class="key">pvp</span>: <span class="string"><span class="content">true</span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>`&lt;world&gt;` indicates the name of that plotworld.</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_flag_types">4. Flag types</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_blocktypelist">4.1. BlockTypeList</h3>
+<div class="paragraph">
+<p>A list of blocks, supporting both legacy numerical IDs and new string IDs e.g.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>grass_block</code> for grass blocks</p>
+</li>
+<li>
+<p><code>7</code> for bedrock</p>
+</li>
+<li>
+<p><code>7,3</code> for bedrock and dirt</p>
+</li>
+<li>
+<p><code>35:14,35:15</code> for red and black wool</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These flags also support <a href="vanilla-tags.html">vanilla-tags</a>, like:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>#signs</code> for all sign types</p>
+</li>
+<li>
+<p><code>#buttons</code> for all button types</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_boolean">4.2. Boolean</h3>
+<div class="paragraph">
+<p>Accepts <code>true</code> or <code>false</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_double">4.3. Double</h3>
+<div class="paragraph">
+<p>Accepts any decimal number (all real numbers).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_enum">4.4. Enum</h3>
+<div class="paragraph">
+<p>Accepts a predefined collection of values.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_integer">4.5. Integer</h3>
+<div class="paragraph">
+<p>Accepts all integers.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_internal">4.6. Internal</h3>
+<div class="paragraph">
+<p>Flags used internally.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_miscellaneous">4.7. Miscellaneous</h3>
+<div class="paragraph">
+<p>Accept commands with multiple parameters, e.g <code>/gamemode creative</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_string">4.8. String</h3>
+<div class="paragraph">
+<p>Accept flags with multiple string parameters, e.g. <code>/plot f set greeting Welcome to my plot!</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_teleportdeny">4.9. TeleportDeny</h3>
+<div class="paragraph">
+<p>Accepts the follow plot membership <code>trusted</code>, <code>members</code>, <code>nonmembers</code>, <code>nontrusted</code> and <code>nonowners</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_timed">4.10. Timed</h3>
+<div class="paragraph">
+<p>A binary tuple of numbers e.g. <code>53 6</code> or <code>7 93</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_flag_permissions">5. Flag Permissions</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_basic_permission_schema">5.1. Basic Permission Schema</h3>
+<div class="paragraph">
+<p>To give a player access to a flag, you need to assign the following permissions, and exchange the value if wanted:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>plots.set.flag</code></p>
+</li>
+<li>
+<p><code>plots.flag</code></p>
+</li>
+<li>
+<p><code>plots.flag.add</code></p>
+</li>
+<li>
+<p><code>plots.flag.remove</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Also, you can assign <a href="/permission-packs.html#_plots_permpack_basicflags"><code>plots.permpack.basicflags</code></a> to cover the following permissions and lots of the basic flags.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_flag_specific_permission">5.2. Flag specific permission</h3>
+<div class="paragraph">
+<p><code>plots.set.flag.&lt;name&gt;.<strong></code> (e.g. <code>plots.set.flag.fly.</strong></code>)
+The asterisk covers the values of the flag, if it&#8217;s a boolean flag you cover <code>true</code> and <code>false</code>, if it&#8217;s a Long flag you cover all positive numbers and so on. Make sure to decide whether you need it or not.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_terminology">6. Terminology</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following tables contain phrases covering certain stances of plot member inheritance and flag states. We will explain the phrases used below.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Player: The player, as in user of the server.</p>
+</li>
+<li>
+<p>Guest: Person who is not added to the plot (<a href="plot-membership-tiers.html">tiers</a>).</p>
+</li>
+<li>
+<p>False: The flag intended behavior is not enabled by default.</p>
+</li>
+<li>
+<p>True: The flag intended behavior is enabled by default.</p>
+</li>
+<li>
+<p>None: The flag intended behavior is not set by default.</p>
+</li>
+<li>
+<p>Infinity: The flag is not bound to an amount and allows infinite types of the flag.</p>
+</li>
+<li>
+<p>Null: The flag intended behavior cannot be set outside of the API.</p>
+</li>
+<li>
+<p>Empty: The flag variable is empty and won&#8217;t appear to the user.</p>
+</li>
+<li>
+<p>Not Buyable: The flag variable is not set, therefore the plot is not buyable.</p>
+</li>
+<li>
+<p>Disabled: The flag variable is not set, therefore the intended behavior is not defined.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_entity_categories">7. Entity Categories</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Flags such as mob caps, interaction flags, etc, make use of entity categories. PlotSquared divides entities in the following categories:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>animal:</strong> cod donkey squid skeleton_horse mule trader_llama parrot zombie_horse cow horse bee polar_bear pufferfish cat bat salmon fox pig llama iron_golem turtle tropical_fish sheep snow_golem mooshroom ocelot dolphin chicken wolf panda rabbit</p>
+</li>
+<li>
+<p><strong>hostile:</strong> blaze pillager skeleton giant elder_guardian zombie_pigman end_crystal ravager ghast guardian vindicator magma_cube spider creeper wither evoker slime illusioner phantom witch wither_skeleton husk ender_dragon cave_spider stray enderman silverfish endermite vex zombie drowned zombie_villager, shulker</p>
+</li>
+<li>
+<p><strong>player:</strong> player</p>
+</li>
+<li>
+<p><strong>projectile:</strong> ender_pearl dragon_fireball fireball wither_skull llama_spit fishing_bobber experience_bottle egg arrow small_fireball</p>
+</li>
+<li>
+<p><strong>vehicle:</strong> spawner_minecart donkey pig llama furnace_minecart skeleton_horse mule hopper_minecart trader_llama zombie_horse tnt_minecart boat chest_minecart horse command_block_minecart minecart</p>
+</li>
+<li>
+<p><strong>villager:</strong> villager wandering_trader
+snowball spectral_arrow shulker_bullet potion trident</p>
+</li>
+<li>
+<p><strong>hanging:</strong> item_frame leash_knot painting</p>
+</li>
+<li>
+<p><strong>other:</strong> dragon_fireball tnt experience_orb lightning_bolt fireball wither_skull area_effect_cloud evoker_fangs eye_of_ender armor_stand small_fireball firework_rocket falling_block item</p>
+</li>
+<li>
+<p><strong>tamable:</strong> cat trader_llama parrot zombie_horse donkey wolf llama horse skeleton_horse mule</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_flags">8. Flags</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_blocktypelist_2">8.1. BlockTypeList</h3>
+<table class="tableblock frame-all grid-all" style="width: 99%;">
+<colgroup>
+<col style="width: 38%;">
+<col style="width: 50%;">
+<col style="width: 12%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">break</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Define a list of materials players should be able to break in
+the plot even when they aren’t added to the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">place</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Define a list of materials players should be able to place in
+the plot even when they aren’t added to the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">use</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Define a list of materials players should be able to interact with
+in the plot even when they aren’t added to the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_boolean_2">8.2. Boolean</h3>
+<table class="tableblock frame-all grid-all" style="width: 99%;">
+<colgroup>
+<col style="width: 38%;">
+<col style="width: 50%;">
+<col style="width: 12%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">animal-attack</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow animals to be attacked in the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">animal-interact</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow animals to be interacted with in the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">block-burn</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow blocks to burn within the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">block-ignition</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>false</code> to disallow blocks to ignite within the
+plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">chat</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>false</code> to prevent plot chat on the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">coral-dry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow corals to dry within the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">crop-grow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>false</code> to disable crop growing on the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">copper-oxide</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow copper to oxide within the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deny-exit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to disallow players from exiting the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deny-portal-travel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prevents players from travelling across dimensions by using portals.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deny-portals</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prevents players from creating portals of any kind.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">device-interact</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow devices to be interacted with
+in the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">disable-physics</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to disable block physics in the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">drop-protection</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to prevent dropped items from being picked up by non-members of the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">entity-change-block</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow entities to change blocks within the plot, if not covered by other flags.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">explosion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow explosions inside a plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to enable flight within the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">forcefield</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to enable member forcefield in the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">grass-grow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>false</code> to disable grass to grow within the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hanging-break</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow guests to break hanging objects
+in the plot. Applies to the following entity categories: hanging</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hanging-place</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow guests to hang objects in the
+plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hide-info</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to hide plot information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hostile-attack</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to enable players to attack hostile mobs in the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hostile-interact</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow players to interact with hostile mobs in the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ice-form</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow ice to form in the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ice-melt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow ice to melt in the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">instabreak</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow blocks to be instantaneously broken
+in survival mode.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">invincible</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to prevent players from taking damage inside the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">item-drop</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>false</code> to prevent items from being dropped inside the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep-inventory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prevents players from dropping their items when they die inside the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kelp-grow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>false</code> to disable kelp to grow in the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">leaf-decay</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>false</code> to prevent leaves from decaying.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lectern-read-book</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prevent players taking books from lecterns.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">misc-break</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow guests to break miscellaneous items.
+Applies to the following entity categories: armorstands</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">misc-place</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow guests to place miscellaneous items.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">misc-interact</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow guests to interact with
+miscellaneous items. Applies to the following entities</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mob-break</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow mobs to break blocks within the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mob-place</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow mobs to place blocks within the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mycel-grow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>false</code> to disable mycelium to grow in the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no-worldedit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to disable (FastAsync)WorldEdit usage within the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">notify-enter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to notify the plot owners when someone
+enters the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">notify-leave</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to notify the plot owners when someone
+leaves the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">player-interact</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow guests to interact with players in the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pve</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to enable PVE inside the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pvp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to enable PVP inside the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prevent-creative-copy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prevents people from copying item NBT data in the plot unless they&#8217;re added as members.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">projectiles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prevents guests from shooting projectiles on the plot when set to false.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">redstone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>false</code> to disable redstone in the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">server-plot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to turn the plot into a server plot. This is
+equivalent to setting the server as the plot owner.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">snow-form</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>false</code> to disallow snow to form within the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">snow-melt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow snow to melt within the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">soil-dry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow soil to dry within the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tamed-attack</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow guests to attack tamed animals in the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tamed-interact</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow guests to interact with tamed animals in the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">untrusted-visit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>false</code> to disallow untrusted players from visiting the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vehicle-break</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow guests to break vehicles in the
+plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vehicle-place</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow guests to place vehicles in the
+plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vehicle-use</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow guests to use vehicles in the plot.
+Applies to the following entity categories: vehicle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">villager-interact</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow guests to interact with villagers in the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vine-grow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>false</code> to disable vines to grow within the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_double_2">8.3. Double</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default Value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">price</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If set a plot can be bought for this price using <code>/plot buy</code>.
+Requires economy to be enabled and lists plots under
+<code>/plots list forsale</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not Buyable</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_enum_2">8.4. Enum</h3>
+<table class="tableblock frame-all grid-all" style="width: 99%;">
+<colgroup>
+<col style="width: 38%;">
+<col style="width: 50%;">
+<col style="width: 12%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deny-teleport</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deny a certain group from teleporting to the plot.
+Available groups: members, nonmembers, trusted, nontrusted, nonowners</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">liquid-flow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>false</code> to disable liquid flowing.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">titles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to <code>true</code> to allow the plot title when someone enters the
+plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">weather</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the simulated weather inside the plot. This
+hasn’t an effet of weather dependent game mechanics.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_integer_2">8.5. Integer</h3>
+<table class="tableblock frame-all grid-all" style="width: 99%;">
+<colgroup>
+<col style="width: 38%;">
+<col style="width: 50%;">
+<col style="width: 12%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">animal-cap</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to an integer value to limit the amount of animals on
+the plot. Applies to the following entity categories: animal, villager,
+tamable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Infinity</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">entity-cap</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to an integer value to limit the amount of entities on
+the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Infinity</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hostile-cap</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to an integer value to limit the amount of hostile
+entities on the plot. Applies to the following entity categories:
+hostile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Infinity</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">misc-cap</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to an integer value to limit the amount of miscellaneous
+entities on the plot. Applies to the following entity categories:
+projectile, other, hanging</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Infinity</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mob-cap</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to an integer value to limit the amount of mobs on the
+plot. Applies to the following entity categories: animal, villager,
+tamable, hostile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Infinity</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vehicle-cap</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to an integer value to limit the amount of vehicles on
+the plot. Applies to the following entity categories: vehicle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Infinity</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the simulated time inside the plot. This has no
+effect of time dependent game mechanics.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disabled</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_internal_2">8.6. Internal</h3>
+<table class="tableblock frame-all grid-all" style="width: 99%;">
+<colgroup>
+<col style="width: 38%;">
+<col style="width: 50%;">
+<col style="width: 12%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">analysis</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A multi purpose debug analysis flag.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Null</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">done</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mark a plot as done.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Null</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_miscellaneous_2">8.7. Miscellaneous</h3>
+<table class="tableblock frame-all grid-all" style="width: 99%;">
+<colgroup>
+<col style="width: 38%;">
+<col style="width: 50%;">
+<col style="width: 12%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">blocked-cmds</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A list of commands that are blocked in the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">gamemode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Determines the gamemode in the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">guest-gamemode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Determines the guest gamemode in the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">music</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set to a music disk ID (item name) to play the music disc.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_string_2">8.8. String</h3>
+<table class="tableblock frame-all grid-all" style="width: 99%;">
+<colgroup>
+<col style="width: 38%;">
+<col style="width: 50%;">
+<col style="width: 12%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Plot description.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">farewell</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message sent to players when leaving the plot.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">greeting</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message sent to players on plot entry.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plot-title</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set the pop-up title&#8217;s title and subtitle. Format: <code>/plot flag set title "A title" "The subtitle"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_timed_2">8.9. Timed</h3>
+<table class="tableblock frame-all grid-all" style="width: 99%;">
+<colgroup>
+<col style="width: 38%;">
+<col style="width: 50%;">
+<col style="width: 12%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">feed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specify an interval in seconds and an optional amount by which
+the players will be fed (amount is 0 by default = vanilla-regeneration).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">heal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specify an interval in seconds and an optional amount by which
+the players will be healed (amount is 0 by default =
+vanilla-regeneration).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
